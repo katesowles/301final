@@ -3,8 +3,50 @@
   <head>
     <meta charset="utf-8">
     <title>Should I Bike?</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+    <link href="css/base.css" rel="stylesheet"></link>
+    <link href="css/layout.css" rel="stylesheet"></link>
+    <link href="css/module.css" rel="stylesheet"></link>
+    <link href="css/state.css" rel="stylesheet"></link>
   </head>
   <body>
+    <main>
+      <header>
+        <nav>
+          <a href="welcome">Welcome</a>
+          <a href="dashboard">Dashboard</a>
+          <a href="configure">Configure</a>
+        </nav>
+      </header>
 
+      <section id="welcome" class="row">
+        <div class="overlay">
+          <img src="img/logo/bikeit_3.png" alt="Should I Bike It Logo" id="logo" />
+          <hgroup>
+            <h1>Should I Bike It?</h1>
+            <h4>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.</h4>
+          </hgroup>
+        </div>
+      </section>
+
+      <section id="dashboard" class="row">
+        <div class="overlay">
+          <div class="location current"></div>
+          <div class="location favorite"></div>
+          <div class="location favorite"></div>
+          <div class="location favorite"></div>
+          <div class="location favorite"></div>
+          <div class="location favorite"></div>
+          <div class="location favorite"></div>
+        </div>
+      </section>
+
+      <section id="configure" class="row">
+        <div class="overlay">
+          <div class="formGoesHere"></div>
+        </div>
+      </section>
+      <script src="js/app.js"></script>
+    </main>
   </body>
 </html>

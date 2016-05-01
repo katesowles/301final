@@ -1,0 +1,56 @@
+/* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. */
+
+#logo {
+  width: 150px;
+  position: relative;
+  top: 75px;
+  left: calc(50% - 75px);
+}
+
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+#welcome {
+  background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpeg');
+}
+
+#dashboard {
+  background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpeg');
+  background-position: right;
+}
+
+#configure {
+  background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpeg');
+}
+
+div.location {
+  border-radius: 50%;
+  background-color: #ddd;
+  display: inline-block;
+  opacity: .2;
+}
+
+div.current {
+  width: 300px;
+  height: 300px;
+}
+
+div.favorite {
+  width: 77px;
+  height: 77px;
+  margin: 10px;
+}
+
+div.formGoesHere {
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  opacity: .2;
+}
+
+/* photo-1455641374154-422f32e234cd.jpeg */
+/* photo-1455719103652-8c015f564e2b.jpeg */
