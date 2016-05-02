@@ -14,7 +14,7 @@ function useName(currentUser, goodDayOrBadDay) { //params of currentUser and wha
     var node = document.createElement('p'); //creating proper elements and appending to DOM
     var textnode = document.createTextNode('Hey ' + currentUser + ', ' + goodOrBad);
     node.appendChild(textnode);
-    document.getElementById('output2').appendChild(node);
+    document.getElementById('output').appendChild(node);
   };
   return makeGoodorBad;
 }
