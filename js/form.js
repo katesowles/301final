@@ -31,3 +31,6 @@ function message (currentUser){
   var soSoDay = useName(currentUser, 'itssoso');
   soSoDay('Conditions are not ideal. Depends on you, dude...');
 };
+
+//Event Listeners for Submit Button
+submitButton.addEventListener('click', validateUserName);
