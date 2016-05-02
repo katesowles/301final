@@ -94,6 +94,8 @@ img {
 
 section {
   /* height to be set with jquery to be 100% of window height */
+  height: 560px;
+  padding: 20px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
