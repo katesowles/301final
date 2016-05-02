@@ -3,7 +3,6 @@ $(document).ready(function(){
     e.preventDefault();
     var userName = $('input:text').val();
     useName(userName);
-    message(userName);
     localStorage.setItem('currentUser', userName);
     return userName;
   });
@@ -42,6 +41,7 @@ function validateUserName(e) {
     $('#userAlert').show();
     $('#output').hide();
   }else {
+    message(userName);
     $('#userAlert').hide();
     $('#output').show();
     $('#nameForm').hide();
