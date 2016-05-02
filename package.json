@@ -1,0 +1,15 @@
+{
+  "name": "bike-it-PDX",
+  "version": "0.0.5",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yvonne Hayes, Kate Sowles, David Goodwin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-request-proxy": "^1.0.10"
+  }
+}
