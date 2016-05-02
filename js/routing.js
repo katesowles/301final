@@ -6,7 +6,7 @@
     page('', welcomeController.js);
     page('welcome', welcomeController.js);
     page('dashboard', dashboardController.js);
-    page('about', configureController.js);
+    page('configure', configureController.js);
 
     page();
   };
