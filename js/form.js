@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $('button').click(function(){
+  $('button').click(function(e){
+    e.preventDefault();
     var userName = $('input:text').val();
     useName(userName);
     message(userName);
