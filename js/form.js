@@ -34,3 +34,14 @@ function message (currentUser){
 
 //Event Listeners for Submit Button
 submitButton.addEventListener('click', validateUserName);
+
+function validateUserName(e) {
+  e.preventDefault();
+  var userName = document.forms['nameInput']['fname'].value;
+  if (userName == null || userName == '') {
+    $('#userAlert').show();
+    $('#output2').hide();
+  }else {
+    $('#output2').show();
+  }
+};
