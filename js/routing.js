@@ -3,10 +3,10 @@
 
   routes.mapping = function() {
     page.base('/');
-    page('', welcomeController.js);
-    page('welcome', welcomeController.js);
-    page('dashboard', dashboardController.js);
-    page('configure', configureController.js);
+    page('', welcomeController.index);
+    page('welcome', welcomeController.index);
+    page('dashboard', dashboardController.index);
+    page('configure', configureController.index);
 
     page();
   };
