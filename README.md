@@ -78,3 +78,5 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
   - Use client side authentication as proof of concept (0.25pt) **___**
   - or use server-side authentication (2pt) **___**
 32. Persist at least part of your app's state on a server such as Heroku or Firebase (2pt) **___**
+
+33. Make presentation and plan for who shows what **___**
