@@ -93,7 +93,7 @@ img {
 }
 
 section {
-  height: 568px;
+  /* height to be set with jquery to be 100% of window height */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
