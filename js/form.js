@@ -26,4 +26,7 @@ function message (currentUser){
 
   var badDay = useName(currentUser, 'itsbad');
   badDay('maybe leave the bike at home today....');
+
+  var soSoDay = useName(currentUser, 'itssoso');
+  soSoDay('Conditions are not ideal. Depends on you, dude...');
 };
