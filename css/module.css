@@ -52,5 +52,10 @@ div.formGoesHere {
   /*opacity: .2;*/
 }
 
+#userAlert {
+  display: none;
+  color: red;
+}
+
 /* photo-1455641374154-422f32e234cd.jpeg */
 /* photo-1455719103652-8c015f564e2b.jpeg */

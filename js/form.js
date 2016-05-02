@@ -40,8 +40,8 @@ function validateUserName(e) {
   var userName = document.forms['nameInput']['fname'].value;
   if (userName == null || userName == '') {
     $('#userAlert').show();
-    $('#output2').hide();
+    $('#output').hide();
   }else {
-    $('#output2').show();
+    $('#output').show();
   }
 };
