@@ -7,15 +7,41 @@
 
   userLocation.all = [];
 
+  userLocation.merge = function(id, result, tx) {
+    if (result) {
+      var locId = result.insertId;
+    } else {
+      var locId = id;
+    }
+    console.log('id = ',locId);
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM locations WHERE id = ?',
+          data: [locId]
+        }
+      ], function(row) {
+      console.log(row);
+      weather.updateData(row[0], locationView.display);
+    });
+  };
+
+  // userLocation.addLocation = function(obj, callback) {
+  //
+  //   obj.insertRecord();
+  //   callback(obj);
+  //   // userLocation.all.push(obj);
+  // };
+
   userLocation.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS locations (' +
         'id INTEGER PRIMARY KEY, ' +
-        'name VARCHAR(255) NOT NULL, ' +
-        'address VARCHAR(255) NOT NULL, ' +
+        'locationName VARCHAR(255) NOT NULL, ' +
+        'streetAddress VARCHAR(255) NOT NULL, ' +
         'city VARCHAR(60) NOT NULL, ' +
         'state VARCHAR(2) NOT NULL, '+
-        'zip VARCHAR(10) NOT NULL);',
+        'zipcode VARCHAR(10) NOT NULL);',
       callback
     );
   };
@@ -30,8 +56,8 @@
     webDB.execute(
       [
         {
-          sql:'INSERT INTO locations (name, address, city, state, zip) VALUES (?, ?, ?, ?, ?);',
-          data: [this.name, this.address, this.city, this.state, this.zip]
+          sql:'INSERT INTO locations (locationName, streetAddress, city, state, zipcode) VALUES (?, ?, ?, ?, ?);',
+          data: [this.locationName, this.streetAddress, this.city, this.state, this.zipcode]
         }
       ], callback);
   };
@@ -50,19 +76,21 @@
     webDB.execute(
       [
         {
-          sql: 'UPDATE locations SET name = ?, address = ?, city = ?, state = ?, zip = ?, WHERE id = ?;',
+          sql: 'UPDATE locations SET locationName = ?, streetAddress = ?, city = ?, state = ?, zipcode = ?, WHERE id = ?;',
           data: [this.name, this.address, this.city, this.state, this.zip]
         }
       ], callback);
   };
 
   userLocation.loadAll = function(rows) {
-    userLocation.all = rows.map(function(ele) {
-      return new userLocation(ele);
+    rows.map(function(ele) {
+      userLocation.merge(ele.id, null);
+      // return new userLocation(ele);
     });
   };
 
   userLocation.fetchAll = function(callback) {
+    callback = callback || function() {};
     webDB.execute('SELECT * FROM locations', function (rows) {
       if (rows.length) {
         userLocation.loadAll(rows);
@@ -83,6 +111,7 @@
         }
       ], callback);
   };
+
 
   module.userLocation = userLocation;
 })(window);
