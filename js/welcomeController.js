@@ -9,7 +9,7 @@
       $('#toWelcome').click(function() {
         $('html, body').animate({
           scrollTop: $('#welcome').offset().top
-        }, 2000);
+        }, 500);
       });
     });
 

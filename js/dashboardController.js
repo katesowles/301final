@@ -9,7 +9,7 @@
       $('#toDashboard').click(function() {
         $('html, body').animate({
           scrollTop: $('#dashboard').offset().top
-        }, 2000);
+        }, 500);
       });
     });
 

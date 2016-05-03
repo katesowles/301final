@@ -9,7 +9,7 @@
       $('#toConfigure').click(function() {
         $('html, body').animate({
           scrollTop: $('#configure').offset().top
-        }, 2000);
+        }, 500);
       });
     });
 
