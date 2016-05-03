@@ -12,6 +12,23 @@
     <link href="css/layout.css" rel="stylesheet"></link>
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
+    <script id="favoritesList" type="text/x-handlebars-template">
+      <article>
+        <h4>{{LocationName}}</h4>
+        <address>
+          <p>{{StreetAddress}}</p>
+          <p>{{City}}, {{State}} {{Zipcode}}</p>
+        </address>
+      </article>
+    </script>
+    <script id="favoritesView" type="text/x-handlebars-template">
+      <article>
+        <h4>{{LocationName}}</h4>
+        <div class="location favorite">
+          <img src="{{CurrentConditionIcon}}" alt="{{CurrentCondition}}">
+        </div>
+      </article>
+    </script>
   </head>
   <body>
     <main>
@@ -76,7 +93,7 @@
 
       <footer class="row">
         <article class="david">
-          <img src="" alt="David Goodwin">
+          <img src="img/bio/david.jpg" alt="David Goodwin">
           <div class="bio">
             <h5>David Goodwin</h5>
             <p>I'm a 15-year IT veteran who decided to trade in the support side of the aisle for the development world, finally determined to make a career out of my programming habit.
@@ -88,7 +105,7 @@
         </article>
 
         <article class="yvonne">
-          <img src="" alt="Yvonne Hayes" />
+          <img src="img/bio/yvonne.jpg" alt="Yvonne Hayes" />
           <div class="bio">
             <h5>Yvonne Hayes</h5>
             <p> I'm an Austrian who came to Portland via Puerto Vallata, Mexico and still thinks fondly of the time she lived in London, England. I'm an avid reader, on again off again runner, gamer, MMORPG addict, catholic school survivor, Netflix binge-watcher and absolute dog person - who is owned by 3 cats (it's a long story).</p>
@@ -111,6 +128,7 @@
           <p>In the erratic Portland weather, it's hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed.</p>
           <p>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need on the state of biking around your favorite spots in Portland.</p>
           <p><a href="https://github.com/katesowles/301final">See the repository</a></p>
+          <img src="img/wu/wundergroundLogo_4c_rev.png" alt="Weather Underground" />
         </article>
       </footer>
 
@@ -119,6 +137,8 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.js"></script>
+      <script src="vendor/html5sql.js"></script>
+      <script src="js/webdb.js"></script>
       <!-- custom js files -->
       <script src="js/welcomeController.js"></script>
       <script src="js/dashboardController.js"></script>

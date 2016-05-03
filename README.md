@@ -9,6 +9,9 @@ Node It Alls
 ### Project Name:
 Should I Bike It - PDX
 
+### Site Deployed At:
+http://final301.herokuapp.com/
+
 ### Problem Statement:
 In the erratic Portland weather, it's hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed.
 
@@ -31,20 +34,20 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 ### Requirement Tracker
 
 ##### Documentation Requirements
-1. Include a link to the repo in the footer of the site **___**
-2. Include a link to the live site in the repo's readme AND description **___**
+1. Include a link to the repo in the footer of the site **KATE**
+2. Include a link to the live site in the repo's readme AND description **KATE**
 3. Develop a User Guide **___**
 
 ##### HTML Requirements
 4. Remove unused/commented out/irrelevant code and process documentation files **___**
 5. Use semantic HTML tags, if it is an important tag but isn't descriptive, use classes, ids, or comments to describe it's purpose **___**
 6. Consistent indentation **___**
-7. Remove redundancies; repeated DOM structures should be templated or programatically created using JS **___**
+7. Remove redundancies; repeated DOM structures should be templated or programmatically created using JS **___**
 
 ##### CSS Requirements
 8. Clear and meaningful CSS, semantically meaningful class and id names; use proper indentation; correct syntax issues **___**
-9. SMACCS Principles with CSS files **___**
-10. Layout is pleasing agross various screen sizes; use a fluid grid **___**
+9. SMACCS Principles with CSS files **KATE**
+10. Layout is pleasing across various screen sizes; use a fluid grid **___**
 
 ##### JS Requirements
 11. Must pass eslint **___**
@@ -53,18 +56,18 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 14. Reduce computational redundancy; cache computed results if reused. EVEN make variables for repeated DOM element queries with JQ **___**
 
 ##### Technical Requirements
-15. At least three interlinked pages with clear navigation **___**
+15. At least three interlinked pages with clear navigation **KATE**
 16. At least two pages must accept and process user input **___**
 17. Use jQuery for DOM Manipulation, user event handling, and animations **___**
-18. Mobile-first and responsive design **___**
+18. Mobile-first and responsive design **KATE**
 19. Process input from an HTML Form with at least one button **___**
-20. Encapsulate all data and functions and use object constructors and prototypical inheritence where appropriate **___**
+20. Encapsulate all data and functions and use object constructors and prototypical inheritance where appropriate **___**
 21. Use AJAX to retrieve JSON or XML data; make sure a HOF makes the AJAX call: pass a "next" function to the HOF, HOF should make AJAX request and specify "next(data)" as the callback. "next()" should then call a view function to display the data. HOF should be in a model js file **___**
 22. Functional programming; use Array methods, HOFs, and at least one closure **___**
 23. Persist your app's state using WebSQL or other database (if we persist on server-side database we don't need to use the local database); write middleware that handles CRUD operations on your database **___**
 24. Build a single page app and use client-side routing for at least two routes **KATE**
 25. Use MVC components that are loosely coupled, semantically labelled, and well documented as MVC in code comments **___**
-26. Deploy to public web server including a server-side app that authenticates to a third party server (weatherunderground) **___**
+26. Deploy to public web server including a server-side app that authenticates to a third party server (weatherunderground) **KATE/DAVID**
 
 ##### Stretch Goals
 27. Persist at least some of your app's data in two or more WebSQL tables and make SQLite queries that use joins/relations to filter data.
