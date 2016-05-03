@@ -47,7 +47,30 @@
 
       <section id="configure" class="row">
         <div class="overlay">
-          <div class="formGoesHere"></div>
+          <div class="formGoesHere">
+            <form name="nameInput" id="nameForm">
+              <label>Firstname: <input type="text" name="fname" value=""></label><br>
+              <p id="userAlert">Please enter your name!</p>
+              <button id="submitButton">Submit</button>
+            </form>
+            <form name='locationData' id="locationForm">
+              <label>Location Name: <input type='text' name='flocationname'></label>
+              <p id='userAlert2'>Please enter the name of the location!</p>
+              <label>Street Address: <input type='text' name='fstreetaddress'></label>
+              <p id='userAlert3'>Please enter the street address of the location!</p></br>
+              <label>City: <input type='text' name='fcity'></label>
+              <p id='userAlert4'>Please enter the city the location is in!</p>
+              <label>State: <input type='text' name='fstate'></label>
+              <p id='userAlert5'>Please enter the state the location is in!</p>
+              <label>Zip: <input type='text' name='fzip'></label>
+              <p id='userAlert6'>Please enter the zip code of the location!</p></br>
+              <button id="submitButton2">Submit Location</button>
+            </form>
+            <div id="output"></div>
+            <h2 id="itsgood"></h2>
+            <h2 id="itsbad"></h2>
+            <h2 id='itssoso'></h2>
+          </div>
         </div>
       </section>
 
@@ -104,6 +127,7 @@
       <script src="js/welcomeController.js"></script>
       <script src="js/dashboardController.js"></script>
       <script src="js/configureController.js"></script>
+      <script src="js/form.js"></script>
       <script src="js/routing.js"></script>
     </main>
   </body>
