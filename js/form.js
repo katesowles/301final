@@ -47,3 +47,49 @@ function validateUserName(e) {
     $('#nameForm').hide();
   }
 };
+
+//Event Listener for Submit Button2
+submitButton2.addEventListener('click', validateLocation);
+
+
+//Validating the input for the Location Form
+
+function validateLocation(e){
+  e.preventDefault();
+
+  var locationName = document.forms['locationData']['flocationname'].value;
+  if (locationName == null || locationName == ''){
+    $('#userAlert2').show();
+  }else {
+    localStorage.setItem('nameofLocation', locationName);
+    // LocationData.all.push(this.locationName);
+  };
+
+  var streetAddress = document.forms ['locationData']['fstreetaddress'].value;
+  if (streetAddress == null || streetAddress == '') {
+    $('#userAlert3').show();
+  }else {
+    localStorage.setItem('nameofStreet', streetAddress);
+  };
+
+  var city = document.forms ['locationData']['fcity'].value;
+  if (city == null || city == '') {
+    $('#userAlert4').show();
+  }else {
+    localStorage.setItem('nameofCity', city);
+  };
+
+  var state = document.forms ['locationData']['fstate'].value;
+  if (state == null || state == '') {
+    $('#userAlert5').show();
+  }else {
+    localStorage.setItem('nameofState', state);
+  };
+
+  var zip = document.forms ['locationData']['fzip'].value;
+  if (zip == null || zip == '' || isNaN(zip)) {
+    $('#userAlert6').show();
+  }else {
+    localStorage.setItem('zipNumber', zip);
+  };
+};

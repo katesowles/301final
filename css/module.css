@@ -52,7 +52,7 @@ div.formGoesHere {
   /*opacity: .2;*/
 }
 
-#userAlert {
+#userAlert, #userAlert2, #userAlert3, #userAlert4, #userAlert5, #userAlert6 {
   display: none;
   color: red;
 }
