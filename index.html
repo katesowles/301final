@@ -47,20 +47,42 @@
 
       <section id="configure" class="row">
         <div class="overlay">
-          <div class="formGoesHere"></div>
+          <div class="formGoesHere">
+            <form name="nameInput" id="nameForm">
+              <label>Firstname: <input type="text" name="fname" value=""></label><br>
+              <p id="userAlert">Please enter your name!</p>
+              <button id="submitButton">Submit</button>
+            </form>
+            <form name='locationData' id="locationForm">
+              <label>Location Name: <input type='text' name='flocationname'></label>
+              <p id='userAlert2'>Please enter the name of the location!</p>
+              <label>Street Address: <input type='text' name='fstreetaddress'></label>
+              <p id='userAlert3'>Please enter the street address of the location!</p></br>
+              <label>City: <input type='text' name='fcity'></label>
+              <p id='userAlert4'>Please enter the city the location is in!</p>
+              <label>State: <input type='text' name='fstate'></label>
+              <p id='userAlert5'>Please enter the state the location is in!</p>
+              <label>Zip: <input type='text' name='fzip'></label>
+              <p id='userAlert6'>Please enter the zip code of the location!</p></br>
+              <button id="submitButton2">Submit Location</button>
+            </form>
+            <div id="output"></div>
+            <h2 id="itsgood"></h2>
+            <h2 id="itsbad"></h2>
+            <h2 id='itssoso'></h2>
+          </div>
         </div>
       </section>
 
       <footer class="row">
         <article class="david">
-          <img src="" alt="David Goodwin" />
+          <img src="" alt="David Goodwin">
           <div class="bio">
             <h5>David Goodwin</h5>
-            <p>
-
+            <p>I'm a 15-year IT veteran who decided to trade in the support side of the aisle for the development world, finally determined to make a career out of my programming habit.
             </p>
             <p>
-
+              <a href="http://twitter.com/goodwid">Twitter!</a>
             </p>
           </div>
         </article>
@@ -69,12 +91,9 @@
           <img src="" alt="Yvonne Hayes" />
           <div class="bio">
             <h5>Yvonne Hayes</h5>
-            <p>
-
-            </p>
-            <p>
-
-            </p>
+            <p> I'm an Austrian who came to Portland via Puerto Vallata, Mexico and still thinks fondly of the time she lived in London, England. I'm an avid reader, on again off again runner, gamer, MMORPG addict, catholic school survivor, Netflix binge-watcher and absolute dog person - who is owned by 3 cats (it's a long story).</p>
+            <p><a href="http://twitter.com/KeepingYWeird">Follow Me on Twitter</a></p>
+            <p><a href="http://www.keepingyvonneweird.com">Check out my Blog</a></p>
           </div>
         </article>
 
@@ -104,6 +123,7 @@
       <script src="js/welcomeController.js"></script>
       <script src="js/dashboardController.js"></script>
       <script src="js/configureController.js"></script>
+      <script src="js/form.js"></script>
       <script src="js/routing.js"></script>
     </main>
   </body>
