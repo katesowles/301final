@@ -66,7 +66,7 @@ a:hover, a:active {
 
 nav a {
   font-weight: 200;
-  margin: 0 15px;
+  margin: 0 10px;
   text-align: center;
   text-transform: uppercase;
   font-size: 1em;
@@ -91,11 +91,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.25em;
   letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
 h2 {
   font-size: 1.5em;
   text-transform: none;
+  margin-bottom: 10px;
  }
 
 h3 {
