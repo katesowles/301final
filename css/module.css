@@ -64,19 +64,6 @@ div.formGoesHere {
   color: red;
 }
 
-#nameForm {
-  text-align: center;
-  margin-top: 3%;
-}
-
-#submitButton {
-  margin-left: 75px;
-}
-
-#locationForm{
-  /*text-align: center;*/
-  margin-top: 5%;
-}
 
 .btn {
   background-color: transparent;
@@ -90,6 +77,27 @@ div.formGoesHere {
   margin-top: 45px;
 }
 
+#nameForm label{
+  font-size: 50px;
+  font-weight: 200;
+  text-align: center;
+  margin-right: 0;
+  width: 100%;
+}
+
+#nameForm input {
+  width: calc(100% - 180px);
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 200;
+  text-align: center;
+}
+
+#nameForm button {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 20px;
+}
 
 /* photo-1455641374154-422f32e234cd.jpeg */
 /* photo-1455719103652-8c015f564e2b.jpeg */

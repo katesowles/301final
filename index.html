@@ -48,10 +48,11 @@
       <section id="configure">
         <div class="overlay row">
             <form name="nameInput" id="nameForm" class="col-sm-12">
-              <label>What is your First name? <input type="text" name="fname" value=""></label>
+              <label>What is your First name?</label><input type="text" name="fname" value="" autofocus>
               <p id="userAlert">Please enter your name!</p>
               <button id="submitButton" class="btn">Submit</button>
             </form>
+          <div class="row">
             <form name='locationData' id="locationForm" class="col-sm-6">
               <fielset>
                 <legend>Input a favorite Location</legend>
@@ -73,6 +74,7 @@
                 <button id="submitButton2" class="btn">Submit Location</button>
               </fieldset>
             </form>
+
             <div id="output"></div>
             <h2 id="itsgood"></h2>
             <h2 id="itsbad"></h2>
@@ -80,6 +82,7 @@
 
           <div id="showLocations" class="col-sm-6">
             <p>This renders!</p>
+          </div>
           </div>
         </div>
       </section>
