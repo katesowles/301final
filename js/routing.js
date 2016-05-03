@@ -7,6 +7,7 @@
     page('welcome', welcomeController.index);
     page('dashboard', dashboardController.index);
     page('configure', configureController.index);
+    page('about', aboutController.index);
 
     page();
   };
