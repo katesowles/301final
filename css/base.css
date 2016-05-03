@@ -102,7 +102,7 @@ section {
 }
 
 form{
-  width: 660px;
+  width: 100%;
   margin: 0;
   padding: 0;
   border: none;
@@ -137,7 +137,7 @@ input {
   border: none;
   border-bottom: 2px solid white;
   display: inline-block;
-  width: 500px;
+  width: calc(100% - 150px);
 }
 
 footer {
