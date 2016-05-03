@@ -54,10 +54,31 @@ div.formGoesHere {
   /*opacity: .2;*/
 }
 
+
+/********************************************************/
+/*                       FORMS                          */
+/********************************************************/
+
 #userAlert, #userAlert2, #userAlert3, #userAlert4, #userAlert5, #userAlert6 {
   display: none;
   color: red;
 }
+
+#nameForm {
+  text-align: center;
+  margin-top: 3%;
+}
+
+#submitButton {
+  margin-left: 75px;
+}
+
+#locationForm{
+  /*text-align: center;*/
+  margin-top: 5%;
+}
+
+
 
 /* photo-1455641374154-422f32e234cd.jpeg */
 /* photo-1455719103652-8c015f564e2b.jpeg */
