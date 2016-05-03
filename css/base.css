@@ -55,9 +55,16 @@ nav {
   text-align: center;
 }
 
-nav a {
-  color: white;
+a, a:link, a:visited {
+  color: #bbb;
   text-decoration: none;
+}
+
+a:hover, a:active {
+  font-weight: 400px;
+}
+
+nav a {
   font-weight: 200;
   margin: 0 15px;
   text-align: center;
@@ -87,11 +94,13 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
-}
+  font-size: 1.5em;
+  text-transform: none;
+ }
 
 h3 {
   font-size: 1.5em;
+  margin: 10px 0;
 }
 
 h4 {
@@ -118,8 +127,8 @@ img {
 
 section {
   /* height to be set with jquery to be 100% of window height */
-  height: 560px;
-  padding: 20px;
+  /*height: 560px;*/
+  height: 700px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -148,7 +157,7 @@ legend {
 }
 
 label {
-  width: 127px;
+  width: 101px;
   margin-right: 20px;
   text-align: right;
   color: white;
@@ -162,12 +171,22 @@ input {
   border: none;
   border-bottom: 2px solid white !important;
   display: inline-block;
-  width: calc(100% - 150px);
+  width: calc(100% - 124px);
   color: white;
 }
 
 footer {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 50px 30px !important;
+  background-color: #333333;
+}
+
+footer .greyscale {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+footer p {
+  color: white;
 }

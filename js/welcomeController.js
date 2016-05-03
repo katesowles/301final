@@ -2,8 +2,14 @@
   var welcomeController = {};
 
   welcomeController.index = function() {
-    $('section').hide();
-    $('#welcome').show();
+    $(document).ready(function() {
+      $('#toWelcome').click(function() {
+        $('html, body').animate({
+          scrollTop: $('#welcome').offset().top
+        }, 500);
+      });
+    });
+
     $('nav a').removeClass('viewing');
     $('nav #toWelcome').addClass('viewing');
   };
