@@ -7,14 +7,18 @@
 
   userLocation.all = [];
 
-  userLocation.merge = function(resultArray, result, tx) {
-    var id = result.insertId;
-    console.log('id = ',id);
+  userLocation.merge = function(id, result, tx) {
+    if (result) {
+      var locId = result.insertId;
+    } else {
+      var locId = id;
+    }
+    console.log('id = ',locId);
     webDB.execute(
       [
         {
           sql: 'SELECT * FROM locations WHERE id = ?',
-          data: [id]
+          data: [locId]
         }
       ], function(row) {
       console.log(row);
@@ -79,16 +83,15 @@
   };
 
   userLocation.loadAll = function(rows) {
-    userLocation.all = rows.map(function(ele) {
-      return new userLocation(ele);
+    rows.map(function(ele) {
+      userLocation.merge(ele.id, null);
+      // return new userLocation(ele);
     });
   };
 
   userLocation.fetchAll = function(callback) {
     callback = callback || function() {};
-    console.log('fetchall called');
     webDB.execute('SELECT * FROM locations', function (rows) {
-      console.log('execute called, rows.length = ', rows.length);
       if (rows.length) {
         userLocation.loadAll(rows);
         callback();
