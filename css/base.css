@@ -55,9 +55,16 @@ nav {
   text-align: center;
 }
 
-nav a {
+a, a:link, a:visited {
   color: white;
   text-decoration: none;
+}
+
+a:hover, a:active {
+  font-weight: 400px;
+}
+
+nav a {
   font-weight: 200;
   margin: 0 15px;
   text-align: center;
