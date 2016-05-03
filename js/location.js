@@ -7,31 +7,17 @@
 
   userLocation.all = [];
 
+  // callback function for new data inserted into database.  creates a function
+  // that merges the data w/ weather data then passes that function as a callback
+  // to the query.
   userLocation.merge = function(id, result, tx) {
-    if (result) {
-      var locId = result.insertId;
-    } else {
-      var locId = id;
-    }
-    console.log('id = ',locId);
-    webDB.execute(
-      [
-        {
-          sql: 'SELECT * FROM locations WHERE id = ?',
-          data: [locId]
-        }
-      ], function(row) {
-      console.log(row);
+    var locId = result.insertId;
+    var cb = function(row) {
       weather.updateData(row[0], locationView.display);
-    });
+    };
+    userLocation.findWhere ('id', locId, cb);
   };
 
-  // userLocation.addLocation = function(obj, callback) {
-  //
-  //   obj.insertRecord();
-  //   callback(obj);
-  //   // userLocation.all.push(obj);
-  // };
 
   userLocation.createTable = function(callback) {
     webDB.execute(
@@ -84,8 +70,9 @@
 
   userLocation.loadAll = function(rows) {
     rows.map(function(ele) {
-      userLocation.merge(ele.id, null);
-      // return new userLocation(ele);
+      //  Passed in this manner to duplicate how webDB.execute passes the data
+      //  when it's called as a callback in html5sql.js
+      userLocation.merge(null,{insertId: ele.id});
     });
   };
 
@@ -102,11 +89,11 @@
     });
   };
 
-  userLocation.findwhere = function(field, value, callback) {
+  userLocation.findWhere = function(field, value, callback) {
     webDB.execute(
       [
         {
-          sql: 'SELECT * FROM locations WHERE' + field + ' = ?;',
+          sql: 'SELECT * FROM locations WHERE ' + field + ' = ?;',
           data: [value]
         }
       ], callback);
