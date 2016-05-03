@@ -110,5 +110,16 @@ margin-bottom: 40px;
   display: none;
 }
 
+footer img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+footer .smallAndCenter {
+  padding: 30px;
+}
+
 /* photo-1455641374154-422f32e234cd.jpeg */
 /* photo-1455719103652-8c015f564e2b.jpeg */
