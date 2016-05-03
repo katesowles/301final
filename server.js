@@ -8,7 +8,7 @@ var proxyWU = function(request, response) {
   var queryUrl = 'http://api.wunderground.com/api/' + process.env.WU_API_KEY + '/' + request.params[0];
   (requestProxy({
     url: queryUrl
-    }))(request, response, function(err){console.log('err: ',err);});
+  }))(request, response, function(err){console.log('err: ',err);});
 };
 
 app.get('/wu/*', proxyWU);
