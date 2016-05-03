@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Should I Bike?</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+    <link rel='shortcut icon' href='img/logo/bikeItFavicon.png' type='image/x-icon'/ >
+    <!-- vendor css files -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'></link>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type='text/css'></link>
+    <!-- custom css files -->
     <link href="css/base.css" rel="stylesheet"></link>
     <link href="css/layout.css" rel="stylesheet"></link>
     <link href="css/module.css" rel="stylesheet"></link>
@@ -13,15 +17,15 @@
     <main>
       <header>
         <nav>
-          <a href="#welcome">Welcome</a>
-          <a href="#dashboard">Dashboard</a>
-          <a href="#configure">Configure</a>
+          <a href="/welcome" id="toWelcome">Welcome</a>
+          <a href="/dashboard" id="toDashboard">Dashboard</a>
+          <a href="/configure" id="toConfigure">Configure</a>
         </nav>
       </header>
 
       <section id="welcome" class="row">
         <div class="overlay">
-          <img src="img/logo/bikeit_3.png" alt="Should I Bike It Logo" id="logo" />
+          <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo" />
           <hgroup>
             <h1>Should I Bike It?</h1>
             <h4>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.</h4>
@@ -46,9 +50,61 @@
           <div class="formGoesHere"></div>
         </div>
       </section>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-      <script src="js/app.js"></script>
-      <script src="js/wutest.js"></script>
+
+      <footer class="row">
+        <article class="david">
+          <img src="" alt="David Goodwin" />
+          <div class="bio">
+            <h5>David Goodwin</h5>
+            <p>
+
+            </p>
+            <p>
+
+            </p>
+          </div>
+        </article>
+
+        <article class="yvonne">
+          <img src="" alt="Yvonne Hayes" />
+          <div class="bio">
+            <h5>Yvonne Hayes</h5>
+            <p>
+
+            </p>
+            <p>
+
+            </p>
+          </div>
+        </article>
+
+        <article class="kate">
+          <img src="img/bio/kate.jpg" alt="Kate Sowles" />
+          <div class="bio">
+            <h5>Kate Sowles</h5>
+            <p>Developer by day and farmer by night, I'm one half of a tiny house living duo outside of Portland, OR. I am a self-proclaimed expert in offline-living, digging big holes, and loving beer.</p>
+            <p><a href="http://twitter.com/katesowles">Follow Me</a></p>
+          </div>
+        </article>
+
+        <article class="about">
+          <h5>About the project</h5>
+          <p>In the erratic Portland weather, it's hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed.</p>
+          <p>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need on the state of biking around your favorite spots in Portland.</p>
+          <p><a href="https://github.com/katesowles/301final">See the repository</a></p>
+        </article>
+      </footer>
+
+      <!-- vendor js files -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.js"></script>
+      <!-- custom js files -->
+      <script src="js/welcomeController.js"></script>
+      <script src="js/dashboardController.js"></script>
+      <script src="js/configureController.js"></script>
+      <script src="js/routing.js"></script>
     </main>
   </body>
 </html>
