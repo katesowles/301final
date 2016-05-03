@@ -1,6 +1,10 @@
 (function(module) {
   var configureController = {};
 
+
+
+  
+
   configureController.index = function() {
     $('section').hide();
     $('#configure').show();

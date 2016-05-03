@@ -12,11 +12,11 @@
     };
   };
 
-  weather.updateData = function(zip, callback) {
+  weather.updateData = function(locObj, callback) {
     var localData;
-    $.get('/wu/astronomy/hourly/q/'+ zip +'.json')
+    $.get('/wu/astronomy/hourly/q/'+ locObj.zipcode +'.json')
     .done (function(data, message, xhr) {
-      localData = weather.extractData(data);
+      localData = $.extend(locObj, weather.extractData(data));
       if (callback) {
         callback(localData);
       } else {
