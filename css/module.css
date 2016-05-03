@@ -76,6 +76,9 @@ div.formGoesHere {
   margin-left: calc(50% - 75px);
   margin-top: 45px;
 }
+#nameForm{
+margin-bottom: 40px; 
+}
 
 #nameForm label{
   font-size: 50px;

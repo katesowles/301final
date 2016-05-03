@@ -140,10 +140,11 @@ fieldset {
 
 legend {
   margin: 0;
-  padding: 0;
+  padding: 0 0 20px 0;
   border: none;
   color: white;
   text-transform: uppercase;
+  font-weight: 200;
 }
 
 label {
