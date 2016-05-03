@@ -1,3 +1,5 @@
+// (function(module) {
+
 $(document).ready(function(){
   $('button').click(function(e){
     e.preventDefault();
@@ -56,40 +58,41 @@ submitButton2.addEventListener('click', validateLocation);
 
 function validateLocation(e){
   e.preventDefault();
-
+  var inputLocation = {};
   var locationName = document.forms['locationData']['flocationname'].value;
   if (locationName == null || locationName == ''){
     $('#userAlert2').show();
-  }else {
-    localStorage.setItem('nameofLocation', locationName);
-    // LocationData.all.push(this.locationName);
+  } else {
+    inputLocation.locationName = locationName;
   };
 
   var streetAddress = document.forms ['locationData']['fstreetaddress'].value;
   if (streetAddress == null || streetAddress == '') {
     $('#userAlert3').show();
-  }else {
-    localStorage.setItem('nameofStreet', streetAddress);
+  } else {
+    inputLocation.streetAddress = streetAddress;
   };
 
   var city = document.forms ['locationData']['fcity'].value;
   if (city == null || city == '') {
     $('#userAlert4').show();
-  }else {
-    localStorage.setItem('nameofCity', city);
+  } else {
+    inputLocation.city = city;
   };
 
   var state = document.forms ['locationData']['fstate'].value;
   if (state == null || state == '') {
     $('#userAlert5').show();
-  }else {
-    localStorage.setItem('nameofState', state);
+  } else {
+    inputLocation.state = state;
   };
 
-  var zip = document.forms ['locationData']['fzip'].value;
-  if (zip == null || zip == '' || isNaN(zip)) {
+  var zipcode = document.forms ['locationData']['fzip'].value;
+  if (zipcode == null || zipcode == '' || isNaN(zipcode)) {
     $('#userAlert6').show();
-  }else {
-    localStorage.setItem('zipNumber', zip);
+  } else {
+    inputLocation.zipcode = zipcode;
   };
+  var obj = new userLocation(inputLocation);
+  obj.insertRecord();
 };

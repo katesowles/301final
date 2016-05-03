@@ -11,11 +11,11 @@
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS locations (' +
         'id INTEGER PRIMARY KEY, ' +
-        'name VARCHAR(255) NOT NULL, ' +
-        'address VARCHAR(255) NOT NULL, ' +
+        'locationName VARCHAR(255) NOT NULL, ' +
+        'streetAddress VARCHAR(255) NOT NULL, ' +
         'city VARCHAR(60) NOT NULL, ' +
         'state VARCHAR(2) NOT NULL, '+
-        'zip VARCHAR(10) NOT NULL);',
+        'zipcode VARCHAR(10) NOT NULL);',
       callback
     );
   };
@@ -30,8 +30,8 @@
     webDB.execute(
       [
         {
-          sql:'INSERT INTO locations (name, address, city, state, zip) VALUES (?, ?, ?, ?, ?);',
-          data: [this.name, this.address, this.city, this.state, this.zip]
+          sql:'INSERT INTO locations (locationName, streetAddress, city, state, zipcode) VALUES (?, ?, ?, ?, ?);',
+          data: [this.locationName, this.streetAddress, this.city, this.state, this.zipcode]
         }
       ], callback);
   };
@@ -50,7 +50,7 @@
     webDB.execute(
       [
         {
-          sql: 'UPDATE locations SET name = ?, address = ?, city = ?, state = ?, zip = ?, WHERE id = ?;',
+          sql: 'UPDATE locations SET locationName = ?, streetAddress = ?, city = ?, state = ?, zipcode = ?, WHERE id = ?;',
           data: [this.name, this.address, this.city, this.state, this.zip]
         }
       ], callback);
@@ -83,6 +83,7 @@
         }
       ], callback);
   };
+
 
   module.userLocation = userLocation;
 })(window);
