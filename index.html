@@ -62,31 +62,44 @@
         </div>
       </section>
 
-      <section id="configure" class="row">
-        <div class="overlay">
-          <div class="formGoesHere">
-            <form name="nameInput" id="nameForm">
-              <label>Firstname: <input type="text" name="fname" value=""></label><br>
+      <section id="configure">
+        <div class="overlay row">
+            <form name="nameInput" id="nameForm" class="col-sm-12">
+              <label>What is your First name?</label><input type="text" name="fname" value="" autofocus>
               <p id="userAlert">Please enter your name!</p>
-              <button id="submitButton">Submit</button>
+              <button id="submitButton" class="btn">Submit</button>
             </form>
-            <form name='locationData' id="locationForm">
-              <label>Location Name: <input type='text' name='flocationname'></label>
-              <p id='userAlert2'>Please enter the name of the location!</p>
-              <label>Street Address: <input type='text' name='fstreetaddress'></label>
-              <p id='userAlert3'>Please enter the street address of the location!</p></br>
-              <label>City: <input type='text' name='fcity'></label>
-              <p id='userAlert4'>Please enter the city the location is in!</p>
-              <label>State: <input type='text' name='fstate'></label>
-              <p id='userAlert5'>Please enter the state the location is in!</p>
-              <label>Zip: <input type='text' name='fzip'></label>
-              <p id='userAlert6'>Please enter the zip code of the location!</p></br>
-              <button id="submitButton2">Submit Location</button>
+          <div class="row">
+            <form name='locationData' id="locationForm" class="col-sm-6">
+              <fielset>
+                <legend>Input a favorite Location to appear on your dashboard</legend>
+                <label>Location Name</label>
+                <input type='text' name='flocationname'>
+                <p id='userAlert2'>Please enter the name of the location!</p>
+                <label>Street Address</label>
+                <input type='text' name='fstreetaddress'>
+                <p id='userAlert3'>Please enter the street address of the location!</p>
+                <label>City</label>
+                <input type='text' name='fcity'>
+                <p id='userAlert4'>Please enter the city the location is in!</p>
+                <label>State</label>
+                <input type='text' name='fstate'>
+                <p id='userAlert5'>Please enter the state the location is in!</p>
+                <label>Zip</label>
+                <input type='text' name='fzip'>
+                <p id='userAlert6'>Please enter the zip code of the location!</p>
+                <button id="submitButton2" class="btn">Submit Location</button>
+              </fieldset>
             </form>
+
             <div id="output"></div>
             <h2 id="itsgood"></h2>
             <h2 id="itsbad"></h2>
             <h2 id='itssoso'></h2>
+
+          <div id="showLocations" class="col-sm-6">
+            <p>This renders!</p>
+          </div>
           </div>
         </div>
       </section>

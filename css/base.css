@@ -5,6 +5,30 @@
   box-sizing: border-box;
 }
 
+/* overriding the blue glow default focus in forms in bootstrap*/
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: transparent;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+
 body {
   padding: 0;
   margin: 0;
@@ -99,6 +123,47 @@ section {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+form{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  margin: 0;
+  padding: 0 0 20px 0;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+label {
+  width: 127px;
+  margin-right: 20px;
+  text-align: right;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 300;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white !important;
+  display: inline-block;
+  width: calc(100% - 150px);
+  color: white;
 }
 
 footer {

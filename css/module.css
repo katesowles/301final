@@ -54,9 +54,52 @@ div.formGoesHere {
   /*opacity: .2;*/
 }
 
+
+/********************************************************/
+/*                       FORMS                          */
+/********************************************************/
+
 #userAlert, #userAlert2, #userAlert3, #userAlert4, #userAlert5, #userAlert6 {
   display: none;
   color: red;
+}
+
+
+.btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 400;
+  border-radius: 25px;
+  text-transform: uppercase;
+  width: 150px;
+  margin-left: calc(50% - 75px);
+  margin-top: 45px;
+}
+#nameForm{
+margin-bottom: 40px; 
+}
+
+#nameForm label{
+  font-size: 50px;
+  font-weight: 200;
+  text-align: center;
+  margin-right: 0;
+  width: 100%;
+}
+
+#nameForm input {
+  width: calc(100% - 180px);
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 200;
+  text-align: center;
+}
+
+#nameForm button {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 20px;
 }
 
 /* photo-1455641374154-422f32e234cd.jpeg */
