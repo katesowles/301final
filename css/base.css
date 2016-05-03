@@ -101,6 +101,45 @@ section {
   background-repeat: no-repeat;
 }
 
+form{
+  width: 660px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+label {
+  width: 130px;
+  margin-right: 20px;
+  text-align: right;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 300;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  width: 500px;
+}
+
 footer {
   width: 100%;
   height: 100%;

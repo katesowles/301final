@@ -78,6 +78,17 @@ div.formGoesHere {
   margin-top: 5%;
 }
 
+.btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 400;
+  border-radius: 25px;
+  text-transform: uppercase;
+  width: 150px;
+  margin-left: calc(50% - 75px);
+  margin-top: 45px;
+}
 
 
 /* photo-1455641374154-422f32e234cd.jpeg */

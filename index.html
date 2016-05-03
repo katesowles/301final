@@ -49,22 +49,30 @@
         <div class="overlay">
           <div class="formGoesHere">
             <form name="nameInput" id="nameForm">
-              <label>Firstname: <input type="text" name="fname" value=""></label></br>
+              <label>What is your First name? <input type="text" name="fname" value=""></label>
               <p id="userAlert">Please enter your name!</p>
-              <button id="submitButton">Submit</button>
+              <button id="submitButton" class="btn">Submit</button>
             </form>
             <form name='locationData' id="locationForm">
-              <label>Location Name:<input type='text' name='flocationname'></label></br>
-              <p id='userAlert2'>Please enter the name of the location!</p>
-              <label>Street Address:<input type='text' name='fstreetaddress'></label></br>
-              <p id='userAlert3'>Please enter the street address of the location!</p></br>
-              <label>City:<input type='text' name='fcity'></label></br>
-              <p id='userAlert4'>Please enter the city the location is in!</p>
-              <label>State: <input type='text' name='fstate'></label></br>
-              <p id='userAlert5'>Please enter the state the location is in!</p>
-              <label>Zip: <input type='text' name='fzip'></label></br>
-              <p id='userAlert6'>Please enter the zip code of the location!</p></br>
-              <button id="submitButton2">Submit Location</button>
+              <fielset>
+                <legend>Input a favorite Location</legend>
+                <label>Location Name</label>
+                <input type='text' name='flocationname'>
+                <p id='userAlert2'>Please enter the name of the location!</p>
+                <label>Street Address</label>
+                <input type='text' name='fstreetaddress'>
+                <p id='userAlert3'>Please enter the street address of the location!</p>
+                <label>City</label>
+                <input type='text' name='fcity'>
+                <p id='userAlert4'>Please enter the city the location is in!</p>
+                <label>State</label>
+                <input type='text' name='fstate'>
+                <p id='userAlert5'>Please enter the state the location is in!</p>
+                <label>Zip</label>
+                <input type='text' name='fzip'>
+                <p id='userAlert6'>Please enter the zip code of the location!</p>
+                <button id="submitButton2" class="btn">Submit Location</button>
+              </fieldset>
             </form>
             <div id="output"></div>
             <h2 id="itsgood"></h2>
