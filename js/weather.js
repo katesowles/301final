@@ -18,6 +18,7 @@
     .done (function(data, message, xhr) {
       localData = $.extend(locObj, weather.extractData(data));
       if (callback) {
+        userLocation.all.push(new userLocation(localData));
         callback(localData);
       } else {
         console.log('weather.updateData says "No callback specified"');

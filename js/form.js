@@ -94,5 +94,7 @@ function validateLocation(e){
     inputLocation.zipcode = zipcode;
   };
   var obj = new userLocation(inputLocation);
-  obj.insertRecord();
+  obj.insertRecord(userLocation.merge);
+
+
 };

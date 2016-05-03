@@ -7,6 +7,28 @@
 
   userLocation.all = [];
 
+  userLocation.merge = function(resultArray, result, tx) {
+    var id = result.insertId;
+    console.log('id = ',id);
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM locations WHERE id = ?',
+          data: [id]
+        }
+      ], function(row) {
+      console.log(row);
+      weather.updateData(row[0], locationView.display);
+    });
+  };
+
+  // userLocation.addLocation = function(obj, callback) {
+  //
+  //   obj.insertRecord();
+  //   callback(obj);
+  //   // userLocation.all.push(obj);
+  // };
+
   userLocation.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS locations (' +
@@ -63,7 +85,10 @@
   };
 
   userLocation.fetchAll = function(callback) {
+    callback = callback || function() {};
+    console.log('fetchall called');
     webDB.execute('SELECT * FROM locations', function (rows) {
+      console.log('execute called, rows.length = ', rows.length);
       if (rows.length) {
         userLocation.loadAll(rows);
         callback();
