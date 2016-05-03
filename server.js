@@ -6,10 +6,9 @@ var requestProxy = require('express-request-proxy'),
 var proxyWU = function(request, response) {
   console.log('Routing Weather Underground request for', request.params[0]);
   var queryUrl = 'http://api.wunderground.com/api/' + process.env.WU_API_KEY + '/' + request.params[0];
-  console.log('Full url:' , queryUrl);
   (requestProxy({
-    url: queryUrl,
-  }))(request, response, function () {console.log('response = ', response);});
+    url: queryUrl
+    }))(request, response, function(err){console.log('err: ',err);});
 };
 
 app.get('/wu/*', proxyWU);
