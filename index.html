@@ -37,6 +37,7 @@
           <a href="/welcome" id="toWelcome">Welcome</a>
           <a href="/dashboard" id="toDashboard">Dashboard</a>
           <a href="/configure" id="toConfigure">Configure</a>
+          <a href="/about" id="toAbout">About</a>
         </nav>
       </header>
 
@@ -45,7 +46,8 @@
           <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo" />
           <hgroup>
             <h1>Should I Bike It?</h1>
-            <h4>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.</h4>
+            <h2>Inspired by our erratic Portland weather, it can be hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed. Maybe you struggle with the same issue?</h2>
+            <h2>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need to stay up to date on how comfortable biking between your favorite locations will be.</h2>
           </hgroup>
         </div>
       </section>
@@ -65,7 +67,8 @@
       <section id="configure">
         <div class="overlay row">
             <form name="nameInput" id="nameForm" class="col-sm-12">
-              <label>What is your First name?</label><input type="text" name="fname" value="" autofocus>
+              <label>Enter your name</label>
+              <input type="text" name="fname" value="" id="fname">
               <p id="userAlert">Please enter your name!</p>
               <button id="submitButton" class="btn">Submit</button>
             </form>
@@ -104,44 +107,43 @@
         </div>
       </section>
 
-      <footer class="row">
-        <article class="david">
-          <img src="img/bio/david.jpg" alt="David Goodwin">
+      <footer class="row" id="about">
+        <article class="col-md-3 david">
+          <img src="img/bio/david.jpg" alt="David Goodwin" class="greyscale">
           <div class="bio">
-            <h5>David Goodwin</h5>
+            <h3>David Goodwin</h3>
             <p>I'm a 15-year IT veteran who decided to trade in the support side of the aisle for the development world, finally determined to make a career out of my programming habit.
             </p>
             <p>
-              <a href="http://twitter.com/goodwid">Twitter!</a>
+              <a href="http://twitter.com/goodwid">Follow Me on Twitter</a>
             </p>
           </div>
         </article>
 
-        <article class="yvonne">
-          <img src="img/bio/yvonne.jpg" alt="Yvonne Hayes" />
+        <article class="col-md-3 yvonne">
+          <img src="img/bio/yvonne.jpg" alt="Yvonne Hayes" class="greyscale" />
           <div class="bio">
-            <h5>Yvonne Hayes</h5>
+            <h3>Yvonne Hayes</h3>
             <p> I'm an Austrian who came to Portland via Puerto Vallata, Mexico and still thinks fondly of the time she lived in London, England. I'm an avid reader, on again off again runner, gamer, MMORPG addict, catholic school survivor, Netflix binge-watcher and absolute dog person - who is owned by 3 cats (it's a long story).</p>
             <p><a href="http://twitter.com/KeepingYWeird">Follow Me on Twitter</a></p>
             <p><a href="http://www.keepingyvonneweird.com">Check out my Blog</a></p>
           </div>
         </article>
 
-        <article class="kate">
-          <img src="img/bio/kate.jpg" alt="Kate Sowles" />
+        <article class="col-md-3 kate">
+          <img src="img/bio/kate.jpg" alt="Kate Sowles" class="greyscale" />
           <div class="bio">
-            <h5>Kate Sowles</h5>
+            <h3>Kate Sowles</h3>
             <p>Developer by day and farmer by night, I'm one half of a tiny house living duo outside of Portland, OR. I am a self-proclaimed expert in offline-living, digging big holes, and loving beer.</p>
-            <p><a href="http://twitter.com/katesowles">Follow Me</a></p>
+            <p><a href="http://twitter.com/katesowles">Follow Me on Twitter</a></p>
           </div>
         </article>
 
-        <article class="about">
-          <h5>About the project</h5>
-          <p>In the erratic Portland weather, it's hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed.</p>
-          <p>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need on the state of biking around your favorite spots in Portland.</p>
-          <p><a href="https://github.com/katesowles/301final">See the repository</a></p>
-          <img src="img/wu/wundergroundLogo_4c_rev.png" alt="Weather Underground" />
+        <article class="col-md-3 about">
+          <h3>About the project</h3>
+          <p>Curious about our process? Want to take the idea and run with it? <a href="https://github.com/katesowles/301final">Click here to visit the repository</a></p>
+          <p>Weather information gathered via the Weather Underground API</p>
+          <img src="img/wu/wundergroundLogo_4c_rev.png" alt="Weather Underground" class="smallAndCenter"/>
         </article>
       </footer>
 
@@ -156,6 +158,7 @@
       <script src="js/welcomeController.js"></script>
       <script src="js/dashboardController.js"></script>
       <script src="js/configureController.js"></script>
+      <script src="js/aboutController.js"></script>
       <Script src="js/weather.js"></script>
       <script src="js/form.js"></script>
       <script src="js/routing.js"></script>

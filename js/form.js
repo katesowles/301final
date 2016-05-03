@@ -45,6 +45,7 @@ function validateUserName(e) {
     $('#userAlert').hide();
     $('#output').show();
     $('#nameForm').hide();
+    $('#locationForm').show();
   }
 };
 
