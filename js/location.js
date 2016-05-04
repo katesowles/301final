@@ -12,10 +12,10 @@
   // to the query.
   userLocation.merge = function(id, result, tx) {
     var locId = result.insertId;
-    var cb = function(row) {
+    var callback = function(row) {
       weather.updateData(row[0], locationView.display);
     };
-    userLocation.findWhere ('id', locId, cb);
+    userLocation.findWhere('id', locId, callback);
   };
 
 
