@@ -17,13 +17,13 @@
       userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();
-      formHandler.showRec();
+
     } else {
 
       $('button').click(function(e){
         e.preventDefault();
         userName = $('input:text').val();
-        useName(userName);
+        // useName(userName);
         localStorage.currentUser = userName;
       });
     }
