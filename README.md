@@ -51,7 +51,7 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 
 ##### JS Requirements
 11. Must pass eslint **___**
-12. Use semantically meaningful variables and function names **___**
+12. Use semantically meaningful variables and function names **ALL**
 13. Remove source code redundancies with functional programming, object oriented programming, and/or middleware; keep it DRY **___**
 14. Reduce computational redundancy; cache computed results if reused. EVEN make variables for repeated DOM element queries with JQ **___**
 
@@ -60,11 +60,11 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 16. At least two pages must accept and process user input **___**
 17. Use jQuery for DOM Manipulation, user event handling, and animations **___**
 18. Mobile-first and responsive design **KATE**
-19. Process input from an HTML Form with at least one button **___**
-20. Encapsulate all data and functions and use object constructors and prototypical inheritance where appropriate **___**
-21. Use AJAX to retrieve JSON or XML data; make sure a HOF makes the AJAX call: pass a "next" function to the HOF, HOF should make AJAX request and specify "next(data)" as the callback. "next()" should then call a view function to display the data. HOF should be in a model js file **___**
+19. Process input from an HTML Form with at least one button **Yvonne**
+20. Encapsulate all data and functions and use object constructors and prototypical inheritance where appropriate **KATE/DAVID**
+21. Use AJAX to retrieve JSON or XML data; make sure a HOF makes the AJAX call: pass a "next" function to the HOF, HOF should make AJAX request and specify "next(data)" as the callback. "next()" should then call a view function to display the data. HOF should be in a model js file **DAVID**
 22. Functional programming; use Array methods, HOFs, and at least one closure **___**
-23. Persist your app's state using WebSQL or other database (if we persist on server-side database we don't need to use the local database); write middleware that handles CRUD operations on your database **___**
+23. Persist your app's state using WebSQL or other database (if we persist on server-side database we don't need to use the local database); write middleware that handles CRUD operations on your database **DAVID**
 24. Build a single page app and use client-side routing for at least two routes **KATE**
 25. Use MVC components that are loosely coupled, semantically labelled, and well documented as MVC in code comments **___**
 26. Deploy to public web server including a server-side app that authenticates to a third party server (weatherunderground) **KATE/DAVID**

@@ -1,10 +1,12 @@
 /* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. */
 
 #logo {
-  width: 150px;
-  position: relative;
-  top: 75px;
-  left: calc(50% - 75px);
+  width: 100%;
+  max-width: 300px;
+  /*top: 75px;*/
+  /*position: relative;
+
+  left: calc(50% - 75px);*/
   filter: drop-shadow(0px 0px 10px black);
   -webkit-filter: drop-shadow(0px 0px 10px black);
 }
@@ -118,4 +120,8 @@ footer img {
 
 footer .smallAndCenter {
   padding: 30px;
+}
+
+header section {
+  margin-top: 40px;
 }
