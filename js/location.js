@@ -68,6 +68,16 @@
       ], callback);
   };
 
+  userLocation.findWhere = function(field, value, callback) {
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM locations WHERE ' + field + ' = ?;',
+          data: [value]
+        }
+      ], callback);
+  };
+
   userLocation.loadAll = function(rows) {
     rows.map(function(ele) {
       //  Passed in this manner to duplicate how webDB.execute passes the data
@@ -87,16 +97,6 @@
         callback();
       }
     });
-  };
-
-  userLocation.findWhere = function(field, value, callback) {
-    webDB.execute(
-      [
-        {
-          sql: 'SELECT * FROM locations WHERE ' + field + ' = ?;',
-          data: [value]
-        }
-      ], callback);
   };
 
 
