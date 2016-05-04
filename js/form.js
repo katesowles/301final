@@ -17,7 +17,6 @@
       userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();
-      formHandler.showRec();
     } else {
 
       $('button').click(function(e){
