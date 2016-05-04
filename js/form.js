@@ -10,22 +10,18 @@
   formHandler = {};
 
   $(document).ready(function(){
-    if (!localStorage.currentUser) {
-      localStorage.currentUser = userName;
-      console.log('Storage was empty so I am filling it');
-    } else {
+    if (localStorage.currentUser) {
       console.log('Name was already there.');
       userName = localStorage.currentUser;
       $nameForm.hide();
       useName(userName);
       $locationForm.show();
-    }
-    return userName;
+    };
     $('button').click(function(e){
       e.preventDefault();
       var userName = $('input:text').val();
       useName(userName);
-
+      localStorage.currentUser = userName;
     });
   });
 
