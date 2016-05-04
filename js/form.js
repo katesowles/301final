@@ -23,7 +23,6 @@
       $('button').click(function(e){
         e.preventDefault();
         userName = $('input:text').val();
-        useName(userName);
         localStorage.currentUser = userName;
       });
     }

@@ -6,8 +6,6 @@
   };
   var allAddresses = [];
 
-  var render = Handlebars.compile($('#favoritesList').html());
-
   // sent as callback from .merge
   locationView.display = function(data) {
     $showLocations.append(
