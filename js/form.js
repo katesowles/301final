@@ -10,12 +10,22 @@
   formHandler = {};
 
   $(document).ready(function(){
+    if (!localStorage.currentUser) {
+      localStorage.currentUser = userName;
+      console.log('Storage was empty so I am filling it');
+    } else {
+      console.log('Name was already there.');
+      userName = localStorage.currentUser;
+      $nameForm.hide();
+      useName(userName);
+      $locationForm.show();
+    }
+    return userName;
     $('button').click(function(e){
       e.preventDefault();
       var userName = $('input:text').val();
       useName(userName);
-      localStorage.setItem('currentUser', userName);
-      return userName;
+
     });
   });
 
@@ -42,6 +52,7 @@
 
   function validateUserName(e) {
     e.preventDefault();
+    $nfValidator.element('#fname');
     var userName = document.forms['nameInput']['fname'].value;
     if (!userName) { // if userName is falsy
       $nameAlert.show();
@@ -102,6 +113,35 @@
     var obj = new userLocation(inputLocation);
     obj.insertRecord(userLocation.merge);
   };
+
+//tooltips
+
+  var $nfValidator = $('#nameForm').validate({
+    debug: true,
+    showErrors: function(errorMap, errorList) {
+      console.log('got to showErrors.');
+      $.each(this.validElements(), function (index, element) {
+        var $element = $(element);
+        $element.data('title', '')
+        .removeClass('error')
+        .tooltip('destroy');
+      });
+
+      $.each(errorList, function (index, error) {
+        var $element = $(error.element);
+        $element.parent().addClass('has-error');
+        $element.tooltip('destroy')
+        .data('title', error.message)
+        // .addClass('error')
+        .tooltip();
+      });
+    },
+    submitHandler: function(form) {
+      alert('This is a valid form!');
+    }
+  });
+
+
 
   module.formHandler = formHandler;
 })(window);
