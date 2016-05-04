@@ -46,24 +46,6 @@
     formHandler.el.$output.text(formHandler.recommendation(userLocation.all[0].temperature));
   };
 
-  // function useName(currentUser, goodDayOrBadDay) { //params of currentUser and what kind of day it is
-  //   var makeGoodorBad = function(goodOrBad) {  //makeGoodorBad - to display correct kind of day later
-  //     formHandler.el.$output.append('<p id="outputText">' + formHandler.el.$outputText.text() + '</p>'); // adds a <p> to the output section
-  //     formHandler.el.$outputText.text('Hey ' + currentUser + ', ' + goodOrBad); // adds the message text to the output <p>
-  //   };
-  //   return makeGoodorBad;
-  // }
-  //
-  // //here cometh the Closure 😱
-  // function message (currentUser){
-  //   var goodDay = useName(currentUser, 'itsgood');
-  //   goodDay('what a great day for biking!');
-  //   var badDay = useName(currentUser, 'itsbad');
-  //   badDay('maybe leave the bike at home today....');
-  //   var soSoDay = useName(currentUser, 'itssoso');
-  //   soSoDay('Conditions are not ideal. Depends on you, dude...');
-  // };
-
   //Event Listeners for Submit Button
   formHandler.el.$submitName.click(validateUserName);
 
@@ -90,46 +72,42 @@
 
   function validateLocation(e){
     e.preventDefault();
-
-    var locationDataForm = document.forms['locationData'];
+    var error = false;
+    var ldf = document.getElementById('locationForm');
     var inputLocation = {};
-    var locationName = locationDataForm['flocationname'].value;
+    $('fieldset > p').hide();
+    inputLocation.locationName = ldf.elements.flocationname.value;
+    inputLocation.streetAddress = ldf.elements.fstreetaddress.value;
+    inputLocation.city = ldf.elements.fcity.value;
+    inputLocation.state = ldf.elements.fstate.value;
+    inputLocation.zipcode = ldf.elements.fzip.value;
 
-    if (!locationName){ // if location name falsy
+
+    if (!inputLocation.locationName){ // if location name falsy
       $('#locationNameAlert').show();
-    } else {
-      inputLocation.locationName = locationName;
-    };
-
-    var streetAddress = locationDataForm['fstreetaddress'].value;
-    if (!streetAddress) { // if location address falsy
+      error = true;
+    }
+    if (!inputLocation.streetAddress) { // if location address falsy
       $('#locationAddressAlert').show();
-    } else {
-      inputLocation.streetAddress = streetAddress;
-    };
-
-    var city = locationDataForm['fcity'].value;
-    if (!city) { // if location city falsy
+      error = true;
+    }
+    if (!inputLocation.city) { // if location city falsy
       $('#locationCityAlert').show();
-    } else {
-      inputLocation.city = city;
-    };
-
-    var state = locationDataForm['fstate'].value;
-    if (!state) { // if location state falsy
+      error = true;
+    }
+    if (!inputLocation.state) { // if location state falsy
       $('#locationStateAlert').show();
-    } else {
-      inputLocation.state = state;
-    };
-
-    var zipcode = locationDataForm['fzip'].value;
-    if (!zipcode) { // if location zipcode falsy
+      error = true;
+    }
+    if (!inputLocation.zipcode) { // if location zipcode falsy
       $('#locationZipAlert').show();
-    } else {
-      inputLocation.zipcode = zipcode;
-    };
-    var obj = new userLocation(inputLocation);
-    obj.insertRecord(userLocation.merge);
+      error = true;
+    }
+    if (!error) {
+      var obj = new userLocation(inputLocation);
+      obj.insertRecord(userLocation.merge);
+      ldf.reset();
+    }
   };
 
 //tooltips
