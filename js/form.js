@@ -42,6 +42,7 @@
 
   function validateUserName(e) {
     e.preventDefault();
+    $nfValidator.element('#fname');
     var userName = document.forms['nameInput']['fname'].value;
     if (!userName) { // if userName is falsy
       $nameAlert.show();
@@ -105,14 +106,15 @@
 
 //tooltips
 
-  $('form').validate({
+  var $nfValidator = $('#nameForm').validate({
+    debug: true,
     showErrors: function(errorMap, errorList) {
-
+      console.log('got to showErrors.');
       $.each(this.validElements(), function (index, element) {
         var $element = $(element);
         $element.data('title', '')
-      .removeClass('error')
-      .tooltip('destroy');
+        .removeClass('error')
+        .tooltip('destroy');
       });
 
       $.each(errorList, function (index, error) {
