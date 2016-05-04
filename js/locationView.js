@@ -1,16 +1,13 @@
 (function(module) {
   var $showLocations = $('#showLocations');
+  var source = $('#favoritesList').text();
+  var template = Handlebars.compile(source);
+
   locationView = {};
-  var ui = function() {
-    $showLocations.empty().show();
-  };
-  var allAddresses = [];
 
   // sent as callback from .merge
   locationView.display = function(data) {
-    $showLocations.append(
-      Handlebars.compile($('#favoritesList').html())
-    );
+    $showLocations.append(template(data));
   };
 
   // this will be moved somewhere more appropriate.

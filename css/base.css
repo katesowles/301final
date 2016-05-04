@@ -63,7 +63,7 @@ hgroup {
   padding: 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   color: white;
   font-weight: 200;
   text-align: left;
@@ -72,22 +72,26 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-h1 {
-  font-size: 2.25em;
+h1 { /* site title in welcome page */
+  font-size: 3em;
   letter-spacing: -1px;
 }
 
-h2 {
+h2 { /* welcome blurb */
   font-size: 1.5em;
   text-transform: none;
  }
 
-h3 {
+h3 { /* name/about headers in footer */
   font-size: 1.5em;
   margin: 10px 0;
 }
 
-h4 {
+h4 { /* saved location header */
+  font-size: 1em;
+}
+
+h5 { /* saved location names */
   font-size: 1em;
   text-align: justify;
   margin: 0 auto;
@@ -97,11 +101,7 @@ h4 {
   text-transform: none;
 }
 
-h5 {
-  font-size: .8em;
-}
-
-h6 {
+h6 { /* delete link */
   font-size: .5em;
 }
 
@@ -112,7 +112,6 @@ img {
 section {
   /* height to be set with jquery to be 100% of window height */
   /*height: 560px;*/
-  height: 700px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

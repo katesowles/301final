@@ -13,17 +13,18 @@
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
     <script id="favoritesList" type="text/x-handlebars-template">
-      <article>
-        <h4>{{locationName}}</h4>
+      <article class="col-xs-6">
+        <h5>{{locationName}}</h5>
         <address>
           <p>{{streetAddress}}</p>
           <p>{{city}}, {{state}} {{zipcode}}</p>
         </address>
+        <h6>delete</h6>
       </article>
     </script>
     <script id="favoritesView" type="text/x-handlebars-template">
       <article>
-        <h4>{{LocationName}}</h4>
+        <h5>{{LocationName}}</h5>
         <div class="location favorite">
           <img src="{{CurrentConditionIcon}}" alt="{{CurrentCondition}}">
         </div>
@@ -43,11 +44,11 @@
 
       <section id="welcome" class="row">
         <div class="overlay row">
-          <section class="col-xs-5">
+          <section class="col-xs-12">
             <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo">
           </section>
-          <section class="col-xs-1">&nbsp;</section>
-          <section class="col-xs-6">
+          <!-- <section class="col-xs-1">&nbsp;</section> -->
+          <section class="col-xs-12">
             <hgroup>
               <h1>Should I Bike It?</h1>
               <h2>Inspired by our erratic Portland weather, it can be hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed. Maybe you struggle with the same issue?</h2>
@@ -106,8 +107,7 @@
             </div> <!-- closes left-hand column -->
 
             <div id="showLocations" class="col-sm-6">
-
-              <p>This renders!</p>
+              <h4>Saved Locations</h4>
             </div> <!-- closes right-hand column -->
 
           </div> <!-- closes the div 'row' with location data -->
