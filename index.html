@@ -66,45 +66,49 @@
 
       <section id="configure">
         <div class="overlay row">
-            <form name="nameInput" id="nameForm" class="col-sm-12">
-              <label>Enter your name</label>
-              <input type="text" name="fname" value="" id="fname">
-              <p id="userAlert">Please enter your name!</p>
-              <button id="submitButton" class="btn">Submit</button>
-            </form>
+          <form name="nameInput" id="nameForm" class="col-sm-12">
+            <label>Enter your name</label>
+            <input type="text" name="fname" value="" id="fname">
+            <p id="nameAlert">Please enter your name!</p>
+            <button id="submitName" class="btn">Submit</button>
+          </form>
           <div class="row">
-            <form name='locationData' id="locationForm" class="col-sm-6">
-              <fielset>
-                <legend>Input a favorite Location to appear on your dashboard</legend>
-                <label>Location Name</label>
-                <input type='text' name='flocationname'>
-                <p id='userAlert2'>Please enter the name of the location!</p>
-                <label>Street Address</label>
-                <input type='text' name='fstreetaddress'>
-                <p id='userAlert3'>Please enter the street address of the location!</p>
-                <label>City</label>
-                <input type='text' name='fcity'>
-                <p id='userAlert4'>Please enter the city the location is in!</p>
-                <label>State</label>
-                <input type='text' name='fstate'>
-                <p id='userAlert5'>Please enter the state the location is in!</p>
-                <label>Zip</label>
-                <input type='text' name='fzip'>
-                <p id='userAlert6'>Please enter the zip code of the location!</p>
-                <button id="submitButton2" class="btn">Submit Location</button>
-              </fieldset>
-            </form>
+            <div class="col-sm-6">
+              <form name='locationData' id="locationForm">
+                <fielset>
+                  <legend>Input a favorite Location to appear on your dashboard</legend>
+                  <label>Location Name</label>
+                  <input type='text' name='flocationname'>
+                  <p id='locationNameAlert'>Please enter the name of the location!</p>
+                  <label>Street Address</label>
+                  <input type='text' name='fstreetaddress'>
+                  <p id='locationAddressAlert'>Please enter the street address of the location!</p>
+                  <label>City</label>
+                  <input type='text' name='fcity'>
+                  <p id='locationCityAlert'>Please enter the city the location is in!</p>
+                  <label>State</label>
+                  <input type='text' name='fstate'>
+                  <p id='locationStateAlert'>Please enter the state the location is in!</p>
+                  <label>Zip</label>
+                  <input type='text' name='fzip'>
+                  <p id='locationZipAlert'>Please enter the zip code of the location!</p>
+                  <button id="submitLocation" class="btn">Submit Location</button>
+                </fieldset>
+              </form>
+            </div> <!-- closes left-hand column -->
 
-            <div id="output"></div>
-            <h2 id="itsgood"></h2>
-            <h2 id="itsbad"></h2>
-            <h2 id='itssoso'></h2>
+            <div id="showLocations" class="col-sm-6">
+              <div id="output">
+                <h2 id="itsgood"></h2>
+                <h2 id="itsbad"></h2>
+                <h2 id='itssoso'></h2>
+              </div>
 
-          <div id="showLocations" class="col-sm-6">
-            <p>This renders!</p>
-          </div>
-          </div>
-        </div>
+              <p>This renders!</p>
+            </div> <!-- closes right-hand column -->
+
+          </div> <!-- closes the div 'row' with location data -->
+        </div> <!-- closes the div 'overlay row' -->
       </section>
 
       <footer class="row" id="about">
