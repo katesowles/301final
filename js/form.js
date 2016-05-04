@@ -17,19 +17,19 @@
       userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();
-      formHandler.showRec();
-    };
-    $('button').click(function(e){
-      e.preventDefault();
-      userName = $('input:text').val();
-      useName(userName);
-      localStorage.currentUser = userName;
-      formHandler.showRec();
+    } else {
 
-    });
+      $('button').click(function(e){
+        e.preventDefault();
+        userName = $('input:text').val();
+        localStorage.currentUser = userName;
+      });
+    }
+
   };
 
   formHandler.recommendation= function(temp){
+    console.log(temp + 'hi there');
     var response = '';
     if (temp < 50){
       response = 'cold';
@@ -43,7 +43,7 @@
   };
 
   formHandler.showRec = function (){
-    formHandler.el.$output.text(formHandler.recommendation(userLocation[0].temperature));
+    formHandler.el.$output.text(formHandler.recommendation(userLocation.all[0].temperature));
   };
 
   // function useName(currentUser, goodDayOrBadDay) { //params of currentUser and what kind of day it is
@@ -75,7 +75,7 @@
       formHandler.el.$nameAlert.show();
       // $output.hide();
     }else {
-      
+
       formHandler.el.$nameAlert.hide();
       formHandler.el.$nameForm.hide();
       // $output.show();
@@ -160,6 +160,7 @@
   // });
 
 
+  formHandler.init();
 
   module.formHandler = formHandler;
 })(window);

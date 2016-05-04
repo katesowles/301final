@@ -1,13 +1,13 @@
 (function(module) {
+  var $showLocations = $('#showLocations');
+  var source = $('#favoritesList').text();
+  var template = Handlebars.compile(source);
+
   locationView = {};
-
-  // input: object of userLocation,
-
 
   // sent as callback from .merge
   locationView.display = function(data) {
-    // this will be something with handlebars tempaltes and shit.
-    console.log('lv.disp shows: ',data);
+    $showLocations.append(template(data));
   };
 
   // this will be moved somewhere more appropriate.
