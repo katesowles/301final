@@ -1,13 +1,18 @@
 (function(module) {
+  var $showLocations = $('#showLocations');
   locationView = {};
+  var ui = function() {
+    $showLocations.empty().show();
+  };
+  var allAddresses = [];
 
-  // input: object of userLocation,
-
+  var render = Handlebars.compile($('#favoritesList').html());
 
   // sent as callback from .merge
   locationView.display = function(data) {
-    // this will be something with handlebars tempaltes and shit.
-    console.log('lv.disp shows: ',data);
+    $showLocations.append(
+      Handlebars.compile($('#favoritesList').html())
+    );
   };
 
   // this will be moved somewhere more appropriate.
