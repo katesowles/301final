@@ -17,9 +17,9 @@
         <h5>{{locationName}}</h5>
         <address>
           <p>{{streetAddress}}</p>
-          <p>{{city}}, {{state}} {{zipcode}}</p>
+          <p>{{city}}, {{state}}</p>
+          <p>{{zipcode}}</p>
         </address>
-        <h6>delete</h6>
       </article>
     </script>
     <script id="favoritesView" type="text/x-handlebars-template">
@@ -27,6 +27,7 @@
         <h5>{{LocationName}}</h5>
         <div class="location favorite">
           <img src="{{CurrentConditionIcon}}" alt="{{CurrentCondition}}">
+          <a href="#"><h6>delete</h6></a>
         </div>
       </article>
     </script>
@@ -68,7 +69,6 @@
           <div class="location favorite"></div>
           <div class="location favorite"></div>
           <div id="output">
-            LALALALALA
           </div>
         </div>
       </section>
@@ -85,7 +85,7 @@
             <div class="col-sm-6">
               <form name='locationData' id="locationForm">
                 <fieldset>
-                  <legend>Input a favorite Location to appear on your dashboard</legend>
+                  <legend>Input a favorite Location</legend>
                   <label>Location Name</label>
                   <input type='text' name='flocationname'>
                   <p id='locationNameAlert'>Please enter the name of the location!</p>
