@@ -7,9 +7,8 @@
 
   userLocation.all = [];
 
-  // callback function for new data inserted into database.  creates a function
-  // that merges the data w/ weather data then passes that function as a callback
-  // to the query.
+  // callback function for new data inserted into database.  creates a function that merges the data w/ weather data then passes that function as a callback to the query.
+  
   userLocation.merge = function(id, result, tx) {
     var locId = result.insertId;
     var callback = function(row) {
@@ -17,7 +16,6 @@
     };
     userLocation.findWhere('id', locId, callback);
   };
-
 
   userLocation.createTable = function(callback) {
     webDB.execute(
@@ -98,7 +96,6 @@
         }
       ], callback);
   };
-
 
   module.userLocation = userLocation;
 })(window);
