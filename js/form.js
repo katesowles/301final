@@ -1,78 +1,100 @@
 (function(module) {
-  var $nameAlert = $('#nameAlert');
-  var $output = $('#output');
-  var $outputText = $('#outputText');
-  var $nameForm = $('#nameForm');
-  var $locationForm = $('#locationForm');
-  var $submitName = $('#submitName');
-  var $submitLocation = $('#submitLocation');
 
   formHandler = {};
+  formHandler.userName = '';
+  formHandler.el = {};
+  formHandler.el.$nameAlert = $('#nameAlert');
+  formHandler.el.$output = $('#output');
+  formHandler.el.$outputText = $('#outputText');
+  formHandler.el.$nameForm = $('#nameForm');
+  formHandler.el.$locationForm = $('#locationForm');
+  formHandler.el.$submitName = $('#submitName');
+  formHandler.el.$submitLocation = $('#submitLocation');
 
-  $(document).ready(function(){
+  formHandler.init = function(){
     if (localStorage.currentUser) {
       console.log('Name was already there.');
       userName = localStorage.currentUser;
-      $nameForm.hide();
-      useName(userName);
-      $locationForm.show();
+      formHandler.el.$nameForm.hide();
+      formHandler.el.$locationForm.show();
+      formHandler.showRec();
     };
     $('button').click(function(e){
       e.preventDefault();
-      var userName = $('input:text').val();
+      userName = $('input:text').val();
       useName(userName);
       localStorage.currentUser = userName;
+      formHandler.showRec();
+
     });
-  });
-
-  function useName(currentUser, goodDayOrBadDay) { //params of currentUser and what kind of day it is
-    var makeGoodorBad = function(goodOrBad) {  //makeGoodorBad - to display correct kind of day later
-      $output.append('<p id="outputText"></p>'); // adds a <p> to the output section
-      $outputText.text('Hey ' + currentUser + ', ' + goodOrBad); // adds the message text to the output <p>
-    };
-    return makeGoodorBad;
-  }
-
-  //here cometh the Closure 😱
-  function message (currentUser){
-    var goodDay = useName(currentUser, 'itsgood');
-    goodDay('what a great day for biking!');
-    var badDay = useName(currentUser, 'itsbad');
-    badDay('maybe leave the bike at home today....');
-    var soSoDay = useName(currentUser, 'itssoso');
-    soSoDay('Conditions are not ideal. Depends on you, dude...');
   };
 
+  formHandler.recommendation= function(temp){
+    var response = '';
+    if (temp < 50){
+      response = 'cold';
+    } else if (temp <=50 && temp < 75) {
+      response = 'good';
+    } else {
+      resonse = 'hot';
+    }
+
+    return response;
+  };
+
+  formHandler.showRec = function (){
+    formHandler.el.$output.text(formHandler.recommendation(userLocation[0].temperature));
+  };
+
+  // function useName(currentUser, goodDayOrBadDay) { //params of currentUser and what kind of day it is
+  //   var makeGoodorBad = function(goodOrBad) {  //makeGoodorBad - to display correct kind of day later
+  //     formHandler.el.$output.append('<p id="outputText">' + formHandler.el.$outputText.text() + '</p>'); // adds a <p> to the output section
+  //     formHandler.el.$outputText.text('Hey ' + currentUser + ', ' + goodOrBad); // adds the message text to the output <p>
+  //   };
+  //   return makeGoodorBad;
+  // }
+  //
+  // //here cometh the Closure 😱
+  // function message (currentUser){
+  //   var goodDay = useName(currentUser, 'itsgood');
+  //   goodDay('what a great day for biking!');
+  //   var badDay = useName(currentUser, 'itsbad');
+  //   badDay('maybe leave the bike at home today....');
+  //   var soSoDay = useName(currentUser, 'itssoso');
+  //   soSoDay('Conditions are not ideal. Depends on you, dude...');
+  // };
+
   //Event Listeners for Submit Button
-  $submitName.click(validateUserName);
+  formHandler.el.$submitName.click(validateUserName);
 
   function validateUserName(e) {
     e.preventDefault();
-    $nfValidator.element('#fname');
+    // $nfValidator.element('#fname');
     var userName = document.forms['nameInput']['fname'].value;
     if (!userName) { // if userName is falsy
-      $nameAlert.show();
-      $output.hide();
+      formHandler.el.$nameAlert.show();
+      // $output.hide();
     }else {
       message(userName);
-      $nameAlert.hide();
-      $nameForm.hide();
-      $output.show();
-      $locationForm.show();
+      formHandler.el.$nameAlert.hide();
+      formHandler.el.$nameForm.hide();
+      // $output.show();
+      formHandler.el.$locationForm.show();
     }
   };
 
   //Event Listener for Submit Button2
-  $submitLocation.click(validateLocation);
+  formHandler.el.$submitLocation.click(validateLocation);
 
   //Validating the input for the Location Form
 
   function validateLocation(e){
-    var locationDataForm = document.forms['locationData'];
     e.preventDefault();
-    var inputLocation = {};
 
+    var locationDataForm = document.forms['locationData'];
+    var inputLocation = {};
     var locationName = locationDataForm['flocationname'].value;
+
     if (!locationName){ // if location name falsy
       $('#locationNameAlert').show();
     } else {
@@ -112,30 +134,30 @@
 
 //tooltips
 
-  var $nfValidator = $('#nameForm').validate({
-    debug: true,
-    showErrors: function(errorMap, errorList) {
-      console.log('got to showErrors.');
-      $.each(this.validElements(), function (index, element) {
-        var $element = $(element);
-        $element.data('title', '')
-        .removeClass('error')
-        .tooltip('destroy');
-      });
-
-      $.each(errorList, function (index, error) {
-        var $element = $(error.element);
-        $element.parent().addClass('has-error');
-        $element.tooltip('destroy')
-        .data('title', error.message)
-        // .addClass('error')
-        .tooltip();
-      });
-    },
-    submitHandler: function(form) {
-      alert('This is a valid form!');
-    }
-  });
+  // var $nfValidator = $('#nameForm').validate({
+  //   debug: true,
+  //   showErrors: function(errorMap, errorList) {
+  //     console.log('got to showErrors.');
+  //     $.each(this.validElements(), function (index, element) {
+  //       var $element = $(element);
+  //       $element.data('title', '')
+  //       .removeClass('error')
+  //       .tooltip('destroy');
+  //     });
+  //
+  //     $.each(errorList, function (index, error) {
+  //       var $element = $(error.element);
+  //       $element.parent().addClass('has-error');
+  //       $element.tooltip('destroy')
+  //       .data('title', error.message)
+  //       // .addClass('error')
+  //       .tooltip();
+  //     });
+  //   },
+  //   submitHandler: function(form) {
+  //     alert('This is a valid form!');
+  //   }
+  // });
 
 
 
