@@ -11,7 +11,10 @@
   };
 
   // this will be moved somewhere more appropriate.
-  userLocation.fetchAll();
+  locationView.init = function() {
+    userLocation.createTable();
+    userLocation.fetchAll();
+  };
 
   module.locationView = locationView;
 })(window);
