@@ -13,20 +13,20 @@
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
     <script id="favoritesList" type="text/x-handlebars-template">
-      <article class="col-xs-6">
-        <h5>{{locationName}}</h5>
-        <address>
-          <p>{{streetAddress}}</p>
-          <p>{{city}}, {{state}}</p>
-          <p>{{zipcode}}</p>
-        </address>
-      </article>
+        <article class="col-sm-6 col-md-4 col-lg-3">
+          <h5>{{locationName}}</h5>
+          <address>
+            <p>{{streetAddress}}</p>
+            <p>{{city}}, {{state}}</p>
+            <p>{{zipcode}}</p>
+          </address>
+        </article>
     </script>
     <script id="favoritesView" type="text/x-handlebars-template">
-      <article>
-        <h5>{{LocationName}}</h5>
+      <article class="col-xs-6 col-sm-4 col-md-3 col-lg-2 location favorite">
+        <h5>{{locationName}}</h5>
         <div class="location favorite">
-          <img src="{{CurrentConditionIcon}}" alt="{{CurrentCondition}}">
+          <img src="{{conditionIcon}}" alt="{{condition}}">
           <a href="#"><h6>delete</h6></a>
         </div>
       </article>
@@ -43,33 +43,34 @@
         </nav>
       </header>
 
-      <section id="welcome" class="row">
+      <section id="welcome">
         <div class="overlay row">
-          <section class="col-xs-12">
+          <div class="col-md-2 col-lg-3">&nbsp;</div> <!-- spacer -->
+          <article class="col-sm-6 col-md-4 col-lg-3">
             <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo">
-          </section>
-          <!-- <section class="col-xs-1">&nbsp;</section> -->
-          <section class="col-xs-12">
+          </article>
+          <article class="col-sm-6 col-md-4 col-lg-3">
             <hgroup>
               <h1>Should I Bike It?</h1>
               <h2>Inspired by our erratic Portland weather, it can be hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed. Maybe you struggle with the same issue?</h2>
               <h2>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need to stay up to date on how comfortable biking between your favorite locations will be.</h2>
             </hgroup>
-          </section>
+          </article>
+          <div class="col-md-2 col-lg-3">&nbsp;</div> <!-- spacer -->
         </div>
       </section>
 
-      <section id="dashboard" class="row">
-        <div class="overlay">
-          <div class="location current"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div id="output">
+      <section id="dashboard">
+        <div class="overlay row">
+          <div class="col-sm-6 col-md-4 location current">
+            <!-- current location widget will go here -->
           </div>
+          <div class="col-sm-6 col-md-8 location">
+            <div class="row">
+              <!-- favorite location widgets will go here -->
+            </div>
+          </div>
+          <div id="output"></div>
         </div>
       </section>
 
@@ -106,8 +107,11 @@
               </form>
             </div> <!-- closes left-hand column -->
 
-            <div id="showLocations" class="col-sm-6">
+            <div class="col-sm-6">
               <h4>Saved Locations</h4>
+              <div id="showLocations" class="row">
+
+              </div> <!-- closes the showLocations row -->
             </div> <!-- closes right-hand column -->
 
           </div> <!-- closes the div 'row' with location data -->
@@ -115,7 +119,7 @@
       </section>
 
       <footer class="row" id="about">
-        <article class="col-xs-12 col-sm-6 col-md-3 david">
+        <article class="col-sm-6 col-md-3">
           <img src="img/bio/david.jpg" alt="David Goodwin" class="greyscale">
           <div class="bio">
             <h3>David Goodwin</h3>
@@ -127,7 +131,7 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 yvonne">
+        <article class="col-sm-6 col-md-3">
           <img src="img/bio/yvonne.jpg" alt="Yvonne Hayes" class="greyscale" />
           <div class="bio">
             <h3>Yvonne Hayes</h3>
@@ -137,7 +141,7 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 kate">
+        <article class="col-sm-6 col-md-3">
           <img src="img/bio/kate.jpg" alt="Kate Sowles" class="greyscale" />
           <div class="bio">
             <h3>Kate Sowles</h3>
@@ -146,7 +150,7 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 about">
+        <article class="col-sm-6 col-md-3">
           <h3>About the project</h3>
           <p>Curious about our process? Want to take the idea and run with it? <a href="https://github.com/katesowles/301final">Click here to visit the repository</a></p>
           <p>Weather information gathered via the Weather Underground API</p>

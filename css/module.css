@@ -38,21 +38,23 @@
 /* dashboard specific styles */
 
 div.location {
-  border-radius: 50%;
+  border-radius: 50px;
   background-color: #ddd;
   display: inline-block;
   opacity: .2;
+  /*margin: 20px;*/
 }
 
 div.current {
-  width: 300px;
+  /*width: 100%;*/
   height: 300px;
 }
 
 div.favorite {
-  width: 77px;
+  /*width: 100%;*/
   height: 77px;
-  margin: 10px;
+  background-color: red;
+  opacity: .8;
 }
 
 /* config specific styles */
