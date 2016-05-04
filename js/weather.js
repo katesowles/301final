@@ -1,6 +1,22 @@
 (function(module) {
   var weather = {};
 
+
+
+  weather.updateData = function(locObj, callback) {
+    var localData;
+    $.get('/wu/astronomy/hourly/q/'+ locObj.zipcode +'.json')
+    .done (function(data, message, xhr) {
+      localData = $.extend(locObj, weather.extractData(data));
+      if (callback) {
+        userLocation.all.push(new userLocation(localData));
+        callback(localData);
+      } else {
+        console.log('weather.updateData says "No callback specified"');
+      }
+    });
+  };
+
   weather.extractData = function(data) {
     return {
       temperature:  data.hourly_forecast[0].temp.english,
@@ -12,26 +28,5 @@
     };
   };
 
-  weather.updateData = function(zip, callback) {
-    var localData;
-    $.get('/wu/astronomy/hourly/q/'+ zip +'.json')
-    .done (function(data, message, xhr) {
-      localData = weather.extractData(data);
-      if (callback) {
-        callback(localData);
-      } else {
-        console.log('weather.updateData says "No callback specified"');
-      }
-    });
-  };
-
-  // weather.updateData('97203', draw);
-
   module.weather = weather;
 })(window);
-
-
-//  This is a dummy render function, remove before production.
-function draw(data) {
-  console.log('data == ',data);
-}

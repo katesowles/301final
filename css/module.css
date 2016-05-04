@@ -93,7 +93,6 @@ margin-bottom: 40px;
 }
 
 #nameForm input {
-  /*width: calc(100% - 180px);*/
   width: 100%;
   display: inline-block;
   font-size: 30px;
@@ -120,6 +119,3 @@ footer img {
 footer .smallAndCenter {
   padding: 30px;
 }
-
-/* photo-1455641374154-422f32e234cd.jpeg */
-/* photo-1455719103652-8c015f564e2b.jpeg */
