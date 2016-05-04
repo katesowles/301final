@@ -21,7 +21,7 @@
 
   function useName(currentUser, goodDayOrBadDay) { //params of currentUser and what kind of day it is
     var makeGoodorBad = function(goodOrBad) {  //makeGoodorBad - to display correct kind of day later
-      $output.append('<p id="outputText"></p>'); // adds a <p> to the output section
+      $output.append('<p id='outputText'></p>'); // adds a <p> to the output section
       $outputText.text('Hey ' + currentUser + ', ' + goodOrBad); // adds the message text to the output <p>
     };
     return makeGoodorBad;
@@ -102,6 +102,34 @@
     var obj = new userLocation(inputLocation);
     obj.insertRecord(userLocation.merge);
   };
+
+//tooltips
+
+$('form').validate({
+
+  showErrors: function(errorMap, errorList) {
+          // Clean up any tooltips for valid elements
+    $.each(this.validElements(), function (index, element) {
+      var $element = $(element);
+      $element.data('title', '') // Clear the title - there is no error associated anymore
+      .removeClass('error')
+      .tooltip('destroy');
+    });
+          // Create new tooltips for invalid elements
+    $.each(errorList, function (index, error) {
+      var $element = $(error.element);
+      $element.tooltip('destroy') // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+        .data('title', error.message)
+        .addClass('error')
+        .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+      });
+    },
+      submitHandler: function(form) {
+        alert('This is a valid form!');
+    }
+});
+
+
 
   module.formHandler = formHandler;
 })(window);
