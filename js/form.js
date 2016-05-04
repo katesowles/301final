@@ -33,7 +33,7 @@
     var response = '';
     if (temp < 50){
       response = 'cold';
-    } else if (temp <=50 && temp < 75) {
+    } else if ((temp >= 50) && (temp < 75)) {
       response = 'good';
     } else {
       resonse = 'hot';
@@ -75,7 +75,7 @@
       formHandler.el.$nameAlert.show();
       // $output.hide();
     }else {
-      message(userName);
+      
       formHandler.el.$nameAlert.hide();
       formHandler.el.$nameForm.hide();
       // $output.show();
