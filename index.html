@@ -13,7 +13,7 @@
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
     <script id="favoritesList" type="text/x-handlebars-template">
-        <article class="col-sm-6 col-md-4 col-lg-3">
+        <article class="col-xs-6 col-md-4 col-lg-3">
           <h5>{{locationName}}</h5>
           <address>
             <p>{{streetAddress}}</p>
@@ -23,7 +23,7 @@
         </article>
     </script>
     <script id="favoritesView" type="text/x-handlebars-template">
-      <article class="col-xs-6 col-sm-4 col-md-3 col-lg-2 location favorite">
+      <article class="col-xs-6 col-md-4 col-lg-3 location favorite">
         <h5>{{locationName}}</h5>
         <div class="location favorite">
           <img src="{{conditionIcon}}" alt="{{condition}}">
@@ -65,7 +65,7 @@
           <div class="col-sm-6 col-md-4 location current">
             <!-- current location widget will go here -->
           </div>
-          <div class="col-sm-6 col-md-8 location">
+          <div id="displayLocations" class="col-sm-6 col-md-8 location">
             <div class="row">
               <!-- favorite location widgets will go here -->
             </div>

@@ -41,7 +41,6 @@ div.location {
   border-radius: 50px;
   background-color: #ddd;
   display: inline-block;
-  opacity: .2;
   /*margin: 20px;*/
 }
 
@@ -54,7 +53,6 @@ div.favorite {
   /*width: 100%;*/
   height: 77px;
   background-color: red;
-  opacity: .8;
 }
 
 /* config specific styles */
