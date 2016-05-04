@@ -63,7 +63,7 @@ div.formGoesHere {
 /*                       FORMS                          */
 /********************************************************/
 
-#userAlert, #userAlert2, #userAlert3, #userAlert4, #userAlert5, #userAlert6 {
+#nameAlert, #locationNameAlert, #locationAddressAlert, #locationCityAlert, #locationStateAlert, #locationZipAlert {
   display: none;
   color: red;
 }
