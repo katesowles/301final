@@ -1,15 +1,19 @@
 /* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. */
 
+/* header specific styles */
+
 #logo {
-  width: 100%;
   max-width: 300px;
   filter: drop-shadow(0px 0px 10px black);
   -webkit-filter: drop-shadow(0px 0px 10px black);
+  margin-bottom: 50px;
 }
 
 .viewing {
   font-weight: 400;
 }
+
+/* "page" specific styles */
 
 .overlay {
   background-color: rgba(0,0,0,0.5);
@@ -31,41 +35,34 @@
   background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpeg');
 }
 
+/* dashboard specific styles */
+
 div.location {
-  border-radius: 50%;
+  border-radius: 50px;
   background-color: #ddd;
   display: inline-block;
   opacity: .2;
+  /*margin: 20px;*/
 }
 
 div.current {
-  width: 300px;
+  /*width: 100%;*/
   height: 300px;
 }
 
 div.favorite {
-  width: 77px;
+  /*width: 100%;*/
   height: 77px;
-  margin: 10px;
+  background-color: red;
+  opacity: .8;
 }
 
-div.formGoesHere {
-  width: 100%;
-  height: 100%;
-  /*background-color: #ddd;*/
-  /*opacity: .2;*/
-}
-
-
-/********************************************************/
-/*                       FORMS                          */
-/********************************************************/
+/* config specific styles */
 
 #nameAlert, #locationNameAlert, #locationAddressAlert, #locationCityAlert, #locationStateAlert, #locationZipAlert {
   display: none;
   color: red;
 }
-
 
 .btn {
   background-color: transparent;
@@ -78,24 +75,25 @@ div.formGoesHere {
   margin-left: calc(50% - 75px);
   margin-top: 45px;
 }
-#nameForm{
-margin-bottom: 40px;
+
+#nameForm {
+  margin-bottom: 40px;
+}
+
+#nameform label, #nameForm input {
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
 }
 
 #nameForm label{
   font-size: 50px;
-  font-weight: 200;
-  text-align: center;
   margin-right: 0;
-  width: 100%;
 }
 
 #nameForm input {
-  width: 100%;
   display: inline-block;
   font-size: 30px;
-  font-weight: 200;
-  text-align: center;
 }
 
 #nameForm button {
@@ -107,17 +105,8 @@ margin-bottom: 40px;
   display: none;
 }
 
-footer img {
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0;
-}
+/* footer specific styles */
 
 footer .smallAndCenter {
   padding: 30px;
-}
-
-header section {
-  margin-top: 40px;
 }
