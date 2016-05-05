@@ -69,17 +69,72 @@
 
 //Info Message about Weather Condition
 
-  formHandler.recWind= function(wind){
-    var response = '';
-    if (wind < 16){
-      response = 'There\'s barely any wind';
-    } else if ((wind >= 16) && (wind < 26)) {
-      response = 'It\'s a bit breezy';
-    } else {
-      response = 'It\'s windy.';
-    }
-    return response;
-  };
+var response = '';
+
+switch (userLocation.all[0].condition) {
+  case 'Drizzle':
+  case 'Rain Mist':
+  case 'Freezing Drizzle':
+    response = 'It\'s drizzling';
+    break;
+  case 'Rain':
+  case 'Rain Showers':
+  case 'Freezing Rain':
+  case 'Unknown Precipitation':
+    response = 'It\'s raining';
+    break;
+  case 'Snow':
+  case 'Snow Grains':
+  case 'Ice Crystals':
+  case 'Low Drifting Snow':
+  case 'Blowing Snow':
+  case 'Snow Showers':
+  case 'Snow Blowing Snow Mist':
+    response = 'It\'s snowing';
+    break;
+  case 'Hail':
+  case 'Ice Pellets':
+  case 'Ice Pellet Showers':
+  case 'Hail Showers':
+  case 'Small Hail Showers':
+  case 'Small Hail':
+    response = 'It\'s hailing';
+    break;
+  case 'Mist':
+  case 'Fog':
+  case 'Fog Patches':
+  case 'Freezing Fog':
+  case 'Spray':
+  case 'Patches of Fog':
+  case 'Shallow Fog':
+  case 'Partial Fog':
+    response = 'It\'s foggy';
+    break;
+  case 'Smoke':
+  case 'Volcanic Ash':
+  case 'Wide Spread Dust':
+  case 'Sand':
+  case 'Haze':
+  case 'Dust Whirls':
+  case 'Sandstorm':
+  case 'Low Drifting Widespread Dust':
+  case 'Low Drifting Sand':
+  case 'Blowing Sand':
+  case 'Blowing Widespread Dust':
+    response = 'It\'s smoky';
+    break;
+  case 'Thunderstorm':
+  case 'Thunderstorms and Rain':
+  case 'Thunderstorms and Snow':
+  case 'Thunderstorms and Ice Pellets':
+  case 'Thunderstorms with Hail':
+  case 'Thunderstorms with Small Hail':
+    response = 'There\'s thunderstorms';
+    break;
+
+
+
+DONT FORGET DEFAULT!!!!!!!
 
 
   //Event Listeners for Submit Button
