@@ -51,6 +51,7 @@
   formHandler.showRec = function (){
     formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature));
     formHandler.el.$outputWind.text(formHandler.recWind(userLocation.all[0].wind));
+    formHandler.el.$outputCondi.text(formHandler.recCondi(userLocation.all[0].condition));
   };
 
 //Info Message about the Wind
@@ -69,9 +70,10 @@
 
 //Info Message about Weather Condition
 
+  formHandler.recCondi = function(condi){
   var response = '';
 
-  switch (userLocation.all[0].condition) {
+  switch (condi) {
   case 'Drizzle':
   case 'Rain Mist':
   case 'Freezing Drizzle':
@@ -151,6 +153,7 @@
   default:
     response = 'Any weather is great biking weather!';
   };
+};
 
 
 
