@@ -7,6 +7,7 @@
   formHandler.el.$outputTemp = $('#outputTemp');
   formHandler.el.$outputCondi = $('#outputCondi');
   formHandler.el.$outputWind = $('#outputWind');
+  formHandler.el.$outputSun = $ ('#outputSun');
   formHandler.el.$outputRec = $('#outputRec');
   formHandler.el.$nameForm = $('#nameForm');
   formHandler.el.$locationForm = $('#locationForm');
@@ -77,13 +78,14 @@
   formHandler.showRec = function (){
     var loc = userLocation.all[0];
     var temp = formHandler.recTemp(loc.temperature);
-    var wind = formHandler.recWind(loc.wind);
+    var wind = formHandler.recWind(loc.windSpeed);
     var condi = formHandler.recCondi(loc.condition);
-
+    var sunRiseSet = formHandler.recSunRiseSet();
 
     formHandler.el.$outputTemp.text(temp.answer);
     formHandler.el.$outputWind.text(wind.answer);
     formHandler.el.$outputCondi.text(condi.answer);
+    formHandler.el.$outputSun.text(sunRiseSet);
 
     if (temp.good && wind.good && condi.good) {
       $('#outputRec').text('It\'s a great for biking!');
@@ -212,13 +214,13 @@
   };
 
 
-  formHandler.recSunriseSet = function(sunRiseSet){
+  formHandler.recSunRiseSet = function(){
     var answer = '';
     var now = new Date();
     if (now.getHours() <= userLocation.all[0].sunrise) {
-      answer = 'the sun will rise at ' + userLocation.all[0].sunrise;
+      answer = 'The sun will rise at ' + userLocation.all[0].sunrise;
     } else {
-      answer = 'the sun will set at ' + userLocation.all[0].sunset;
+      answer = 'The sun will set at ' + userLocation.all[0].sunset;
     }
     return answer;
   };
