@@ -69,9 +69,9 @@
 
 //Info Message about Weather Condition
 
-var response = '';
+  var response = '';
 
-switch (userLocation.all[0].condition) {
+  switch (userLocation.all[0].condition) {
   case 'Drizzle':
   case 'Rain Mist':
   case 'Freezing Drizzle':
@@ -131,10 +131,27 @@ switch (userLocation.all[0].condition) {
   case 'Thunderstorms with Small Hail':
     response = 'There\'s thunderstorms';
     break;
+  case 'Overcast':
+  case 'Partly Cloudy':
+  case 'Mostly Cloudy':
+  case 'Scattered Clouds':
+    response = 'It\'s overcast';
+    break;
+  case 'Clear':
+    response = 'It\'s clear';
+    break;
+  case 'Squall':
+    response = 'There\'s squalls';
+  case 'Funnel Cloud':
+    response = 'There\'s a funnel cloud';
+    break;
+  case 'Unknown':
+    response = 'Look out the window';
+    break;
+  default:
+    response = 'Any weather is great biking weather!';
+  };
 
-
-
-DONT FORGET DEFAULT!!!!!!!
 
 
   //Event Listeners for Submit Button
