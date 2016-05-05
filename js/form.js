@@ -170,6 +170,7 @@
     default:
       response = 'Any weather is great biking weather!';
     };
+    return response;
   };
 
   formHandler.init();
