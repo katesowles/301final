@@ -29,16 +29,20 @@
   };
 
   formHandler.recommendation= function(temp){
-    console.log(temp + 'hi there');
     var response = '';
     if (temp < 50){
-      response = 'cold';
-    } else if ((temp >= 50) && (temp < 75)) {
-      response = 'good';
+      response = 'It\'s very cold';
+    } else if ((temp >= 50) && (temp < 61)) {
+      response = 'It\s pleasantly cool';
+    } else if ((temp >= 61) && (temp < 70)) {
+      response = 'It\'s nice and warm, perfect biking temperatures ';
+    } else if ((temp >= 70) && (temp < 79)) {
+      response = 'It\'s pretty warm, should be a nice ride';
+    } else if ((temp >= 79) && (temp < 88)) {
+      response = 'It\'s very warm out there';
     } else {
-      resonse = 'hot';
+      response = 'It\'s very hot';
     }
-
     return response;
   };
 
