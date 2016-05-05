@@ -14,20 +14,38 @@
 
   formHandler.init = function(){
     if (localStorage.currentUser) {
-      // console.log('Name was already there.');
-      userName = localStorage.currentUser;
+      formHandler.userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();
     } else {
-
-      $('button').click(function(e){
+      formHandler.el.$submitName.on('click', function(e){
         e.preventDefault();
-        userName = $('input:text').val();
-        localStorage.currentUser = userName;
+        if (formHandler.el.$nameForm.valid()) {
+          console.log('Valid.');
+          localStorage.currentUser = formHandler.userName = $('#fname').val();
+          formHandler.el.$nameForm.hide();
+          formHandler.el.$locationForm.show();
+        }
       });
     }
-
   };
+
+  //Event Listener for Submit Button2
+  formHandler.el.$submitLocation.on('click', function(e) {
+    e.preventDefault();
+    if (formHandler.el.$locationForm.valid()) {
+      var ldf = document.getElementById('locationForm');
+      var inputLocation = {};
+      inputLocation.locationName = ldf.elements.flocationname.value;
+      inputLocation.streetAddress = ldf.elements.fstreetaddress.value;
+      inputLocation.city = ldf.elements.fcity.value;
+      inputLocation.state = ldf.elements.fstate.value;
+      inputLocation.zipcode = ldf.elements.fzip.value;
+      var obj = new userLocation(inputLocation);
+      obj.insertRecord(userLocation.merge);
+      ldf.reset();
+    }
+  });
 
 //Info Message about the temperature
   formHandler.recTemp= function(temp){
@@ -71,183 +89,88 @@
 //Info Message about Weather Condition
 
   formHandler.recCondi = function(condi){
-  var response = '';
-
-  switch (condi) {
-  case 'Drizzle':
-  case 'Rain Mist':
-  case 'Freezing Drizzle':
-    response = 'It\'s drizzling';
-    break;
-  case 'Rain':
-  case 'Rain Showers':
-  case 'Freezing Rain':
-  case 'Unknown Precipitation':
-    response = 'It\'s raining';
-    break;
-  case 'Snow':
-  case 'Snow Grains':
-  case 'Ice Crystals':
-  case 'Low Drifting Snow':
-  case 'Blowing Snow':
-  case 'Snow Showers':
-  case 'Snow Blowing Snow Mist':
-    response = 'It\'s snowing';
-    break;
-  case 'Hail':
-  case 'Ice Pellets':
-  case 'Ice Pellet Showers':
-  case 'Hail Showers':
-  case 'Small Hail Showers':
-  case 'Small Hail':
-    response = 'It\'s hailing';
-    break;
-  case 'Mist':
-  case 'Fog':
-  case 'Fog Patches':
-  case 'Freezing Fog':
-  case 'Spray':
-  case 'Patches of Fog':
-  case 'Shallow Fog':
-  case 'Partial Fog':
-    response = 'It\'s foggy';
-    break;
-  case 'Smoke':
-  case 'Volcanic Ash':
-  case 'Wide Spread Dust':
-  case 'Sand':
-  case 'Haze':
-  case 'Dust Whirls':
-  case 'Sandstorm':
-  case 'Low Drifting Widespread Dust':
-  case 'Low Drifting Sand':
-  case 'Blowing Sand':
-  case 'Blowing Widespread Dust':
-    response = 'It\'s smoky';
-    break;
-  case 'Thunderstorm':
-  case 'Thunderstorms and Rain':
-  case 'Thunderstorms and Snow':
-  case 'Thunderstorms and Ice Pellets':
-  case 'Thunderstorms with Hail':
-  case 'Thunderstorms with Small Hail':
-    response = 'There\'s thunderstorms';
-    break;
-  case 'Overcast':
-  case 'Partly Cloudy':
-  case 'Mostly Cloudy':
-  case 'Scattered Clouds':
-    response = 'It\'s overcast';
-    break;
-  case 'Clear':
-    response = 'It\'s clear';
-    break;
-  case 'Squall':
-    response = 'There\'s squalls';
-  case 'Funnel Cloud':
-    response = 'There\'s a funnel cloud';
-    break;
-  case 'Unknown':
-    response = 'Look out the window';
-    break;
-  default:
-    response = 'Any weather is great biking weather!';
+    var response = '';
+    switch (condi) {
+    case 'Drizzle':
+    case 'Rain Mist':
+    case 'Freezing Drizzle':
+      response = 'It\'s drizzling';
+      break;
+    case 'Rain':
+    case 'Rain Showers':
+    case 'Freezing Rain':
+    case 'Unknown Precipitation':
+      response = 'It\'s raining';
+      break;
+    case 'Snow':
+    case 'Snow Grains':
+    case 'Ice Crystals':
+    case 'Low Drifting Snow':
+    case 'Blowing Snow':
+    case 'Snow Showers':
+    case 'Snow Blowing Snow Mist':
+      response = 'It\'s snowing';
+      break;
+    case 'Hail':
+    case 'Ice Pellets':
+    case 'Ice Pellet Showers':
+    case 'Hail Showers':
+    case 'Small Hail Showers':
+    case 'Small Hail':
+      response = 'It\'s hailing';
+      break;
+    case 'Mist':
+    case 'Fog':
+    case 'Fog Patches':
+    case 'Freezing Fog':
+    case 'Spray':
+    case 'Patches of Fog':
+    case 'Shallow Fog':
+    case 'Partial Fog':
+      response = 'It\'s foggy';
+      break;
+    case 'Smoke':
+    case 'Volcanic Ash':
+    case 'Wide Spread Dust':
+    case 'Sand':
+    case 'Haze':
+    case 'Dust Whirls':
+    case 'Sandstorm':
+    case 'Low Drifting Widespread Dust':
+    case 'Low Drifting Sand':
+    case 'Blowing Sand':
+    case 'Blowing Widespread Dust':
+      response = 'It\'s smoky';
+      break;
+    case 'Thunderstorm':
+    case 'Thunderstorms and Rain':
+    case 'Thunderstorms and Snow':
+    case 'Thunderstorms and Ice Pellets':
+    case 'Thunderstorms with Hail':
+    case 'Thunderstorms with Small Hail':
+      response = 'There\'s thunderstorms';
+      break;
+    case 'Overcast':
+    case 'Partly Cloudy':
+    case 'Mostly Cloudy':
+    case 'Scattered Clouds':
+      response = 'It\'s overcast';
+      break;
+    case 'Clear':
+      response = 'It\'s clear';
+      break;
+    case 'Squall':
+      response = 'There\'s squalls';
+    case 'Funnel Cloud':
+      response = 'There\'s a funnel cloud';
+      break;
+    case 'Unknown':
+      response = 'Look out the window';
+      break;
+    default:
+      response = 'Any weather is great biking weather!';
+    };
   };
-};
-
-
-
-  //Event Listeners for Submit Button
-  formHandler.el.$submitName.click(validateUserName);
-
-  function validateUserName(e) {
-    e.preventDefault();
-    // $nfValidator.element('#fname');
-    var userName = document.forms['nameInput']['fname'].value;
-    if (!userName) { // if userName is falsy
-      formHandler.el.$nameAlert.show();
-      // $outputTemp.hide();
-    }else {
-
-      formHandler.el.$nameAlert.hide();
-      formHandler.el.$nameForm.hide();
-      // $outputTemp.show();
-      formHandler.el.$locationForm.show();
-    }
-  };
-
-  //Event Listener for Submit Button2
-  formHandler.el.$submitLocation.click(validateLocation);
-
-  //Validating the input for the Location Form
-
-  function validateLocation(e){
-    e.preventDefault();
-    var error = false;
-    var ldf = document.getElementById('locationForm');
-    var inputLocation = {};
-    $('fieldset > p').hide();
-    inputLocation.locationName = ldf.elements.flocationname.value;
-    inputLocation.streetAddress = ldf.elements.fstreetaddress.value;
-    inputLocation.city = ldf.elements.fcity.value;
-    inputLocation.state = ldf.elements.fstate.value;
-    inputLocation.zipcode = ldf.elements.fzip.value;
-
-
-    if (!inputLocation.locationName){ // if location name falsy
-      $('#locationNameAlert').show();
-      error = true;
-    }
-    if (!inputLocation.streetAddress) { // if location address falsy
-      $('#locationAddressAlert').show();
-      error = true;
-    }
-    if (!inputLocation.city) { // if location city falsy
-      $('#locationCityAlert').show();
-      error = true;
-    }
-    if (!inputLocation.state) { // if location state falsy
-      $('#locationStateAlert').show();
-      error = true;
-    }
-    if (!inputLocation.zipcode) { // if location zipcode falsy
-      $('#locationZipAlert').show();
-      error = true;
-    }
-    if (!error) {
-      var obj = new userLocation(inputLocation);
-      obj.insertRecord(userLocation.merge);
-      ldf.reset();
-    }
-  };
-
-//tooltips
-
-  // var $nfValidator = $('#nameForm').validate({
-  //   debug: true,
-  //   showErrors: function(errorMap, errorList) {
-  //     console.log('got to showErrors.');
-  //     $.each(this.validElements(), function (index, element) {
-  //       var $element = $(element);
-  //       $element.data('title', '')
-  //       .removeClass('error')
-  //       .tooltip('destroy');
-  //     });
-  //
-  //     $.each(errorList, function (index, error) {
-  //       var $element = $(error.element);
-  //       $element.parent().addClass('has-error');
-  //       $element.tooltip('destroy')
-  //       .data('title', error.message)
-  //       // .addClass('error')
-  //       .tooltip();
-  //     });
-  //   },
-  //   submitHandler: function(form) {
-  //     alert('This is a valid form!');
-  //   }
-  // });
-
 
   formHandler.init();
 
