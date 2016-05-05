@@ -59,13 +59,10 @@
       response.good = false;
     } else if ((temp >= 50) && (temp < 61)) {
       response.answer = 'It\s pleasantly cool, ';
-      response.good = true;
     } else if ((temp >= 61) && (temp < 70)) {
       response.answer = 'It\'s nice and warm, ';
-      response.good = true;
     } else if ((temp >= 70) && (temp < 79)) {
       response.answer = 'It\'s pretty warm, ';
-      response.good = true;
     } else if ((temp >= 79) && (temp < 88)) {
       response.answer = 'It\'s very warm out there, ';
       response.good = false;
@@ -77,7 +74,8 @@
   };
 
   formHandler.showRec = function (){
-    formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature));
+
+    formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature).answer);
     formHandler.el.$outputWind.text(formHandler.recWind(userLocation.all[0].wind));
     formHandler.el.$outputCondi.text(formHandler.recCondi(userLocation.all[0].condition));
   };
@@ -85,13 +83,18 @@
 //Info Message about the Wind
 
   formHandler.recWind= function(wind){
-    var response = '';
+    var response = {
+      answer: '',
+      good: true
+    };
+
     if (wind < 16){
-      response = ' with barely any wind.';
+      response.answer = ' with barely any wind.';
     } else if ((wind >= 16) && (wind < 26)) {
-      response = ' with a bit of a breeze.';
+      response.answer = ' with a bit of a breeze.';
     } else {
-      response = ' with quite a bit of wind.';
+      response.answer = ' with quite a bit of wind.';
+      response.good = false;
     }
     return response;
   };
@@ -99,18 +102,22 @@
 //Info Message about Weather Condition
 
   formHandler.recCondi = function(condi){
-    var response = '';
+    var response = {
+      answer: '',
+      good: true
+    };
     switch (condi) {
     case 'Drizzle':
     case 'Rain Mist':
     case 'Freezing Drizzle':
-      response = 'and drizzling';
+      response.answer = 'and drizzling';
       break;
     case 'Rain':
     case 'Rain Showers':
     case 'Freezing Rain':
     case 'Unknown Precipitation':
-      response = 'and raining';
+      response.answer = 'and raining';
+      response.good = false;
       break;
     case 'Snow':
     case 'Snow Grains':
@@ -119,7 +126,8 @@
     case 'Blowing Snow':
     case 'Snow Showers':
     case 'Snow Blowing Snow Mist':
-      response = 'and snowing';
+      response.answer = 'and snowing';
+      response.good = false;
       break;
     case 'Hail':
     case 'Ice Pellets':
@@ -127,7 +135,8 @@
     case 'Hail Showers':
     case 'Small Hail Showers':
     case 'Small Hail':
-      response = 'and hailing';
+      response.answer = 'and hailing';
+      response.good = false;
       break;
     case 'Mist':
     case 'Fog':
@@ -137,7 +146,8 @@
     case 'Patches of Fog':
     case 'Shallow Fog':
     case 'Partial Fog':
-      response = 'and foggy';
+      response.answer = 'and foggy';
+      response.good = false;
       break;
     case 'Smoke':
     case 'Volcanic Ash':
@@ -150,7 +160,8 @@
     case 'Low Drifting Sand':
     case 'Blowing Sand':
     case 'Blowing Widespread Dust':
-      response = 'and smoky';
+      response.answer = 'and smoky';
+      response.good = false;
       break;
     case 'Thunderstorm':
     case 'Thunderstorms and Rain':
@@ -158,21 +169,24 @@
     case 'Thunderstorms and Ice Pellets':
     case 'Thunderstorms with Hail':
     case 'Thunderstorms with Small Hail':
-      response = 'with thunderstorms';
+      response.answer = 'with thunderstorms';
+      response.good = false;
       break;
     case 'Overcast':
     case 'Partly Cloudy':
     case 'Mostly Cloudy':
     case 'Scattered Clouds':
-      response = 'and overcast';
+      response.answer = 'and overcast';
       break;
     case 'Clear':
-      response = 'and clear';
+      response.answer = 'and clear';
       break;
     case 'Squall':
-      response = 'and there\'s squalls';
+      response.answer = 'and there\'s squalls';
+      response.good = false;
     case 'Funnel Cloud':
-      response = 'and there\'s funnel clouds';
+      response.answer = 'and there\'s funnel clouds';
+      response.good = false;
       break;
     case 'Unknown':
       response = '';
