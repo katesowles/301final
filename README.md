@@ -36,12 +36,12 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 ##### Documentation Requirements
 1. Include a link to the repo in the footer of the site **KATE**
 2. Include a link to the live site in the repo's readme AND description **KATE**
-3. Develop a User Guide **___**  AT END
+3. Develop a User Guide **___**  FRIDAY AM
 
 ##### HTML Requirements
-4. Remove unused/commented out/irrelevant code and process documentation files **___** AT END
+4. Remove unused/commented out/irrelevant code and process documentation files **ALL**
 5. Use semantic HTML tags, if it is an important tag but isn't descriptive, use classes, ids, or comments to describe it's purpose **___**
-6. Consistent indentation **___** AT END
+6. Consistent indentation **ALL**
 7. Remove redundancies; repeated DOM structures should be templated or programmatically created using JS **KATE/YVONNE**
 
 ##### CSS Requirements
@@ -52,7 +52,7 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 ##### JS Requirements
 11. Must pass eslint **ALL**
 12. Use semantically meaningful variables and function names **ALL**
-13. Remove source code redundancies with functional programming, object oriented programming, and/or middleware; keep it DRY **___**
+13. Remove source code redundancies with functional programming, object oriented programming, and/or middleware; keep it DRY **ALL**
 14. Reduce computational redundancy; cache computed results if reused. EVEN make variables for repeated DOM element queries with JQ **YVONNE/KATE**
 
 ##### Technical Requirements
@@ -66,7 +66,7 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 22. Functional programming; use Array methods, HOFs, and at least one closure **DAVID**
 23. Persist your app's state using WebSQL or other database (if we persist on server-side database we don't need to use the local database); write middleware that handles CRUD operations on your database **DAVID**
 24. Build a single page app and use client-side routing for at least two routes **KATE**
-25. Use MVC components that are loosely coupled, semantically labelled, and well documented as MVC in code comments **___**
+25. Use MVC components that are loosely coupled, semantically labelled, and well documented as MVC in code comments **ALL**
 26. Deploy to public web server including a server-side app that authenticates to a third party server (weatherunderground) **KATE/DAVID**
 
 ##### Stretch Goals
@@ -82,4 +82,4 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
   - or use server-side authentication (2pt) **___**
 32. Persist at least part of your app's state on a server such as Heroku or Firebase (2pt) **___**
 
-33. Make presentation and plan for who shows what **___**
+33. Make presentation and plan for who shows what **___** FRIDAY AM

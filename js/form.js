@@ -7,6 +7,7 @@
   formHandler.el.$locationForm = $('#locationForm');
   formHandler.el.$submitName = $('#submitName');
   formHandler.el.$submitLocation = $('#submitLocation');
+  formHandler.el.ldf = document.getElementById('locationForm');
 
   formHandler.init = function(){
     if (localStorage.currentUser) {
@@ -24,26 +25,22 @@
         }
       });
     }
+
+    formHandler.el.$submitLocation.on('click', function(e) {
+      e.preventDefault();
+      if (formHandler.el.$locationForm.valid()) {
+        var inputLocation = {};
+        inputLocation.locationName = formHandler.el.ldf.elements.flocationname.value;
+        inputLocation.streetAddress = formHandler.el.ldf.elements.fstreetaddress.value;
+        inputLocation.city = formHandler.el.ldf.elements.fcity.value;
+        inputLocation.state = formHandler.el.ldf.elements.fstate.value;
+        inputLocation.zipcode = formHandler.el.ldf.elements.fzip.value;
+        var obj = new userLocation(inputLocation);
+        obj.insertRecord(userLocation.merge);
+        formHandler.el.ldf.reset();
+      }
+    });
   };
-
-  //Event Listener for Submit Button2
-  formHandler.el.$submitLocation.on('click', function(e) {
-    e.preventDefault();
-    if (formHandler.el.$locationForm.valid()) {
-      var ldf = document.getElementById('locationForm');
-      var inputLocation = {};
-      inputLocation.locationName = ldf.elements.flocationname.value;
-      inputLocation.streetAddress = ldf.elements.fstreetaddress.value;
-      inputLocation.city = ldf.elements.fcity.value;
-      inputLocation.state = ldf.elements.fstate.value;
-      inputLocation.zipcode = ldf.elements.fzip.value;
-      var obj = new userLocation(inputLocation);
-      obj.insertRecord(userLocation.merge);
-      ldf.reset();
-    }
-  });
-
-  formHandler.init();
 
   module.formHandler = formHandler;
 })(window);
