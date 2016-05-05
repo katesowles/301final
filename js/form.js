@@ -7,6 +7,8 @@
   formHandler.el.$outputTemp = $('#outputTemp');
   formHandler.el.$outputCondi = $('#outputCondi');
   formHandler.el.$outputWind = $('#outputWind');
+  formHandler.el.$outputSun = $ ('#outputSun');
+  formHandler.el.$outputRec = $('#outputRec');
   formHandler.el.$nameForm = $('#nameForm');
   formHandler.el.$locationForm = $('#locationForm');
   formHandler.el.$submitName = $('#submitName');
@@ -49,39 +51,66 @@
 
 //Info Message about the temperature
   formHandler.recTemp= function(temp){
-    var response = '';
+    var response = {
+      answer: '',
+      good: true
+    };
+
     if (temp < 50){
-      response = 'It\'s very cold';
+      response.answer = 'It\'s very cold, ';
+      response.good = false;
     } else if ((temp >= 50) && (temp < 61)) {
-      response = 'It\s pleasantly cool';
+      response.answer = 'It\s pleasantly cool, ';
     } else if ((temp >= 61) && (temp < 70)) {
-      response = 'It\'s nice and warm, perfect biking temperatures ';
+      response.answer = 'It\'s nice and warm, ';
     } else if ((temp >= 70) && (temp < 79)) {
-      response = 'It\'s pretty warm, should be a nice ride';
+      response.answer = 'It\'s pretty warm, ';
     } else if ((temp >= 79) && (temp < 88)) {
-      response = 'It\'s very warm out there';
+      response.answer = 'It\'s very warm out there, ';
+      response.good = false;
     } else {
-      response = 'It\'s very hot';
+      response.answer = 'It\'s very hot, ';
+      response.good = false;
     }
     return response;
   };
 
   formHandler.showRec = function (){
-    formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature));
-    formHandler.el.$outputWind.text(formHandler.recWind(userLocation.all[0].wind));
-    formHandler.el.$outputCondi.text(formHandler.recCondi(userLocation.all[0].condition));
+    var loc = userLocation.all[0];
+    var temp = formHandler.recTemp(loc.temperature);
+    var wind = formHandler.recWind(loc.windSpeed);
+    var condi = formHandler.recCondi(loc.condition);
+    var sunRiseSet = formHandler.recSunRiseSet();
+
+    formHandler.el.$outputTemp.text(temp.answer);
+    formHandler.el.$outputWind.text(wind.answer);
+    formHandler.el.$outputCondi.text(condi.answer);
+    formHandler.el.$outputSun.text(sunRiseSet);
+
+    if (temp.good && wind.good && condi.good) {
+      $('#outputRec').text('It\'s a great for biking!');
+    } else {
+      $('#outputRec').text('Maybe leave your bike home today.');
+    }
   };
 
 //Info Message about the Wind
 
   formHandler.recWind= function(wind){
-    var response = '';
-    if (wind < 16){
-      response = 'There\'s barely any wind';
-    } else if ((wind >= 16) && (wind < 26)) {
-      response = 'It\'s a bit breezy';
+    var response = {
+      answer: '',
+      good: true
+    };
+
+    if (wind < 13){
+      response.answer = ' with barely any wind.';
+    } else if ((wind >= 13) && (wind < 20)) {
+      response.answer = ' with a bit of a breeze.';
+    } else if ((wind >= 20) && (wind < 30)) {
+      response.answer = ' with some wind.';
     } else {
-      response = 'It\'s windy.';
+      response.answer = ' with strong wind.';
+      response.good = false;
     }
     return response;
   };
@@ -89,18 +118,22 @@
 //Info Message about Weather Condition
 
   formHandler.recCondi = function(condi){
-    var response = '';
+    var response = {
+      answer: '',
+      good: true
+    };
     switch (condi) {
     case 'Drizzle':
     case 'Rain Mist':
     case 'Freezing Drizzle':
-      response = 'It\'s drizzling';
+      response.answer = 'and drizzling';
       break;
     case 'Rain':
     case 'Rain Showers':
     case 'Freezing Rain':
     case 'Unknown Precipitation':
-      response = 'It\'s raining';
+      response.answer = 'and raining';
+      response.good = false;
       break;
     case 'Snow':
     case 'Snow Grains':
@@ -109,7 +142,8 @@
     case 'Blowing Snow':
     case 'Snow Showers':
     case 'Snow Blowing Snow Mist':
-      response = 'It\'s snowing';
+      response.answer = 'and snowing';
+      response.good = false;
       break;
     case 'Hail':
     case 'Ice Pellets':
@@ -117,7 +151,8 @@
     case 'Hail Showers':
     case 'Small Hail Showers':
     case 'Small Hail':
-      response = 'It\'s hailing';
+      response.answer = 'and hailing';
+      response.good = false;
       break;
     case 'Mist':
     case 'Fog':
@@ -127,7 +162,8 @@
     case 'Patches of Fog':
     case 'Shallow Fog':
     case 'Partial Fog':
-      response = 'It\'s foggy';
+      response.answer = 'and foggy';
+      response.good = false;
       break;
     case 'Smoke':
     case 'Volcanic Ash':
@@ -140,7 +176,8 @@
     case 'Low Drifting Sand':
     case 'Blowing Sand':
     case 'Blowing Widespread Dust':
-      response = 'It\'s smoky';
+      response.answer = 'and smoky';
+      response.good = false;
       break;
     case 'Thunderstorm':
     case 'Thunderstorms and Rain':
@@ -148,30 +185,46 @@
     case 'Thunderstorms and Ice Pellets':
     case 'Thunderstorms with Hail':
     case 'Thunderstorms with Small Hail':
-      response = 'There\'s thunderstorms';
+      response.answer = 'with thunderstorms';
+      response.good = false;
       break;
     case 'Overcast':
     case 'Partly Cloudy':
     case 'Mostly Cloudy':
     case 'Scattered Clouds':
-      response = 'It\'s overcast';
+      response.answer = 'and overcast';
       break;
     case 'Clear':
-      response = 'It\'s clear';
+      response.answer = 'and clear';
       break;
     case 'Squall':
-      response = 'There\'s squalls';
+      response.answer = 'and there\'s squalls';
+      response.good = false;
     case 'Funnel Cloud':
-      response = 'There\'s a funnel cloud';
+      response.answer = 'and there\'s funnel clouds';
+      response.good = false;
       break;
     case 'Unknown':
-      response = 'Look out the window';
+      response = '';
       break;
     default:
-      response = 'Any weather is great biking weather!';
+      response = '';
     };
     return response;
   };
+
+
+  formHandler.recSunRiseSet = function(){
+    var answer = '';
+    var now = new Date();
+    if (now.getHours() <= userLocation.all[0].sunrise) {
+      answer = 'The sun will rise at ' + userLocation.all[0].sunrise;
+    } else {
+      answer = 'The sun will set at ' + userLocation.all[0].sunset;
+    }
+    return answer;
+  };
+
 
   formHandler.init();
 
