@@ -13,7 +13,7 @@
 
   formHandler.init = function(){
     if (localStorage.currentUser) {
-      console.log('Name was already there.');
+      // console.log('Name was already there.');
       userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();

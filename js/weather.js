@@ -1,8 +1,6 @@
 (function(module) {
   var weather = {};
 
-
-
   weather.updateData = function(locObj, callback) {
     var localData;
     $.get('/wu/astronomy/hourly/q/'+ locObj.zipcode +'.json')
@@ -26,6 +24,14 @@
       sunrise:      data.sun_phase.sunrise.hour +':'+ data.sun_phase.sunrise.minute,
       sunset:       data.sun_phase.sunset.hour +':'+ data.sun_phase.sunset.minute,
     };
+  };
+
+  weather.getCurrentWeather = function() {
+    var location = currentLocation.locationCheck();
+
+    // setTimeout(function() {
+    //   console.log();
+    // }, 5000);
   };
 
   module.weather = weather;

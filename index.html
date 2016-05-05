@@ -13,7 +13,7 @@
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
     <script id="favoritesList" type="text/x-handlebars-template">
-        <article class="col-sm-6 col-md-4 col-lg-3">
+        <article class="col-xs-6 col-md-4 col-lg-3">
           <h5>{{locationName}}</h5>
           <address>
             <p>{{streetAddress}}</p>
@@ -23,9 +23,9 @@
         </article>
     </script>
     <script id="favoritesView" type="text/x-handlebars-template">
-      <article class="col-xs-6 col-sm-4 col-md-3 col-lg-2 location favorite">
-        <h5>{{locationName}}</h5>
+      <article class="col-xs-6 col-md-4 col-lg-3 location favorite">
         <div class="location favorite">
+          <h5>{{locationName}}</h5>
           <img src="{{conditionIcon}}" alt="{{condition}}">
           <a href="#"><h6>delete</h6></a>
         </div>
@@ -44,7 +44,7 @@
       </header>
 
       <section id="welcome">
-        <div class="overlay row">
+        <div class="row">
           <div class="col-md-2 col-lg-3">&nbsp;</div> <!-- spacer -->
           <article class="col-sm-6 col-md-4 col-lg-3">
             <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo">
@@ -61,11 +61,13 @@
       </section>
 
       <section id="dashboard">
-        <div class="overlay row">
+        <div class="row">
           <div class="col-sm-6 col-md-4 location current">
+            <div id="currentLongitude"></div>
+            <div id="currentLatitude"></div>
             <!-- current location widget will go here -->
           </div>
-          <div class="col-sm-6 col-md-8 location">
+          <div id="displayLocations" class="col-sm-6 col-md-8 location">
             <div class="row">
               <!-- favorite location widgets will go here -->
             </div>
@@ -75,8 +77,8 @@
       </section>
 
       <section id="configure">
-        <div class="overlay row">
-          <form name="nameInput" id="nameForm" class="col-sm-12">
+        <div class="row">
+          <form name="nameInput" id="nameForm">
             <label>Enter your name</label>
             <input data-msg-required="This field is required!" type="text" name="fname" value="" id="fname">
             <p id="nameAlert">Please enter your name!</p>
@@ -175,6 +177,8 @@
       <script src="js/location.js"></script>
       <script src="js/locationView.js"></script>
       <script src="js/form.js"></script>
+      <script src="js/currentLocation.js"></script>
+      <script src="js/view.js"></script>
       <script src="js/routing.js"></script>
     </main>
   </body>
