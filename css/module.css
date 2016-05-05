@@ -102,3 +102,16 @@ div.favorite {
 footer .smallAndCenter {
   padding: 30px;
 }
+
+/*  Form validation error displays */
+
+label.error {
+  position: relative;
+  display: block;
+  font-size: 1em !important;
+  color: red !important;
+  background-color: rgba(255,255,255,0.6);
+  width: 160px;
+  text-align: center;
+  margin-left: 74px;
+}
