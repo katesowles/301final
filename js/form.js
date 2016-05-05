@@ -49,19 +49,29 @@
 
 //Info Message about the temperature
   formHandler.recTemp= function(temp){
-    var response = '';
+    var response = {
+      answer: '',
+      good: true
+    };
+
     if (temp < 50){
-      response = 'It\'s very cold, ';
+      response.answer = 'It\'s very cold, ';
+      response.good = false;
     } else if ((temp >= 50) && (temp < 61)) {
-      response = 'It\s pleasantly cool, ';
+      response.answer = 'It\s pleasantly cool, ';
+      response.good = true;
     } else if ((temp >= 61) && (temp < 70)) {
-      response = 'It\'s nice and warm, ';
+      response.answer = 'It\'s nice and warm, ';
+      response.good = true;
     } else if ((temp >= 70) && (temp < 79)) {
-      response = 'It\'s pretty warm, ';
+      response.answer = 'It\'s pretty warm, ';
+      response.good = true;
     } else if ((temp >= 79) && (temp < 88)) {
-      response = 'It\'s very warm out there, ';
+      response.answer = 'It\'s very warm out there, ';
+      response.good = false;
     } else {
-      response = 'It\'s very hot, ';
+      response.answer = 'It\'s very hot, ';
+      response.good = false;
     }
     return response;
   };
