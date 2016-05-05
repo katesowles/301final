@@ -27,9 +27,21 @@
         <div class="location favorite">
           <h5>{{locationName}}</h5>
           <img src="{{conditionIcon}}" alt="{{condition}}">
+          <p>Temp: {{temperature}}° F</p>
+          <p>Wind: {{windSpeed}} {{windDir}}</p>
           <a href="#"><h6>delete</h6></a>
         </div>
       </article>
+    </script>
+    <script id="currentLocView" type="text/x-handlebars-template">
+      <h5>Current Location</h5>
+      <img src="{{conditionIcon}}" alt="{{condition}}">
+      <p>Temp: {{temperature}}° F</p>
+      <p>Wind: {{windSpeed}} {{windDir}}</p>
+      <p>Sunrise is at {{sunrise}}</p>
+      <p>Sunset is at {{sunset}}</p>
+      <div id="currentLongitude"></div>
+      <div id="currentLatitude"></div>
     </script>
   </head>
   <body>
@@ -63,12 +75,10 @@
       <section id="dashboard">
         <div class="row">
           <div class="col-sm-6 col-md-4 location current">
-            <div id="currentLongitude"></div>
-            <div id="currentLatitude"></div>
             <!-- current location widget will go here -->
           </div>
           <div id="displayLocations" class="col-sm-6 col-md-8 location">
-            <div class="row">
+            <div id="displayFavorites" class="row">
               <!-- favorite location widgets will go here -->
             </div>
           </div>
