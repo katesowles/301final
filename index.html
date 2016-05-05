@@ -80,7 +80,7 @@
         <div class="row">
           <form name="nameInput" id="nameForm">
             <label>Enter your name</label>
-            <input id="fname" data-msg-required="This field is required!" type="text" name="fname" value="" required>
+            <input id="fname" type="text" name="fname" value="" required>
             <p id="nameAlert">Please enter your name!</p>
             <button id="submitName" class="btn">Submit</button>
           </form>
@@ -89,20 +89,20 @@
               <form name="locationData" id="locationForm">
                 <fieldset>
                   <legend>Input a favorite Location</legend>
-                  <label>Location Name</label>
-                  <input type="text" name="flocationname">
+                  <label for="flocationname">Location Name</label>
+                  <input type="text" name="flocationname" required>
                   <p id="locationNameAlert">Please enter the name of the location!</p>
-                  <label>Street Address</label>
-                  <input type="text" name="fstreetaddress">
+                  <label for="fstreetaddress">Street Address</label>
+                  <input type="text" name="fstreetaddress" required>
                   <p id="locationAddressAlert">Please enter the street address of the location!</p>
-                  <label>City</label>
-                  <input type="text" name="fcity">
+                  <label for="fcity">City</label>
+                  <input type="text" name="fcity" required>
                   <p id="locationCityAlert">Please enter the city the location is in!</p>
-                  <label>State</label>
-                  <input type="text" name="fstate">
+                  <label for="fstate">State</label>
+                  <input type="text" name="fstate" required>
                   <p id="locationStateAlert">Please enter the state the location is in!</p>
-                  <label>Zip</label>
-                  <input type="text" name="fzip">
+                  <label for="fzip">Zip</label>
+                  <input type="text" name="fzip" required>
                   <p id="locationZipAlert">Please enter the zip code of the location!</p>
                   <button id="submitLocation" class="btn">Submit Location</button>
                 </fieldset>
