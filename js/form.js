@@ -4,8 +4,9 @@
   formHandler.userName = '';
   formHandler.el = {};
   formHandler.el.$nameAlert = $('#nameAlert');
-  formHandler.el.$output = $('#output');
-  formHandler.el.$outputText = $('#outputText');
+  formHandler.el.$outputTemp = $('#outputTemp');
+  formHandler.el.$outputCondi = $('#outputCondi');
+  formHandler.el.$outputWind = $('#outputWind');
   formHandler.el.$nameForm = $('#nameForm');
   formHandler.el.$locationForm = $('#locationForm');
   formHandler.el.$submitName = $('#submitName');
@@ -28,7 +29,8 @@
 
   };
 
-  formHandler.recommendation= function(temp){
+//Info Message about the temperature
+  formHandler.recTemp= function(temp){
     var response = '';
     if (temp < 50){
       response = 'It\'s very cold';
@@ -47,8 +49,25 @@
   };
 
   formHandler.showRec = function (){
-    formHandler.el.$output.text(formHandler.recommendation(userLocation.all[0].temperature));
+    formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature));
+    formHandler.el.$outputWind.text(formHandler.recWind(userLocation.all[0].wind));
   };
+
+//Info Message about the Wind
+
+  formHandler.recWind= function(wind){
+    var response = '';
+    if (wind < 16){
+      response = 'There\'s barely any wind';
+    } else if ((wind >= 16) && (wind < 26)) {
+      response = 'It\'s a bit breezy';
+    } else {
+      response = 'It\'s windy.';
+    }
+    return response;
+  };
+
+
 
   //Event Listeners for Submit Button
   formHandler.el.$submitName.click(validateUserName);
@@ -59,12 +78,12 @@
     var userName = document.forms['nameInput']['fname'].value;
     if (!userName) { // if userName is falsy
       formHandler.el.$nameAlert.show();
-      // $output.hide();
+      // $outputTemp.hide();
     }else {
 
       formHandler.el.$nameAlert.hide();
       formHandler.el.$nameForm.hide();
-      // $output.show();
+      // $outputTemp.show();
       formHandler.el.$locationForm.show();
     }
   };
