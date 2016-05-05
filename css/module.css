@@ -31,22 +31,17 @@
 /* dashboard specific styles */
 
 div.location {
-  border-radius: 50px;
-  background-color: #ddd;
   display: inline-block;
-  /*margin: 20px;*/
+  text-align: center;
 }
 
-div.current {
-  /*width: 100%;*/
-  height: 300px;
+div.current, div.favorite {
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
 }
 
 div.favorite {
   width: 100%;
-  padding-bottom: 70%;
-  /*height: 77px;*/
-  background-color: red;
 }
 
 /* config specific styles */
