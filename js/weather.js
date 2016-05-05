@@ -19,6 +19,7 @@
     $.get('/wu/astronomy/hourly/q/'+ coordinates.lat + ',' + coordinates.lng +'.json')
     .done(function (data, message, xhr) {
       currentData = weather.extractData(data);
+      locationView.showRec(currentData);
       callback(currentData);
     });
   };
