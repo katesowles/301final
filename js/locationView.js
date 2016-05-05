@@ -5,7 +5,6 @@
   var sourceDash = $('#favoritesView').text();
   var templateDash = Handlebars.compile(sourceDash);
 
-
   locationView = {};
 
   // sent as callback from .merge

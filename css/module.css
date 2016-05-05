@@ -15,24 +15,17 @@
 
 /* "page" specific styles */
 
-.overlay {
-  background-color: rgba(0,0,0,0.5);
-  width: 100%;
-  height: 100%;
-  padding: 70px 30px 30px 30px;
-}
-
 #welcome {
-  background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpeg');
+  background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpg');
 }
 
 #dashboard {
-  background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpeg');
+  background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpg');
   background-position: right;
 }
 
 #configure {
-  background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpeg');
+  background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpg');
 }
 
 /* dashboard specific styles */
@@ -50,8 +43,9 @@ div.current {
 }
 
 div.favorite {
-  /*width: 100%;*/
-  height: 77px;
+  width: 100%;
+  padding-bottom: 70%;
+  /*height: 77px;*/
   background-color: red;
 }
 

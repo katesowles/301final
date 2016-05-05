@@ -111,12 +111,12 @@ img {
 }
 
 section {
-  /* height to be set with jquery to be 100% of window height */
-  /*height: 560px;*/
+  /* min-height to be set with jquery to be 100% of window height */
+  height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /*padding-top: 40px;*/
+  padding: 70px 20px 20px 20px;
 }
 
 /* form specific styles */
