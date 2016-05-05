@@ -8,7 +8,7 @@
     page('dashboard', dashboardController.index);
     page('configure', configureController.index);
     page('about', aboutController.index);
-    page('deleteRecord/:id', userLocation.deleteRecord);
+    page('deleteRecord/:id', userLocation.deleteRecord, view.deleteFromDom);
 
     page();
   };

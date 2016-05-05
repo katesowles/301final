@@ -13,10 +13,14 @@
     });
   };
 
+  view.deleteFromDom = function (ctx) {
+    var domElement = '#record' + ctx.params.id;
+    $(domElement).remove();
+  };
+
   view.adjustWidgetHeight();
   view.adjustSectionHeight();
   weather.getCurrentLocation();
-  // weather.updateCurrent(locationView.current);
   // weather.insertFavoriteIcons();
 
   module.view = view;
