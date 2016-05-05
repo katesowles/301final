@@ -7,6 +7,7 @@
   formHandler.el.$outputTemp = $('#outputTemp');
   formHandler.el.$outputCondi = $('#outputCondi');
   formHandler.el.$outputWind = $('#outputWind');
+  formHandler.el.$outputRec = $('#outputRec');
   formHandler.el.$nameForm = $('#nameForm');
   formHandler.el.$locationForm = $('#locationForm');
   formHandler.el.$submitName = $('#submitName');
@@ -74,10 +75,21 @@
   };
 
   formHandler.showRec = function (){
+    var loc = userLocation.all[0];
+    var temp = formHandler.recTemp(loc.temperature);
+    var wind = formHandler.recWind(loc.wind);
+    var condi = formHandler.recCondi(loc.condition);
 
-    formHandler.el.$outputTemp.text(formHandler.recTemp(userLocation.all[0].temperature).answer);
-    formHandler.el.$outputWind.text(formHandler.recWind(userLocation.all[0].wind));
-    formHandler.el.$outputCondi.text(formHandler.recCondi(userLocation.all[0].condition));
+
+    formHandler.el.$outputTemp.text(temp.answer);
+    formHandler.el.$outputWind.text(wind.answer);
+    formHandler.el.$outputCondi.text(condi.answer);
+
+    if (temp.good && wind.good && condi.good) {
+      $('#outputRec').text('It\'s a great for biking!');
+    } else {
+      $('#outputRec').text('Maybe leave your bike home today.');
+    }
   };
 
 //Info Message about the Wind
@@ -88,12 +100,14 @@
       good: true
     };
 
-    if (wind < 16){
+    if (wind < 13){
       response.answer = ' with barely any wind.';
-    } else if ((wind >= 16) && (wind < 26)) {
+    } else if ((wind >= 13) && (wind < 20)) {
       response.answer = ' with a bit of a breeze.';
+    } else if ((wind >= 20) && (wind < 30)) {
+      response.answer = ' with some wind.';
     } else {
-      response.answer = ' with quite a bit of wind.';
+      response.answer = ' with strong wind.';
       response.good = false;
     }
     return response;
@@ -196,6 +210,19 @@
     };
     return response;
   };
+
+
+  formHandler.recSunriseSet = function(sunRiseSet){
+    var answer = '';
+    var now = new Date();
+    if (now.getHours() <= userLocation.all[0].sunrise) {
+      answer = 'the sun will rise at ' + userLocation.all[0].sunrise;
+    } else {
+      answer = 'the sun will set at ' + userLocation.all[0].sunset;
+    }
+    return answer;
+  };
+
 
   formHandler.init();
 
