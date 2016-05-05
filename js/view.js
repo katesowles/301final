@@ -13,9 +13,11 @@
     });
   };
 
-  weather.getCurrentWeather();
   view.adjustWidgetHeight();
   view.adjustSectionHeight();
+  weather.getCurrentLocation();
+  weather.updateCurrent(locationView.current);
+  weather.insertFavoriteIcons();
 
   module.view = view;
 })(window);

@@ -15,6 +15,14 @@
     });
   };
 
+  weather.updateCurrent = function (coordinates, callback) {
+    $.get('/wu/astronomy/hourly/q/'+ coordinates.lat + ',' + coordinates.lng +'.json')
+    .done(function (data, message, xhr) {
+      currentData = weather.extractData(data);
+      callback(currentData);
+    });
+  };
+
   weather.extractData = function(data) {
     return {
       temperature:  data.hourly_forecast[0].temp.english,
@@ -26,13 +34,18 @@
     };
   };
 
-  weather.getCurrentWeather = function() {
-    var location = currentLocation.locationCheck();
-
-    // setTimeout(function() {
-    //   console.log();
-    // }, 5000);
+  weather.getCurrentLocation = function() {
+    return currentLocation.locationCheck();
   };
+
+  weather.insertFavoriteIcons = function(data) {
+    console.log(data);
+  };
+
+  weather.insertCurrentIcon = function () {
+
+  };
+
 
   module.weather = weather;
 })(window);

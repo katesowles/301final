@@ -27,9 +27,21 @@
         <div class="location favorite">
           <h5>{{locationName}}</h5>
           <img src="{{conditionIcon}}" alt="{{condition}}">
+          <p>Temp: {{temperature}}° F</p>
+          <p>Wind: {{windSpeed}} {{windDir}}</p>
           <a href="#"><h6>delete</h6></a>
         </div>
       </article>
+    </script>
+    <script id="currentLocView" type="text/x-handlebars-template">
+      <h5>Current Location</h5>
+      <img src="{{conditionIcon}}" alt="{{condition}}">
+      <p>Temp: {{temperature}}° F</p>
+      <p>Wind: {{windSpeed}} {{windDir}}</p>
+      <p>Sunrise is at {{sunrise}}</p>
+      <p>Sunset is at {{sunset}}</p>
+      <div id="currentLongitude"></div>
+      <div id="currentLatitude"></div>
     </script>
   </head>
   <body>
@@ -63,16 +75,16 @@
       <section id="dashboard">
         <div class="row">
           <div class="col-sm-6 col-md-4 location current">
-            <div id="currentLongitude"></div>
-            <div id="currentLatitude"></div>
             <!-- current location widget will go here -->
           </div>
           <div id="displayLocations" class="col-sm-6 col-md-8 location">
-            <div class="row">
+            <div id="displayFavorites" class="row">
               <!-- favorite location widgets will go here -->
             </div>
           </div>
-          <div id="output"></div>
+          <div id="outputTemp"></div>
+          <div id="outputCondi"></div>
+          <div id="outputWind"></div>
         </div>
       </section>
 
@@ -81,7 +93,7 @@
           <form name="nameInput" id="nameForm">
             <label>Enter your name</label>
             <input id="fname" type="text" name="fname" value="" required>
-            <p id="nameAlert">Please enter your name!</p>
+
             <button id="submitName" class="btn">Submit</button>
           </form>
           <div class="row">
@@ -91,19 +103,19 @@
                   <legend>Input a favorite Location</legend>
                   <label for="flocationname">Location Name</label>
                   <input type="text" name="flocationname" required>
-                  <p id="locationNameAlert">Please enter the name of the location!</p>
+
                   <label for="fstreetaddress">Street Address</label>
                   <input type="text" name="fstreetaddress" required>
-                  <p id="locationAddressAlert">Please enter the street address of the location!</p>
+
                   <label for="fcity">City</label>
                   <input type="text" name="fcity" required>
-                  <p id="locationCityAlert">Please enter the city the location is in!</p>
+
                   <label for="fstate">State</label>
                   <input type="text" name="fstate" required>
-                  <p id="locationStateAlert">Please enter the state the location is in!</p>
+
                   <label for="fzip">Zip</label>
                   <input type="text" name="fzip" required>
-                  <p id="locationZipAlert">Please enter the zip code of the location!</p>
+            
                   <button id="submitLocation" class="btn">Submit Location</button>
                 </fieldset>
               </form>
@@ -169,6 +181,7 @@
       <script src="vendor/html5sql.js"></script>
       <script src="js/webdb.js"></script>
       <!-- custom js files -->
+      <script src="js/iconContext.js"></script>
       <script src="js/controllers/welcomeController.js"></script>
       <script src="js/controllers/dashboardController.js"></script>
       <script src="js/controllers/configureController.js"></script>

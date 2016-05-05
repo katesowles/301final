@@ -4,6 +4,8 @@
   var templateConfig = Handlebars.compile(sourceConfig);
   var sourceDash = $('#favoritesView').text();
   var templateDash = Handlebars.compile(sourceDash);
+  var sourceCurrent = $('#currentLocView').text();
+  var templateCurrent = Handlebars.compile(sourceCurrent);
 
   locationView = {};
 
@@ -11,6 +13,10 @@
   locationView.display = function(data) {
     $showLocations.append(templateConfig(data));
     $('#displayLocations .row').append(templateDash(data));
+  };
+
+  locationView.current = function(data) {
+    $('.current').append(templateCurrent(data));
   };
 
   // this will be moved somewhere more appropriate.
