@@ -38,13 +38,14 @@
     return currentLocation.locationCheck();
   };
 
-  // weather.insertIcon = function(index) {
-  //   userLocation.all.forEach(
-  //     console.log(userLocation.all.condition)
-  //   );
-  // };
+  weather.insertFavoriteIcons = function(data) {
+    console.log(data);
+  };
 
-  // weather.insertIcon();
+  weather.insertCurrentIcon = function () {
+
+  };
+
 
   module.weather = weather;
 })(window);
