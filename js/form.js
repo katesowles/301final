@@ -67,6 +67,19 @@
     return response;
   };
 
+//Info Message about Weather Condition
+
+  formHandler.recWind= function(wind){
+    var response = '';
+    if (wind < 16){
+      response = 'There\'s barely any wind';
+    } else if ((wind >= 16) && (wind < 26)) {
+      response = 'It\'s a bit breezy';
+    } else {
+      response = 'It\'s windy.';
+    }
+    return response;
+  };
 
 
   //Event Listeners for Submit Button
