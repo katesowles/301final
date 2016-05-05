@@ -51,17 +51,17 @@
   formHandler.recTemp= function(temp){
     var response = '';
     if (temp < 50){
-      response = 'It\'s very cold';
+      response = 'It\'s very cold, ';
     } else if ((temp >= 50) && (temp < 61)) {
-      response = 'It\s pleasantly cool';
+      response = 'It\s pleasantly cool, ';
     } else if ((temp >= 61) && (temp < 70)) {
-      response = 'It\'s nice and warm, perfect biking temperatures ';
+      response = 'It\'s nice and warm, ';
     } else if ((temp >= 70) && (temp < 79)) {
-      response = 'It\'s pretty warm, should be a nice ride';
+      response = 'It\'s pretty warm, ';
     } else if ((temp >= 79) && (temp < 88)) {
-      response = 'It\'s very warm out there';
+      response = 'It\'s very warm out there, ';
     } else {
-      response = 'It\'s very hot';
+      response = 'It\'s very hot, ';
     }
     return response;
   };
@@ -77,11 +77,11 @@
   formHandler.recWind= function(wind){
     var response = '';
     if (wind < 16){
-      response = 'There\'s barely any wind';
+      response = ' with barely any wind.';
     } else if ((wind >= 16) && (wind < 26)) {
-      response = 'It\'s a bit breezy';
+      response = ' with a bit of a breeze.';
     } else {
-      response = 'It\'s windy.';
+      response = ' with quite a bit of wind.';
     }
     return response;
   };
@@ -94,13 +94,13 @@
     case 'Drizzle':
     case 'Rain Mist':
     case 'Freezing Drizzle':
-      response = 'It\'s drizzling';
+      response = 'and drizzling';
       break;
     case 'Rain':
     case 'Rain Showers':
     case 'Freezing Rain':
     case 'Unknown Precipitation':
-      response = 'It\'s raining';
+      response = 'and raining';
       break;
     case 'Snow':
     case 'Snow Grains':
@@ -109,7 +109,7 @@
     case 'Blowing Snow':
     case 'Snow Showers':
     case 'Snow Blowing Snow Mist':
-      response = 'It\'s snowing';
+      response = 'and snowing';
       break;
     case 'Hail':
     case 'Ice Pellets':
@@ -117,7 +117,7 @@
     case 'Hail Showers':
     case 'Small Hail Showers':
     case 'Small Hail':
-      response = 'It\'s hailing';
+      response = 'and hailing';
       break;
     case 'Mist':
     case 'Fog':
@@ -127,7 +127,7 @@
     case 'Patches of Fog':
     case 'Shallow Fog':
     case 'Partial Fog':
-      response = 'It\'s foggy';
+      response = 'and foggy';
       break;
     case 'Smoke':
     case 'Volcanic Ash':
@@ -140,7 +140,7 @@
     case 'Low Drifting Sand':
     case 'Blowing Sand':
     case 'Blowing Widespread Dust':
-      response = 'It\'s smoky';
+      response = 'and smoky';
       break;
     case 'Thunderstorm':
     case 'Thunderstorms and Rain':
@@ -148,27 +148,27 @@
     case 'Thunderstorms and Ice Pellets':
     case 'Thunderstorms with Hail':
     case 'Thunderstorms with Small Hail':
-      response = 'There\'s thunderstorms';
+      response = 'with thunderstorms';
       break;
     case 'Overcast':
     case 'Partly Cloudy':
     case 'Mostly Cloudy':
     case 'Scattered Clouds':
-      response = 'It\'s overcast';
+      response = 'and overcast';
       break;
     case 'Clear':
-      response = 'It\'s clear';
+      response = 'and clear';
       break;
     case 'Squall':
-      response = 'There\'s squalls';
+      response = 'and there\'s squalls';
     case 'Funnel Cloud':
-      response = 'There\'s a funnel cloud';
+      response = 'and there\'s funnel clouds';
       break;
     case 'Unknown':
-      response = 'Look out the window';
+      response = '';
       break;
     default:
-      response = 'Any weather is great biking weather!';
+      response = '';
     };
     return response;
   };
