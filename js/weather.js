@@ -24,6 +24,7 @@
   };
 
   weather.extractData = function(data) {
+    console.log(data);
     return {
       temperature:  data.hourly_forecast[0].temp.english,
       condition:    data.hourly_forecast[0].condition,
@@ -39,7 +40,7 @@
   };
 
   weather.insertFavoriteIcons = function(data) {
-    
+
   };
 
   weather.insertCurrentIcon = function () {

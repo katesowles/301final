@@ -17,7 +17,7 @@
 
   locationView.current = function(data, callback) {
     $('.current').append(templateCurrent(data));
-    callback();
+    if (callback) callback();
   };
 
   // this will be moved somewhere more appropriate.

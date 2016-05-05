@@ -46,12 +46,12 @@
       ], callback);
   };
 
-  userLocation.deleteRecord = function(id, callback) {
+  userLocation.deleteRecord = function(ctx, callback) {
     webDB.execute(
       [
         {
           sql: 'DELETE FROM locations WHERE id = ?;',
-          data: [id]
+          data: [ctx.params.id]
         }
       ], callback);
   };
