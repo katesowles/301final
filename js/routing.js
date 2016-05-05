@@ -8,6 +8,7 @@
     page('dashboard', dashboardController.index);
     page('configure', configureController.index);
     page('about', aboutController.index);
+    page('deleteRecord/:id', deleteRecord.index);
 
     page();
   };

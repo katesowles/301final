@@ -12,6 +12,7 @@
     <link href="css/layout.css" rel="stylesheet"></link>
     <link href="css/module.css" rel="stylesheet"></link>
     <link href="css/state.css" rel="stylesheet"></link>
+
     <script id="favoritesList" type="text/x-handlebars-template">
         <article class="col-xs-6 col-md-4 col-lg-3">
           <h5>{{locationName}}</h5>
@@ -22,6 +23,7 @@
           </address>
         </article>
     </script>
+
     <script id="favoritesView" type="text/x-handlebars-template">
       <article class="col-xs-6 col-md-4 col-lg-3 location favorite">
         <div class="location favorite">
@@ -29,10 +31,11 @@
           <img src="{{conditionIcon}}" alt="{{condition}}">
           <p>Temp: {{temperature}}° F</p>
           <p>Wind: {{windSpeed}} {{windDir}}</p>
-          <a href="#"><h6>delete</h6></a>
+          <a href="/deleteRecord/{{id}}" id="deleteRecord"><h6>Click Here To Delete</h6></a>
         </div>
       </article>
     </script>
+
     <script id="currentLocView" type="text/x-handlebars-template">
       <h5>Current Location</h5>
       <img src="{{conditionIcon}}" alt="{{condition}}">
@@ -179,7 +182,7 @@
       <script src="vendor/html5sql.js"></script>
       <script src="js/webdb.js"></script>
       <!-- custom js files -->
-      <script src="js/iconContext.js"></script>
+      <script src="js/data/iconContext.js"></script>
       <script src="js/controllers/welcomeController.js"></script>
       <script src="js/controllers/dashboardController.js"></script>
       <script src="js/controllers/configureController.js"></script>

@@ -34,7 +34,8 @@ div.location {
   border-radius: 50px;
   background-color: #ddd;
   display: inline-block;
-  /*margin: 20px;*/
+  text-align: center;
+  padding: 20px;
 }
 
 div.current {

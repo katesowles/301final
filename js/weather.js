@@ -39,7 +39,7 @@
   };
 
   weather.insertFavoriteIcons = function(data) {
-    console.log(data);
+    
   };
 
   weather.insertCurrentIcon = function () {

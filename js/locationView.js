@@ -15,8 +15,9 @@
     $('#displayLocations .row').append(templateDash(data));
   };
 
-  locationView.current = function(data) {
+  locationView.current = function(data, callback) {
     $('.current').append(templateCurrent(data));
+    callback();
   };
 
   // this will be moved somewhere more appropriate.

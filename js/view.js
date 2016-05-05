@@ -17,7 +17,7 @@
   view.adjustSectionHeight();
   weather.getCurrentLocation();
   weather.updateCurrent(locationView.current);
-  weather.insertFavoriteIcons();
+  // weather.insertFavoriteIcons();
 
   module.view = view;
 })(window);
