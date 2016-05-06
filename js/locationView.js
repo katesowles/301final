@@ -188,7 +188,7 @@
     if (now.getHours() <= loc.sunrise) {
       answer = '<p><span>The sun will rise at ' + loc.sunrise + '</span> - so bring some lights if you\'re out early</p>';
     } else {
-      answer = '<p><span>The sun will set at ' + loc.sunset + '</span> - so bring some lights if you\'re out early</p>';
+      answer = '<p><span>The sun will set at ' + loc.sunset + '</span> - so bring some lights if you\'re out late</p>';
 
     }
     return answer;
