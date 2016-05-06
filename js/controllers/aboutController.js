@@ -12,7 +12,6 @@
   });
 
   aboutController.index = function() {
-    console.log('aboutController triggered');
     $('nav a').removeClass('viewing');
     $toAbout.addClass('viewing');
   };
