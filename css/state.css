@@ -9,15 +9,30 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-
+  #welcome {
+    padding-top: 150px;
+  }
+  #welcome .row {
+    padding: 0 150px;
+  }
+  #logo {
+    margin-top: 75px;
+  }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+  #welcome .row {
+    padding: 0;
+  }
+  #currentLogo .iconGoesHere {
+    padding-top: 200px;
+  }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+  #currentLogo .iconGoesHere {
+    padding-top: 50px;
+  }
 }

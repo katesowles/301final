@@ -6,6 +6,8 @@
   var templateDash = Handlebars.compile(sourceDash);
   var sourceCurrent = $('#currentLocView').text();
   var templateCurrent = Handlebars.compile(sourceCurrent);
+  var sourceIcons = $('.iconGoesHere').text();
+  var templateIcons = Handlebars.compile(sourceIcons);
 
   locationView = {};
 
@@ -18,6 +20,11 @@
   locationView.current = function(data, callback) {
     $('.current').append(templateCurrent(data));
     if (callback) callback();
+  };
+
+  locationView.addIcons = function (savedIcon) {
+    console.log('incoming?: ', savedIcon);
+    $('.iconGoesHere').append(templateIcons(savedIcon));
   };
 
   // this will be moved somewhere more appropriate.
@@ -174,13 +181,15 @@
   };
 
 
-  locationView.recSunRiseSet = function(){
+  locationView.recSunRiseSet = function(loc){
     var answer = '';
     var now = new Date();
-    if (now.getHours() <= userLocation.all[0].sunrise) {
-      answer = '<p><span>The sun will rise at ' + userLocation.all[0].sunrise + '</span> - so bring some lights if you\'re out early</p>';
+
+    if (now.getHours() <= loc.sunrise) {
+      answer = '<p><span>The sun will rise at ' + loc.sunrise + '</span> - so bring some lights if you\'re out early</p>';
     } else {
-      answer = '<p><span>The sun will set at ' + userLocation.all[0].sunset + '</span> - so bring some lights if you\'re still out</p>';
+      answer = '<p><span>The sun will set at ' + loc.sunset + '</span> - so bring some lights if you\'re out early</p>';
+
     }
     return answer;
   };
@@ -189,7 +198,7 @@
     var temp = locationView.recTemp(loc.temperature);
     var wind = locationView.recWind(loc.windSpeed);
     var condi = locationView.recCondi(loc.condition);
-    var sunRiseSet = locationView.recSunRiseSet();
+    var sunRiseSet = locationView.recSunRiseSet(loc);
 
     $('#outputTemp').html(temp.answer);
     $('#outputWind').html(wind.answer);

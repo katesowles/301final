@@ -4,6 +4,7 @@
   var configureController = {};
 
   $(document).ready(function() {
+    formHandler.init();
     $toConfigure.click(function() {
       $('html, body').animate({
         scrollTop: $configure.offset().top
