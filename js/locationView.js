@@ -18,7 +18,7 @@
   };
 
   locationView.current = function(data, callback) {
-    $('.current').append(templateCurrent(data));
+    $('.current').prepend(templateCurrent(data));
     if (callback) callback();
   };
 
