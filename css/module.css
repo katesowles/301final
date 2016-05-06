@@ -122,15 +122,12 @@ div.favorite {
   text-align: center;
   text-transform: uppercase;
   font-weight: 200;
-  font-size: 20px;
+  margin-top: 50px;
 }
 
 #outPuts div p {
   text-align: center;
-}
-
-#outputTemp {
-  margin-top: 230px;
+  font-size: 1.25em;
 }
 
 #outputRec {
