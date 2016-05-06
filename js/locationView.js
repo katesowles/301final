@@ -203,7 +203,7 @@
     $('#outputSun').html(sunRiseSet);
 
     if (temp.good && wind.good && condi.good) {
-      $('#outputRec').text('In short - It\'s a great for biking!');
+      $('#outputRec').text('In short - It\'s a great day for biking!');
     } else {
       $('#outputRec').text('Maybe leave your bike home today.');
     }
