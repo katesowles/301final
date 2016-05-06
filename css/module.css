@@ -75,10 +75,6 @@ div.favorite {
 
 /* config specific styles */
 
-#nameAlert, #locationNameAlert, #locationAddressAlert, #locationCityAlert, #locationStateAlert, #locationZipAlert {
-  display: none;
-  color: red;
-}
 
 .btn {
   background-color: transparent;
@@ -121,6 +117,28 @@ div.favorite {
   display: none;
 }
 
+#outPuts {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+  margin-top: 50px;
+}
+
+#outPuts div p {
+  text-align: center;
+  font-size: 1.25em;
+}
+
+#outputRec {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+p span {
+  font-weight: 400;
+}
 /* footer specific styles */
 
 footer .smallAndCenter {
