@@ -83,3 +83,18 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 32. Persist at least part of your app's state on a server such as Heroku or Firebase (2pt) **___**
 
 33. Make presentation and plan for who shows what **___** FRIDAY AM
+
+
+# User's Guide
+
+'Should I Bike It?' - User’s Guide
+
+'Should I Bike It?' is an app designed with ease of use in mind. Its clean design is meant to draw the eye to the information that matters - quickly and without any distractions.
+
+You never know how the weather might change and whether it’s a good day to take the bike. A look out the window might tell you what it’s like at your current location but what about your destination? You could consult a weather specific webpage and search for all the info that’s important to you or you could quickly glance at 'Should I Bike It?' and get all the information you need within a second.
+
+When you first open up 'Should I Bike It?' you will see the welcome screen and a quick explanation of what it’s all about. After that click on the Configure link on the top of the page and you will be taken to a short form that will ask for your name. Once you enter your name you are then asked to enter a location. This could be anything - your home, the office, your favorite coffee shop or any other place you like to bike to. You don’t have to remember which locations you have already entered - 'Should I Bike It?' will keep track of them for you and you can always see them on the Configuration Page under the Saved Locations heading.
+
+On the Dashboard is where the magic happens. With one glance you can see all the important weather data at your current location and all your other favorite places as well. Armed with this information you can then easily decide on whether you’d like to take your bike. For the really busy among you there’s an extra treat - you don’t even need to look at this info and make your own decision if you don’t want to (or if it is very early in the morning). 'Should I Bike It?' provides a short, simple message that tells you what it’s like outside, what you should bring to be well prepared and if you should get on your bike or should rather leave it at home.  Easy peasy lemon squeezy. 
+
+Once glance and you know whether to bike it - a simple idea that opens incredible possibilities.
