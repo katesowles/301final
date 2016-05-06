@@ -36,11 +36,11 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 ##### Documentation Requirements
 1. Include a link to the repo in the footer of the site **KATE**
 2. Include a link to the live site in the repo's readme AND description **KATE**
-3. Develop a User Guide **___**  FRIDAY AM
+3. Develop a User Guide **YVONNE**  FRIDAY AM
 
 ##### HTML Requirements
 4. Remove unused/commented out/irrelevant code and process documentation files **ALL**
-5. Use semantic HTML tags, if it is an important tag but isn't descriptive, use classes, ids, or comments to describe it's purpose **___**
+5. Use semantic HTML tags, if it is an important tag but isn't descriptive, use classes, ids, or comments to describe it's purpose **ALL**
 6. Consistent indentation **ALL**
 7. Remove redundancies; repeated DOM structures should be templated or programmatically created using JS **KATE/YVONNE**
 
@@ -71,18 +71,18 @@ Do you bike? Whether you're giving it a quick glance or a more in depth look, we
 
 ##### Stretch Goals
 27. Persist at least some of your app's data in two or more WebSQL tables and make SQLite queries that use joins/relations to filter data.
- (1pt) **___**
-28. use a finite state machine that explicitly models the FSM using named inputs (events) and named states (1pt) **___**
-29. Include an audio element and use .mp3 format for our media file (1pt) **___**
-30. Use JS built in methods .bind() and .apply(); answer the following questions in the sbumission: (1pt) **___**
+ (1pt) **YES**
+28. use a finite state machine that explicitly models the FSM using named inputs (events) and named states (1pt) **NO**
+29. Include an audio element and use .mp3 format for our media file (1pt) **NO**
+30. Use JS built in methods .bind() and .apply(); answer the following questions in the sbumission: (1pt) **NO**
   - The methods belong to what kind of object? Does each object have its own copy of the method, or are the methods on the prototype for that object?
   - How does .apply() differ from .call()?
 31. Let users register on your site with a username and password; require login to access some of the site's data:
-  - Use client side authentication as proof of concept (0.25pt) **___**
-  - or use server-side authentication (2pt) **___**
-32. Persist at least part of your app's state on a server such as Heroku or Firebase (2pt) **___**
+  - Use client side authentication as proof of concept (0.25pt) **YES**
+  - or use server-side authentication (2pt) **YES**
+32. Persist at least part of your app's state on a server such as Heroku or Firebase (2pt) **NO**
 
-33. Make presentation and plan for who shows what **___** FRIDAY AM
+33. Make presentation and plan for who shows what **ALL** FRIDAY AM
 
 
 # User's Guide
@@ -95,6 +95,6 @@ You never know how the weather might change and whether it’s a good day to tak
 
 When you first open up 'Should I Bike It?' you will see the welcome screen and a quick explanation of what it’s all about. After that click on the Configure link on the top of the page and you will be taken to a short form that will ask for your name. Once you enter your name you are then asked to enter a location. This could be anything - your home, the office, your favorite coffee shop or any other place you like to bike to. You don’t have to remember which locations you have already entered - 'Should I Bike It?' will keep track of them for you and you can always see them on the Configuration Page under the Saved Locations heading.
 
-On the Dashboard is where the magic happens. With one glance you can see all the important weather data at your current location and all your other favorite places as well. Armed with this information you can then easily decide on whether you’d like to take your bike. For the really busy among you there’s an extra treat - you don’t even need to look at this info and make your own decision if you don’t want to (or if it is very early in the morning). 'Should I Bike It?' provides a short, simple message that tells you what it’s like outside, what you should bring to be well prepared and if you should get on your bike or should rather leave it at home.  Easy peasy lemon squeezy. 
+On the Dashboard is where the magic happens. With one glance you can see all the important weather data at your current location and all your other favorite places as well. Armed with this information you can then easily decide on whether you’d like to take your bike. For the really busy among you there’s an extra treat - you don’t even need to look at this info and make your own decision if you don’t want to (or if it is very early in the morning). 'Should I Bike It?' provides a short, simple message that tells you what it’s like outside, what you should bring to be well prepared and if you should get on your bike or should rather leave it at home.  Easy peasy lemon squeezy.
 
 Once glance and you know whether to bike it - a simple idea that opens incredible possibilities.
