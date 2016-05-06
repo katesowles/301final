@@ -14,14 +14,15 @@
       formHandler.userName = localStorage.currentUser;
       formHandler.el.$nameForm.hide();
       formHandler.el.$locationForm.show();
+      $('#savedContainer').show();
     } else {
       formHandler.el.$submitName.on('click', function(e){
         e.preventDefault();
         if (formHandler.el.$nameForm.valid()) {
-          console.log('Valid.');
           localStorage.currentUser = formHandler.userName = $('#fname').val();
           formHandler.el.$nameForm.hide();
           formHandler.el.$locationForm.show();
+          $('#savedContainer').show();
         }
       });
     }

@@ -5,12 +5,16 @@
     var localData;
     $.get('/wu/astronomy/hourly/q/'+ locObj.zipcode +'.json')
     .done (function(data, message, xhr) {
-      localData = $.extend(locObj, weather.extractData(data));
-      if (callback) {
-        userLocation.all.push(new userLocation(localData));
-        callback(localData);
+      if (data.hourly_forecast) {
+        localData = $.extend(locObj, weather.extractData(data));
+        if (callback) {
+          userLocation.all.push(new userLocation(localData));
+          callback(localData);
+        } else {
+          console.info('weather.updateData says "No callback specified"');
+        }
       } else {
-        console.log('weather.updateData says "No callback specified"');
+        console.info('Error from Weather Underground: ', data.response.error.description);
       }
     });
   };
@@ -18,9 +22,13 @@
   weather.updateCurrent = function (coordinates, callback) {
     $.get('/wu/astronomy/hourly/q/'+ coordinates.lat + ',' + coordinates.lng +'.json')
     .done(function (data, message, xhr) {
-      currentData = weather.extractData(data);
-      locationView.showRec(currentData);
-      callback(currentData);
+      if (data.hourly_forecast) {
+        currentData = weather.extractData(data);
+        locationView.showRec(currentData);
+        callback(currentData);
+      } else {
+        console.info('Error from Weather Underground: ', data.response.error.description);
+      }
     });
   };
 

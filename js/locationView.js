@@ -17,21 +17,18 @@
     $('#displayLocations .row').append(templateDash(data));
   };
 
+  // displays current weather data for users current location
   locationView.current = function(data, callback) {
     $('.current').prepend(templateCurrent(data));
     if (callback) callback();
   };
 
+  // adds icons to each location based on condition
   locationView.addIcons = function (savedIcon) {
-    console.log('incoming?: ', savedIcon);
     $('.iconGoesHere').append(templateIcons(savedIcon));
   };
 
-  // this will be moved somewhere more appropriate.
-  locationView.init = function() {
-    userLocation.createTable();
-    userLocation.fetchAll();
-  };
+
 
   //Info Message about the temperature
   locationView.recTemp= function(temp){
@@ -188,7 +185,7 @@
     if (now.getHours() <= loc.sunrise) {
       answer = '<p><span>The sun will rise at ' + loc.sunrise + '</span> - so bring some lights if you\'re out early</p>';
     } else {
-      answer = '<p><span>The sun will set at ' + loc.sunset + '</span> - so bring some lights if you\'re out early</p>';
+      answer = '<p><span>The sun will set at ' + loc.sunset + '</span> - so bring some lights if you\'re out late</p>';
 
     }
     return answer;
@@ -206,10 +203,16 @@
     $('#outputSun').html(sunRiseSet);
 
     if (temp.good && wind.good && condi.good) {
-      $('#outputRec').text('In short - It\'s a great for biking!');
+      $('#outputRec').text('In short - It\'s a great day for biking!');
     } else {
       $('#outputRec').text('Maybe leave your bike home today.');
     }
+  };
+
+  // Beginning
+  locationView.init = function() {
+    userLocation.createTable();
+    userLocation.fetchAll();
   };
 
   module.locationView = locationView;
