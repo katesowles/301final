@@ -17,6 +17,7 @@
     userLocation.findWhere('id', locId, callback);
   };
 
+  // creates the location table upon init.
   userLocation.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS locations (' +
@@ -30,6 +31,7 @@
     );
   };
 
+  //  Not called in the app, but used by developers to empty table during development.
   userLocation.truncateTable = function(callback) {
     webDB.execute(
       'DELETE FROM locations;',
@@ -46,6 +48,7 @@
       ], callback);
   };
 
+  // delete specific record by id.
   userLocation.deleteRecord = function(ctx, callback) {
     webDB.execute(
       [
@@ -56,6 +59,7 @@
       ], callback);
   };
 
+  // For further development, allowing the user to edit their locations.
   userLocation.prototype.updateRecord = function(callback) {
     webDB.execute(
       [
@@ -66,6 +70,7 @@
       ], callback);
   };
 
+  // generic query middleware.
   userLocation.findWhere = function(field, value, callback) {
     webDB.execute(
       [
@@ -76,6 +81,7 @@
       ], callback);
   };
 
+  // called by fetchAll to send data to merge one at a time.
   userLocation.loadAll = function(rows) {
     rows.map(function(ele) {
       //  Passed in this manner to duplicate how webDB.execute passes the data
@@ -91,7 +97,7 @@
         userLocation.loadAll(rows);
         callback();
       } else {
-        console.log('No data in storage');
+        console.info('No data in storage');
         callback();
       }
     });

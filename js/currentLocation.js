@@ -2,6 +2,7 @@
 
   currentLocation = {};
 
+  // Gets location from browser, initiates weather conditions pull.
   currentLocation.locationCheck = function() {
     navigator.geolocation.getCurrentPosition(function(position) {
       var coordinates = {
