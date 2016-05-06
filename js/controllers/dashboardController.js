@@ -4,6 +4,7 @@
   var dashboardController = {};
 
   $(document).ready(function() {
+    locationView.init();
     $toDashboard.click(function() {
       $('html, body').animate({
         scrollTop: $dashboard.offset().top

@@ -2,32 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Should I Bike?</title>
-    <link rel='shortcut icon' href='img/logo/bikeItFavicon.png' type='image/x-icon'/ >
-    <!-- vendor css files -->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'></link>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type='text/css'></link>
-    <!-- custom css files -->
-    <link href="css/base.css" rel="stylesheet"></link>
-    <link href="css/layout.css" rel="stylesheet"></link>
-    <link href="css/module.css" rel="stylesheet"></link>
-    <link href="css/state.css" rel="stylesheet"></link>
+      <title>Should I Bike?</title>
+      <link rel='shortcut icon' href='/img/logo/bikeItFavicon.png' type='image/x-icon'/ >
+      <!-- vendor css files -->
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900" rel="stylesheet" type="text/css"></link>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+      <!-- custom css files -->
+      <link href="/css/base.css" rel="stylesheet"></link>
+      <link href="/css/layout.css" rel="stylesheet"></link>
+      <link href="/css/module.css" rel="stylesheet"></link>
+      <link href="/css/state.css" rel="stylesheet"></link>
+    <!-- this is the template that displays the list of locations in the configure -->
     <script id="favoritesList" type="text/x-handlebars-template">
-      <article>
-        <h4>{{LocationName}}</h4>
-        <address>
-          <p>{{StreetAddress}}</p>
-          <p>{{City}}, {{State}} {{Zipcode}}</p>
-        </address>
-      </article>
+        <article class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h5>{{locationName}}</h5>
+          <address>
+            <p>{{streetAddress}}</p>
+            <p>{{city}}, {{state}}</p>
+            <p>{{zipcode}}</p>
+          </address>
+        </article>
     </script>
+    <!-- this is the template that displays the icons in the dashboard for favorites -->
     <script id="favoritesView" type="text/x-handlebars-template">
-      <article>
-        <h4>{{LocationName}}</h4>
+      <article id="record{{id}}" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="location favorite">
-          <img src="{{CurrentConditionIcon}}" alt="{{CurrentCondition}}">
+          <h5>{{locationName}}</h5>
+          <p>{{condition}}</p>
+          <img class="iconGoesHere" src="{{imageUrl}}" alt="{{condition}}" />
+          <p>Temp: {{temperature}}° F</p>
+          <p>Wind: {{windSpeed}} {{windDir}}</p>
+          <a href="/deleteRecord/{{id}}" id="deleteRecord"><h6>Click Here To Delete</h6></a>
         </div>
       </article>
+    </script>
+    <!-- this is the template that displays the icons in the dashboard for current location -->
+    <script id="currentLocView" type="text/x-handlebars-template">
+      <div id="currentLogo" class="col-xs-6">
+        <img class="iconGoesHere" src="{{imageUrl}}" alt="{{condition}}" />
+      </div>
+      <div class="col-xs-6">
+        <h5>Current Location</h5>
+        <p>{{condition}}</p>
+        <p>Temp: {{temperature}}° F</p>
+        <p>Wind: {{windSpeed}} {{windDir}}</p>
+        <p>Sunrise is at {{sunrise}}</p>
+        <p>Sunset is at {{sunset}}</p>
+      </div>
     </script>
   </head>
   <body>
@@ -40,71 +61,79 @@
           <a href="/about" id="toAbout">About</a>
         </nav>
       </header>
-
-      <section id="welcome" class="row">
-        <div class="overlay">
-          <img src="img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo" />
-          <hgroup>
-            <h1>Should I Bike It?</h1>
-            <h2>Inspired by our erratic Portland weather, it can be hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed. Maybe you struggle with the same issue?</h2>
-            <h2>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need to stay up to date on how comfortable biking between your favorite locations will be.</h2>
-          </hgroup>
+      <section id="welcome">
+        <div class="row">
+          <div class="col-lg-2">&nbsp;</div> <!-- spacer -->
+          <article class="col-xs-12 col-md-6 col-lg-4">
+            <img src="/img/logo/bikeItLogo.png" alt="Should I Bike It Logo" id="logo">
+          </article>
+          <article class="col-xs-12 col-md-6 col-lg-4">
+            <hgroup>
+              <h1>Should I Bike It?</h1>
+              <h2>Inspired by our erratic Portland weather, it can be hard to anticipate the weather on the other side of town, or even in the same spot after a few hours have lapsed. Maybe you struggle with the same issue?</h2>
+              <h2>Do you bike? Whether you're giving it a quick glance or a more in depth look, we give you the updates you need to stay up to date on how comfortable biking between your favorite locations will be.</h2>
+            </hgroup>
+          </article>
+          <div class="col-lg-2">&nbsp;</div> <!-- spacer -->
         </div>
       </section>
-
-      <section id="dashboard" class="row">
-        <div class="overlay">
-          <div class="location current"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
-          <div class="location favorite"></div>
+      <section id="dashboard">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 location current">
+            <div class="row">
+              <!-- current location widget will go here -->
+            </div>
+          </div>
+          <div id="displayLocations" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div id="displayFavorites" class="row">
+              <!-- favorite location widgets will go here -->
+            </div>
+          </div>
+          <div id="outputTemp"></div>
+          <div id="outputCondi"></div>
+          <div id="outputWind"></div>
+          <div id="outputSun"></div>
+          <div id="outputRec"></div>
         </div>
       </section>
-
       <section id="configure">
-        <div class="overlay row">
-          <form name="nameInput" id="nameForm" class="col-sm-12">
+        <div class="row">
+          <form name="nameInput" id="nameForm">
             <label>Enter your name</label>
-            <input type="text" name="fname" value="" id="fname">
-            <p id="nameAlert">Please enter your name!</p>
+            <input id="fname" type="text" name="fname" value="" required>
+
             <button id="submitName" class="btn">Submit</button>
           </form>
           <div class="row">
-            <div class="col-sm-6">
-              <form name='locationData' id="locationForm">
-                <fielset>
-                  <legend>Input a favorite Location to appear on your dashboard</legend>
-                  <label>Location Name</label>
-                  <input type='text' name='flocationname'>
-                  <p id='locationNameAlert'>Please enter the name of the location!</p>
-                  <label>Street Address</label>
-                  <input type='text' name='fstreetaddress'>
-                  <p id='locationAddressAlert'>Please enter the street address of the location!</p>
-                  <label>City</label>
-                  <input type='text' name='fcity'>
-                  <p id='locationCityAlert'>Please enter the city the location is in!</p>
-                  <label>State</label>
-                  <input type='text' name='fstate'>
-                  <p id='locationStateAlert'>Please enter the state the location is in!</p>
-                  <label>Zip</label>
-                  <input type='text' name='fzip'>
-                  <p id='locationZipAlert'>Please enter the zip code of the location!</p>
+            <div class="col-xs-12 col-md-6">
+              <form name="locationData" id="locationForm">
+                <fieldset>
+                  <legend>Input a favorite Location</legend>
+                  <label for="flocationname">Location Name</label>
+                  <input type="text" name="flocationname" required>
+
+                  <label for="fstreetaddress">Street Address</label>
+                  <input type="text" name="fstreetaddress" required>
+
+                  <label for="fcity">City</label>
+                  <input type="text" name="fcity" required>
+
+                  <label for="fstate">State</label>
+                  <input type="text" name="fstate" required>
+
+                  <label for="fzip">Zip</label>
+                  <input type="text" name="fzip" required>
+
                   <button id="submitLocation" class="btn">Submit Location</button>
                 </fieldset>
               </form>
             </div> <!-- closes left-hand column -->
 
-            <div id="showLocations" class="col-sm-6">
-              <div id="output">
-                <h2 id="itsgood"></h2>
-                <h2 id="itsbad"></h2>
-                <h2 id='itssoso'></h2>
-              </div>
+            <div class="col-xs-12 col-md-6">
+              <h4>Saved Locations</h4>
+              <div id="showLocations" class="row">
 
-              <p>This renders!</p>
+              </div> <!-- closes the showLocations row -->
             </div> <!-- closes right-hand column -->
 
           </div> <!-- closes the div 'row' with location data -->
@@ -112,8 +141,8 @@
       </section>
 
       <footer class="row" id="about">
-        <article class="col-xs-12 col-sm-6 col-md-3 david">
-          <img src="img/bio/david.jpg" alt="David Goodwin" class="greyscale">
+        <article class="col-sm-6 col-md-3">
+          <img src="/img/bio/david.jpg" alt="David Goodwin" class="greyscale">
           <div class="bio">
             <h3>David Goodwin</h3>
             <p>I'm a 15-year IT veteran who decided to trade in the support side of the aisle for the development world, finally determined to make a career out of my programming habit.
@@ -124,8 +153,8 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 yvonne">
-          <img src="img/bio/yvonne.jpg" alt="Yvonne Hayes" class="greyscale" />
+        <article class="col-sm-6 col-md-3">
+          <img src="/img/bio/yvonne.jpg" alt="Yvonne Hayes" class="greyscale" />
           <div class="bio">
             <h3>Yvonne Hayes</h3>
             <p> I'm an Austrian who came to Portland via Puerto Vallata, Mexico and still thinks fondly of the time she lived in London, England. I'm an avid reader, on again off again runner, gamer, MMORPG addict, catholic school survivor, Netflix binge-watcher and absolute dog person - who is owned by 3 cats (it's a long story).</p>
@@ -134,8 +163,8 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 kate">
-          <img src="img/bio/kate.jpg" alt="Kate Sowles" class="greyscale" />
+        <article class="col-sm-6 col-md-3">
+          <img src="/img/bio/kate.jpg" alt="Kate Sowles" class="greyscale" />
           <div class="bio">
             <h3>Kate Sowles</h3>
             <p>Developer by day and farmer by night, I'm one half of a tiny house living duo outside of Portland, OR. I am a self-proclaimed expert in offline-living, digging big holes, and loving beer.</p>
@@ -143,31 +172,35 @@
           </div>
         </article>
 
-        <article class="col-xs-12 col-sm-6 col-md-3 about">
+        <article class="col-sm-6 col-md-3">
           <h3>About the project</h3>
           <p>Curious about our process? Want to take the idea and run with it? <a href="https://github.com/katesowles/301final">Click here to visit the repository</a></p>
           <p>Weather information gathered via the Weather Underground API</p>
-          <img src="img/wu/wundergroundLogo_4c_rev.png" alt="Weather Underground" class="smallAndCenter"/>
+          <img src="/img/wu/wundergroundLogo_4c_rev.png" alt="Weather Underground" class="smallAndCenter"/>
         </article>
       </footer>
 
       <!-- vendor js files -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.js"></script>
-      <script src="vendor/html5sql.js"></script>
-      <script src="js/webdb.js"></script>
-      <!-- custom js files -->
-      <script src="js/controllers/welcomeController.js"></script>
-      <script src="js/controllers/dashboardController.js"></script>
-      <script src="js/controllers/configureController.js"></script>
-      <script src="js/controllers/aboutController.js"></script>
-      <Script src="js/weather.js"></script>
-      <script src="js/location.js"></script>
-      <script src="js/locationView.js"></script>
-      <script src="js/form.js"></script>
-      <script src="js/routing.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.js"></script>
+        <script src="/vendor/html5sql.js"></script>
+        <script src="/js/webdb.js"></script>
+        <!-- custom js files -->
+        <script src="/js/data/iconContext.js"></script>
+        <script src="/js/controllers/welcomeController.js"></script>
+        <script src="/js/controllers/dashboardController.js"></script>
+        <script src="/js/controllers/configureController.js"></script>
+        <script src="/js/controllers/aboutController.js"></script>
+        <script src="/js/weather.js"></script>
+        <script src="/js/location.js"></script>
+        <script src="/js/locationView.js"></script>
+        <script src="/js/form.js"></script>
+        <script src="/js/currentLocation.js"></script>
+        <script src="/js/view.js"></script>
+        <script src="/js/routing.js"></script>
     </main>
   </body>
 </html>

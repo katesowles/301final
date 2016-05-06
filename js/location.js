@@ -7,17 +7,15 @@
 
   userLocation.all = [];
 
-  // callback function for new data inserted into database.  creates a function
-  // that merges the data w/ weather data then passes that function as a callback
-  // to the query.
+  // callback function for new data inserted into database.  creates a function that merges the data w/ weather data then passes that function as a callback to the query.
+
   userLocation.merge = function(id, result, tx) {
     var locId = result.insertId;
-    var cb = function(row) {
+    var callback = function(row) {
       weather.updateData(row[0], locationView.display);
     };
-    userLocation.findWhere ('id', locId, cb);
+    userLocation.findWhere('id', locId, callback);
   };
-
 
   userLocation.createTable = function(callback) {
     webDB.execute(
@@ -48,12 +46,12 @@
       ], callback);
   };
 
-  userLocation.prototype.deleteRecord = function(callback) {
+  userLocation.deleteRecord = function(ctx, callback) {
     webDB.execute(
       [
         {
           sql: 'DELETE FROM locations WHERE id = ?;',
-          data: [this.id]
+          data: [ctx.params.id]
         }
       ], callback);
   };
@@ -64,6 +62,16 @@
         {
           sql: 'UPDATE locations SET locationName = ?, streetAddress = ?, city = ?, state = ?, zipcode = ?, WHERE id = ?;',
           data: [this.name, this.address, this.city, this.state, this.zip]
+        }
+      ], callback);
+  };
+
+  userLocation.findWhere = function(field, value, callback) {
+    webDB.execute(
+      [
+        {
+          sql: 'SELECT * FROM locations WHERE ' + field + ' = ?;',
+          data: [value]
         }
       ], callback);
   };
@@ -88,17 +96,6 @@
       }
     });
   };
-
-  userLocation.findWhere = function(field, value, callback) {
-    webDB.execute(
-      [
-        {
-          sql: 'SELECT * FROM locations WHERE ' + field + ' = ?;',
-          data: [value]
-        }
-      ], callback);
-  };
-
 
   module.userLocation = userLocation;
 })(window);

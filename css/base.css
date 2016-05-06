@@ -5,38 +5,12 @@
   box-sizing: border-box;
 }
 
-/* overriding the blue glow default focus in forms in bootstrap*/
-
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
-  border-color: transparent;
-  box-shadow: none;
-  outline: 0 none;
-}
-
-
 body {
   padding: 0;
   margin: 0;
 }
 
-main {
-
-}
+/* header specific styles */
 
 header {
   height: auto;
@@ -55,6 +29,16 @@ nav {
   text-align: center;
 }
 
+nav a {
+  font-weight: 200;
+  margin: 0 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+/* page-wide styles */
+
 a, a:link, a:visited {
   color: #bbb;
   text-decoration: none;
@@ -64,22 +48,7 @@ a:hover, a:active {
   font-weight: 400px;
 }
 
-nav a {
-  font-weight: 200;
-  margin: 0 15px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-
-hgroup {
-  position: relative;
-  top: 60px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   color: white;
   font-weight: 200;
   text-align: left;
@@ -88,57 +57,86 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-h1 {
-  font-size: 2.25em;
+h1 { /* site title in welcome page */
+  font-size: 5em;
   letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 1.5em;
+h2 { /* welcome blurb */
+  font-size: 2em;
   text-transform: none;
+  margin-bottom: 20px;
+  line-height: 1.5em;
+  text-align: justify;
  }
 
-h3 {
-  font-size: 1.5em;
+h3 { /* name/about headers in footer */
+  font-size: 3em;
   margin: 10px 0;
 }
 
-h4 {
-  font-size: 1em;
-  text-align: justify;
+h4 { /* saved location header */
+  font-size: 2em;
+  margin: 0;
+  padding-bottom: 20px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+h5 { /* saved location names */
+  font-size: 3em;
+  text-align: left;
   margin: 0 auto;
   color: white;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.5em;
   text-transform: none;
+
 }
 
-h5 {
-  font-size: .8em;
+h6 { /* delete link */
+  font-size: 1em;
+  text-transform: none;
+  color: #000;
+  font-weight: 300;
 }
 
-h6 {
-  font-size: .5em;
+p {
+  font-size: 2em;
+}
+
+hgroup {
+  margin: 0 auto;
+  padding: 0px;
 }
 
 img {
-
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
 section {
-  /* height to be set with jquery to be 100% of window height */
-  /*height: 560px;*/
-  height: 700px;
+  /* min-height to be set with jquery to be 100% of window height */
+  height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 270px 20px 20px 20px;
 }
+
+/* form specific styles */
 
 form{
   width: 100%;
-  margin: 0;
+  margin: 0 0 50px 0;
   padding: 0;
   border: none;
+
 }
 
 fieldset {
@@ -148,6 +146,7 @@ fieldset {
 }
 
 legend {
+  font-size: 3em;
   margin: 0;
   padding: 0 0 20px 0;
   border: none;
@@ -157,8 +156,9 @@ legend {
 }
 
 label {
-  width: 101px;
-  margin-right: 20px;
+  font-size: 2em;
+  width: 120px;
+  margin-right: 10px;
   text-align: right;
   color: white;
   text-transform: uppercase;
@@ -168,12 +168,28 @@ label {
 
 input {
   background-color: transparent;
+  font-size: 2em;
   border: none;
   border-bottom: 2px solid white !important;
   display: inline-block;
-  width: calc(100% - 124px);
+  width: calc(100% - 133px);
   color: white;
 }
+
+textarea:focus,
+input:focus,
+.uneditable-input:focus {
+  border-color: transparent;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+address p {
+  text-transform: none;
+  font-size: 2em;
+}
+
+/* footer specific styles */
 
 footer {
   width: 100%;
@@ -182,11 +198,17 @@ footer {
   background-color: #333333;
 }
 
+footer article {
+  margin-top: 30px;
+}
+
 footer .greyscale {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
 
 footer p {
+  font-size: 2em;
   color: white;
+  text-transform: none;
 }

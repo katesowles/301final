@@ -1,73 +1,84 @@
 /* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. */
 
+/* header specific styles */
+
 #logo {
-  width: 150px;
-  position: relative;
-  top: 75px;
-  left: calc(50% - 75px);
+  max-width: 300px;
   filter: drop-shadow(0px 0px 10px black);
   -webkit-filter: drop-shadow(0px 0px 10px black);
+  margin-bottom: 50px;
 }
 
 .viewing {
   font-weight: 400;
 }
 
-.overlay {
-  background-color: rgba(0,0,0,0.5);
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-}
+/* "page" specific styles */
 
 #welcome {
-  background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpeg');
+  background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpg');
+}
+
+#welcome .row {
+  padding: 0 50px;
 }
 
 #dashboard {
-  background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpeg');
+  background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpg');
   background-position: right;
 }
 
 #configure {
-  background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpeg');
+  background-image: url('../img/background/photo-1455719103652-8c015f564e2b.jpg');
+}
+
+/* dashboard specific styles */
+
+#displayLocations, #displayFavorites article {
+  padding: 0;
 }
 
 div.location {
-  border-radius: 50%;
-  background-color: #ddd;
   display: inline-block;
-  opacity: .2;
+  text-align: center;
+}
+
+div.current, div.favorite {
+  padding: 20px;
+  background-color: rgba(255,255,255,0.5);
 }
 
 div.current {
-  width: 300px;
-  height: 300px;
+  text-align: center !important;
+  margin-bottom: 4px;
+  padding: 25px 20px;
 }
 
 div.favorite {
-  width: 77px;
-  height: 77px;
-  margin: 10px;
-}
-
-div.formGoesHere {
   width: 100%;
-  height: 100%;
-  /*background-color: #ddd;*/
-  /*opacity: .2;*/
 }
 
+.iconGoesHere {
+  margin: 0 auto;
+  opacity: .7;
+}
 
-/********************************************************/
-/*                       FORMS                          */
-/********************************************************/
+.favorite .iconGoesHere {
+  width: 100%;
+  max-width: 150px;
+}
+
+#currentLogo .iconGoesHere {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* config specific styles */
 
 #nameAlert, #locationNameAlert, #locationAddressAlert, #locationCityAlert, #locationStateAlert, #locationZipAlert {
   display: none;
   color: red;
 }
-
 
 .btn {
   background-color: transparent;
@@ -80,24 +91,25 @@ div.formGoesHere {
   margin-left: calc(50% - 75px);
   margin-top: 45px;
 }
-#nameForm{
-margin-bottom: 40px;
+
+#nameForm {
+  margin-bottom: 40px;
+}
+
+#nameform label, #nameForm input {
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
 }
 
 #nameForm label{
   font-size: 50px;
-  font-weight: 200;
-  text-align: center;
   margin-right: 0;
-  width: 100%;
 }
 
 #nameForm input {
-  width: 100%;
   display: inline-block;
   font-size: 30px;
-  font-weight: 200;
-  text-align: center;
 }
 
 #nameForm button {
@@ -109,13 +121,21 @@ margin-bottom: 40px;
   display: none;
 }
 
-footer img {
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0;
-}
+/* footer specific styles */
 
 footer .smallAndCenter {
   padding: 30px;
+}
+
+/*  Form validation error displays */
+
+label.error {
+  position: relative;
+  display: block;
+  font-size: 1em !important;
+  color: red !important;
+  background-color: rgba(255,255,255,0.6);
+  width: 160px;
+  text-align: center;
+  margin-left: 74px;
 }
