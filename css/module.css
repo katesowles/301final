@@ -88,6 +88,11 @@ div.favorite {
   margin-top: 45px;
 }
 
+.btn:hover, .btn:visited, .btn:active {
+  color: #bbb;
+  border-color: #bbb;
+}
+
 #nameForm {
   margin-bottom: 40px;
 }
@@ -101,6 +106,8 @@ div.favorite {
 #nameForm label{
   font-size: 50px;
   margin-right: 0;
+  text-align: center;
+  width: 100%;
 }
 
 #nameForm input {
@@ -111,6 +118,10 @@ div.favorite {
 #nameForm button {
   display: inline-block;
   margin-top: 30px;
+}
+
+#savedContainer {
+  display: none;
 }
 
 #locationForm {

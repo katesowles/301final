@@ -17,8 +17,11 @@
 
   // deletes locations from DOM
   view.deleteFromDom = function (ctx) {
-    var domElement = '#record' + ctx.params.id;
-    $(domElement).remove();
+    var domDashboard = '#record' + ctx.params.id;
+    var domConfig = '#recordB' + ctx.params.id;
+    $(domDashboard).remove();
+    $(domConfig).remove();
+    history.pushState({}, null, '/');
   };
 
   view.adjustSectionHeight();

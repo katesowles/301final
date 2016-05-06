@@ -77,7 +77,7 @@ h3 { /* name/about headers in footer */
 }
 
 h4 { /* saved location header */
-  font-size: 2em;
+  font-size: 3em;
   margin: 0;
   padding-bottom: 20px;
   border: none;
@@ -126,7 +126,15 @@ section {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 270px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+}
+
+#welcome {
+  padding-top: 270px;
+}
+
+#dashboard {
+  padding: 40px;
 }
 
 /* form specific styles */
@@ -211,4 +219,5 @@ footer p {
   font-size: 2em;
   color: white;
   text-transform: none;
+  margin-bottom: 20px;
 }
