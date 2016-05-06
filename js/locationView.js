@@ -181,13 +181,13 @@
   };
 
 
-  locationView.recSunRiseSet = function(){
+  locationView.recSunRiseSet = function(loc){
     var answer = '';
     var now = new Date();
-    if (now.getHours() <= userLocation.all[0].sunrise) {
-      answer = 'The sun will rise at ' + userLocation.all[0].sunrise;
+    if (now.getHours() <= loc.sunrise) {
+      answer = 'The sun will rise at ' + loc.sunrise;
     } else {
-      answer = 'The sun will set at ' + userLocation.all[0].sunset;
+      answer = 'The sun will set at ' + loc.sunset;
     }
     return answer;
   };
@@ -196,7 +196,7 @@
     var temp = locationView.recTemp(loc.temperature);
     var wind = locationView.recWind(loc.windSpeed);
     var condi = locationView.recCondi(loc.condition);
-    var sunRiseSet = locationView.recSunRiseSet();
+    var sunRiseSet = locationView.recSunRiseSet(loc);
 
     $('#outputTemp').text(temp.answer);
     $('#outputWind').text(wind.answer);
