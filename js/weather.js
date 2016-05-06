@@ -32,6 +32,7 @@
       windDir:      data.hourly_forecast[0].wdir.dir,
       sunrise:      data.sun_phase.sunrise.hour +':'+ data.sun_phase.sunrise.minute,
       sunset:       data.sun_phase.sunset.hour +':'+ data.sun_phase.sunset.minute,
+      imageUrl:     weather.getImageUrl(data.hourly_forecast[0].condition, locationView.addIcons, data),
     };
   };
 
@@ -39,13 +40,20 @@
     return currentLocation.locationCheck();
   };
 
-  weather.insertFavoriteIcons = function(data) {
-
+  weather.getImageUrl = function (whichCondition, callback) {
+    var savedIcon;
+    for (i = 0; i < iconContext.weatherIcons.length; i++) {
+      if (iconContext.weatherIcons[i].conditionText.toLowerCase() == whichCondition.toLowerCase()) {
+        console.log('Icon Returned: ', iconContext.weatherIcons[i].conditionIcon);
+        console.log('Text Returned: ', iconContext.weatherIcons[i].conditionText.toLowerCase());
+        console.log('Which Condition?: ', whichCondition.toLowerCase());
+        savedIcon = iconContext.weatherIcons[i].conditionIcon;
+      }
+    };
+    callback(savedIcon);
+    return savedIcon;
   };
 
-  weather.insertCurrentIcon = function () {
-
-  };
 
 
   module.weather = weather;

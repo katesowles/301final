@@ -1,8 +1,8 @@
 (function(module) {
-  var $windowHeight = $(window).innerHeight();
   view = {};
 
   view.adjustSectionHeight = function() {
+    var $windowHeight = $(window).innerHeight();
     return $('main section').css({'min-height': $windowHeight + 'px'});
   };
 
@@ -18,10 +18,10 @@
     $(domElement).remove();
   };
 
+  $(window).on('resize', view.adjustSectionHeight());
+  // view.adjustSectionHeight();
   view.adjustWidgetHeight();
-  view.adjustSectionHeight();
   weather.getCurrentLocation();
-  // weather.insertFavoriteIcons();
 
   module.view = view;
 })(window);

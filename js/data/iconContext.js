@@ -2,7 +2,7 @@
 
   iconContext = {};
 
-  var weatherIcons = [
+  iconContext.weatherIcons = [
     {
       conditionText : 'Light Drizzle',
       conditionIcon : 'img/weather/Drizzle.svg'
