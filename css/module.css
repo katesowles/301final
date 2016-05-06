@@ -19,6 +19,10 @@
   background-image: url('../img/background/photo-1433863448220-78aaa064ff47.jpg');
 }
 
+#welcome .row {
+  padding: 0 50px;
+}
+
 #dashboard {
   background-image: url('../img/background/photo-1447871852826-1c11ef907903.jpg');
   background-position: right;
@@ -30,6 +34,10 @@
 
 /* dashboard specific styles */
 
+#displayLocations, #displayFavorites article {
+  padding: 0;
+}
+
 div.location {
   display: inline-block;
   text-align: center;
@@ -37,11 +45,32 @@ div.location {
 
 div.current, div.favorite {
   padding: 20px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.5);
+}
+
+div.current {
+  text-align: center !important;
+  margin-bottom: 4px;
+  padding: 25px 20px;
 }
 
 div.favorite {
   width: 100%;
+}
+
+.iconGoesHere {
+  margin: 0 auto;
+  opacity: .7;
+}
+
+.favorite .iconGoesHere {
+  width: 100%;
+  max-width: 150px;
+}
+
+#currentLogo .iconGoesHere {
+  width: 100%;
+  max-width: 300px;
 }
 
 /* config specific styles */

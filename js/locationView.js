@@ -6,6 +6,8 @@
   var templateDash = Handlebars.compile(sourceDash);
   var sourceCurrent = $('#currentLocView').text();
   var templateCurrent = Handlebars.compile(sourceCurrent);
+  var sourceIcons = $('.iconGoesHere').text();
+  var templateIcons = Handlebars.compile(sourceIcons);
 
   locationView = {};
 
@@ -18,6 +20,11 @@
   locationView.current = function(data, callback) {
     $('.current').append(templateCurrent(data));
     if (callback) callback();
+  };
+
+  locationView.addIcons = function (savedIcon) {
+    console.log('incoming?: ', savedIcon);
+    $('.iconGoesHere').append(templateIcons(savedIcon));
   };
 
   // this will be moved somewhere more appropriate.
