@@ -25,9 +25,14 @@
   #welcome .row {
     padding: 0;
   }
+  #currentLogo .iconGoesHere {
+    padding-top: 200px;
+  }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+  #currentLogo .iconGoesHere {
+    padding-top: 50px;
+  }
 }

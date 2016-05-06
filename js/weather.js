@@ -40,21 +40,16 @@
     return currentLocation.locationCheck();
   };
 
-  weather.getImageUrl = function (whichCondition, callback) {
+  weather.getImageUrl = function (whichCondition, callback, data) {
     var savedIcon;
     for (i = 0; i < iconContext.weatherIcons.length; i++) {
       if (iconContext.weatherIcons[i].conditionText.toLowerCase() == whichCondition.toLowerCase()) {
-        console.log('Icon Returned: ', iconContext.weatherIcons[i].conditionIcon);
-        console.log('Text Returned: ', iconContext.weatherIcons[i].conditionText.toLowerCase());
-        console.log('Which Condition?: ', whichCondition.toLowerCase());
         savedIcon = iconContext.weatherIcons[i].conditionIcon;
       }
     };
-    callback(savedIcon);
+    callback(data);
     return savedIcon;
   };
-
-
 
   module.weather = weather;
 })(window);

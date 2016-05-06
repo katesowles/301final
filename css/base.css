@@ -34,7 +34,7 @@ nav a {
   margin: 0 10px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 2em;
 }
 
 /* page-wide styles */
@@ -64,14 +64,15 @@ h1 { /* site title in welcome page */
 }
 
 h2 { /* welcome blurb */
-  font-size: 1.25em;
+  font-size: 2em;
   text-transform: none;
   margin-bottom: 20px;
   line-height: 1.5em;
+  text-align: justify;
  }
 
 h3 { /* name/about headers in footer */
-  font-size: 1.5em;
+  font-size: 3em;
   margin: 10px 0;
 }
 
@@ -97,13 +98,14 @@ h5 { /* saved location names */
 }
 
 h6 { /* delete link */
-  font-size: 1.5em;
-  padding: 17px 0;
+  font-size: 1em;
   text-transform: none;
+  color: #000;
+  font-weight: 300;
 }
 
 p {
-  font-size: 3em;
+  font-size: 2em;
 }
 
 hgroup {
@@ -144,7 +146,7 @@ fieldset {
 }
 
 legend {
-  font-size: 2em;
+  font-size: 3em;
   margin: 0;
   padding: 0 0 20px 0;
   border: none;
@@ -154,7 +156,8 @@ legend {
 }
 
 label {
-  width: 60px;
+  font-size: 2em;
+  width: 120px;
   margin-right: 10px;
   text-align: right;
   color: white;
@@ -165,10 +168,11 @@ label {
 
 input {
   background-color: transparent;
+  font-size: 2em;
   border: none;
   border-bottom: 2px solid white !important;
   display: inline-block;
-  width: calc(100% - 73px);
+  width: calc(100% - 133px);
   color: white;
 }
 
@@ -182,6 +186,7 @@ input:focus,
 
 address p {
   text-transform: none;
+  font-size: 2em;
 }
 
 /* footer specific styles */
@@ -203,5 +208,7 @@ footer .greyscale {
 }
 
 footer p {
+  font-size: 2em;
   color: white;
+  text-transform: none;
 }

@@ -25,7 +25,7 @@
     </script>
     <!-- this is the template that displays the icons in the dashboard for favorites -->
     <script id="favoritesView" type="text/x-handlebars-template">
-      <article id="record{{id}}" class="col-xs-6 col-sm-4 col-md-6 col-lg-6">
+      <article id="record{{id}}" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="location favorite">
           <h5>{{locationName}}</h5>
           <p>{{condition}}</p>
@@ -38,16 +38,17 @@
     </script>
     <!-- this is the template that displays the icons in the dashboard for current location -->
     <script id="currentLocView" type="text/x-handlebars-template">
-      <h5>Current Location</h5>
-      <p>{{condition}}</p>
-      <img class="iconGoesHere" src="{{imageUrl}}" alt="{{condition}}" />
-      <p>Temp: {{temperature}}° F</p>
-      <p>Wind: {{windSpeed}} {{windDir}}</p>
-      <p>Sunrise is at {{sunrise}}</p>
-      <p>Sunset is at {{sunset}}</p>
-    </script>
-    <script id="insertIcons" type="text/x-handlebars-template">
-      <img src="{{imageUrl}}" alt="{{condition}}"/>
+      <div id="currentLogo" class="col-xs-6">
+        <img class="iconGoesHere" src="{{imageUrl}}" alt="{{condition}}" />
+      </div>
+      <div class="col-xs-6">
+        <h5>Current Location</h5>
+        <p>{{condition}}</p>
+        <p>Temp: {{temperature}}° F</p>
+        <p>Wind: {{windSpeed}} {{windDir}}</p>
+        <p>Sunrise is at {{sunrise}}</p>
+        <p>Sunset is at {{sunset}}</p>
+      </div>
     </script>
   </head>
   <body>
@@ -78,10 +79,12 @@
       </section>
       <section id="dashboard">
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 location current">
-            <!-- current location widget will go here -->
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 location current">
+            <div class="row">
+              <!-- current location widget will go here -->
+            </div>
           </div>
-          <div id="displayLocations" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div id="displayLocations" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div id="displayFavorites" class="row">
               <!-- favorite location widgets will go here -->
             </div>

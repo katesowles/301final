@@ -18,8 +18,7 @@
     $(domElement).remove();
   };
 
-  $(window).on('resize', view.adjustSectionHeight());
-  // view.adjustSectionHeight();
+  view.adjustSectionHeight();
   view.adjustWidgetHeight();
   weather.getCurrentLocation();
 

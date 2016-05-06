@@ -45,19 +45,32 @@ div.location {
 
 div.current, div.favorite {
   padding: 20px;
-  /*background-color: rgba(255,0,0,0.5);*/
+  background-color: rgba(255,255,255,0.5);
 }
 
 div.current {
   text-align: center !important;
-  background-color: rgba(0,0,0,0.5);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  padding: 25px 20px;
 }
 
 div.favorite {
-  width: calc(100% - 4px);
-  background-color: rgba(255,0,0,0.5);
-  margin: 2px;
+  width: 100%;
+}
+
+.iconGoesHere {
+  margin: 0 auto;
+  opacity: .7;
+}
+
+.favorite .iconGoesHere {
+  width: 100%;
+  max-width: 150px;
+}
+
+#currentLogo .iconGoesHere {
+  width: 100%;
+  max-width: 300px;
 }
 
 /* config specific styles */
