@@ -34,19 +34,19 @@
     };
 
     if (temp < 50){
-      response.answer = 'It\'s very cold, ';
+      response.answer = 'It\'s very cold ';
       response.good = false;
     } else if ((temp >= 50) && (temp < 61)) {
-      response.answer = 'It\s pleasantly cool, ';
+      response.answer = 'It\s pleasantly cool ';
     } else if ((temp >= 61) && (temp < 70)) {
-      response.answer = 'It\'s nice and warm, ';
+      response.answer = 'It\'s nice and warm ';
     } else if ((temp >= 70) && (temp < 79)) {
-      response.answer = 'It\'s pretty warm, ';
+      response.answer = 'It\'s pretty warm - so bring some water ';
     } else if ((temp >= 79) && (temp < 88)) {
-      response.answer = 'It\'s very warm out there, ';
+      response.answer = 'It\'s very warm out there ';
       response.good = false;
     } else {
-      response.answer = 'It\'s very hot, ';
+      response.answer = 'It\'s very hot ';
       response.good = false;
     }
     return response;
@@ -63,13 +63,13 @@
     };
 
     if (wind < 13){
-      response.answer = ' with barely any wind.';
+      response.answer = ' with barely any wind - so no need for an extra jacket';
     } else if ((wind >= 13) && (wind < 20)) {
-      response.answer = ' with a bit of a breeze.';
+      response.answer = ' with a bit of a breeze';
     } else if ((wind >= 20) && (wind < 30)) {
-      response.answer = ' with some wind.';
+      response.answer = ' with some wind';
     } else {
-      response.answer = ' with strong wind.';
+      response.answer = ' with strong wind';
       response.good = false;
     }
     return response;
@@ -152,7 +152,7 @@
     case 'Partly Cloudy':
     case 'Mostly Cloudy':
     case 'Scattered Clouds':
-      response.answer = 'and overcast';
+      response.answer = 'and overcast - so shades are only for looks';
       break;
     case 'Clear':
       response.answer = 'and clear';
@@ -180,7 +180,7 @@
     if (now.getHours() <= userLocation.all[0].sunrise) {
       answer = 'The sun will rise at ' + userLocation.all[0].sunrise;
     } else {
-      answer = 'The sun will set at ' + userLocation.all[0].sunset;
+      answer = 'The sun will set at ' + userLocation.all[0].sunset + ' - so bring some lights if you\'re still out ';
     }
     return answer;
   };
@@ -197,7 +197,7 @@
     $('#outputSun').text(sunRiseSet);
 
     if (temp.good && wind.good && condi.good) {
-      $('#outputRec').text('It\'s a great for biking!');
+      $('#outputRec').text('In short - It\'s a great for biking!');
     } else {
       $('#outputRec').text('Maybe leave your bike home today.');
     }
