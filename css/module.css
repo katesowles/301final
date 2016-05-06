@@ -96,6 +96,10 @@ div.favorite {
   font-size: 20px;
 }
 
+#outPuts div p {
+  text-align: center;
+}
+
 #outputTemp {
   margin-top: 230px;
 }
@@ -104,6 +108,10 @@ div.favorite {
   margin-top: 20px;
   font-size: 30px;
   font-weight: 200;
+}
+
+p span {
+  font-weight: 400;
 }
 /* footer specific styles */
 
